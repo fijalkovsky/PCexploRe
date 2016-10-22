@@ -1,1 +1,11 @@
 node_modules
+bower_components
+test
+.tmp/*
+.babelrc
+.bowerrc
+.editorconfig
+.yo-rc.json
+bower.json
+gulpfile
+.gitattributes
