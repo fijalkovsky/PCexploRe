@@ -1,8 +1,5 @@
 node_modules
-
-
 bower_components
-
 test
 .tmp/*
 .babelrc
@@ -12,7 +9,3 @@ test
 bower.json
 gulpfile
 .gitattributes
-
-
-
-
