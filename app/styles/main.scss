@@ -92,6 +92,20 @@ ul.topnav li.icon {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+#sidebar-wrapper2 {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #fff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
 
 #wrapper.toggled #sidebar-wrapper {
     width: 250px;
