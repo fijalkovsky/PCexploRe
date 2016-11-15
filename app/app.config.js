@@ -1,25 +1,18 @@
+'use strict';
 angular
-.module('myApp', [ 'ngRoute'])
-.config(['$routeProvider',
-         function($routeProvider) {
-            $routeProvider
-                .when('/', {
-                templateUrl : '/index.html',
-                controller : 'homeController'
-            })
-                .when('/login', {
-                templateUrl : '/views/login.html',
-                controller : 'loginController'
-            })
-                .when('/signup', {
-                templateUrl : '/views/signup.html',
-                controller : 'signUpController'
-            })
-                .when('/dashboard', {
-                templateUrl : 'dashboard/dashboard.template.html',
-                controller : 'dashboardController'
-            });
-      }]);
+  .module('my.app', ['ngRoute'])
+  .config(['$routeProvider', function config($routeProvider) {
 
+    $routeProvider
+      .when('/', {
+        controller: 'mainController',
+        template: '<h1>Witojcież na noszyj stronie</h1>'
+      })
 
- 
+    .when('/dashboard', {
+        controller: 'dashboardController',
+        controllerAs: 'vm',
+        templateUrl: 'dashboard-e/dashboard-e.template.html'
+      })
+      .otherwise('/dashboard');
+  }]);

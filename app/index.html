@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en" ng-app="my.app">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
@@ -22,8 +22,26 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <!-- <script src="../bower_components/angular/angular.min.js"></script> -->
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <!-- <script src="../bower_components/angular-route/angular-route.min.js"></script> -->
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script> -->
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="main.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="dashboard-e/dashboard-e.module.js"></script>
+    <script src="dashboard-e/dashboard-e.controller.js"></script>
+
   </head>
   <body>
+    <br/>
     <header>
       <ul class="topnav" id="myTopnav">
         <li><a href="#/dashboard">dasz</a></li>
@@ -31,16 +49,10 @@
         <img src="../images/logo.png">
       </ul>
       </header>
-      <ng-view></ng-view>
+      <div ng-view></div>
 
-      
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/angular-route/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="dashboard/dashboard.controller.js"></script>
-    <script src="dashboard/dashboard.module.js"></script>
-    <script src="app.config.js"></script>
-    <script src="app.module.js"></script>
+
+
 
     <!-- endbuild -->
   </body>
