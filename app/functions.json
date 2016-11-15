@@ -1,0 +1,26 @@
+[
+    {
+        "name": "principalEigenValue",
+        "title":"krotki opis",
+        "description": "jsjfdsakfjsd",
+        "params": [
+            {
+                "matrix": "pcMatrix"
+            }
+        ],
+        "return": "co zwraca"
+    },
+     {
+        "name": "principalEigenValue2",
+        "title":"krotki opi2s",
+        "description": "jsjfdsak222fjsd",
+        "params": [
+            {
+                "matrix2": "pcMatrix2"
+            }
+        ],
+        "return": "co zwraca2"
+    }
+    
+    
+]
