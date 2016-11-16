@@ -1,0 +1,112 @@
+  [
+    {
+    "name": "principalEigenValue1",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue2",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue3",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue4",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue5",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue6",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue7",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue8",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue9",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
+  {
+    "name": "principalEigenValue10",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  }
+]

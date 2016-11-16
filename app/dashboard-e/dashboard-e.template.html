@@ -1,50 +1,74 @@
-<!-- <div ng-app="dashboard-e">
-<div ng-controller="dashboardEController"> -->
-    <div id="wrapper">
-      <h1>{{vm.przyklad}}</h1>
-      <button ng-click="vm.funkcjaNaProbe()">Przykladowy przycisk z funckja</button>
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
+<div>
+  <div id="wrapper">
+    <h1>{{vm.przyklad}}</h1>
+    <md-button class="md-accent md-raised" ng-click="vm.funkcjaNaProbe()">Przykladowy przycisk z funkcja</md-button>
+    <!-- Sidebar -->
+  </div>
+  <div id="sidebar-wrapper">
 
-              <input type="search" ng-model="vm.query" />
+    <md-toolbar layout="row" class="md-hue-3">
+      <div class="md-toolbar-tools">
+        <span>Functions</span>
+      </div>
+    </md-toolbar>
+    <input type="search" ng-model="vm.query" />
+
+    <md-content>
+      <md-list flex>
+        <!-- <div ng-repeat="fun in vm.functions"> -->
+        <!-- <ul class="sidebar-nav">
+                AAAAAAAAAAAAAAAA  {{fun}}
               <li>
-                  <a href="#">jakas fukcja i mozna na nią kliknac</a>
+                  <a href="#">{{fun.name}}</a>
                 </li>
-            </ul>
+              </ul> -->
+        <md-list-item class="md-3-line" ng-repeat="fun in vm.functions" ng-click="null">
+          <!-- <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="aaaaaaaaaaaa" /> -->
+          <div class="md-list-item-text" layout="column">
+            <h3>{{fun.name}}</h3>
+            <!-- <h4>{{fun.title}}</h4> -->
+            <p>{{fun.title}}</p>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+        <!-- </div> -->
+      </md-list>
+    </md-content>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper2">
+    <ul class="sidebar-nav">
+
+      <input type="search" ng-model="vm.query" />
+
+
+      <li>
+        <a href="#">lalalalalal</a>
+      </li>
+
+    </ul>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 contentArea">
+          <h1>Simple Sidebar</h1>
+          <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the
+            page content will be pushed off canvas.</p>
+          <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
         </div>
-        <!-- /#sidebar-wrapper -->
-
-          <!-- Sidebar -->
-        <div id="sidebar-wrapper2">
-            <ul class="sidebar-nav">
-
-              <input type="search" ng-model="vm.query" />
-
-
-              <li>
-                  <a href="#">lalalalalal</a>
-              </li>
-
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 contentArea">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
+      </div>
     </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+</div>
 <!-- </div>
 </div> -->
