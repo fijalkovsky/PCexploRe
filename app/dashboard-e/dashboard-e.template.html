@@ -14,7 +14,7 @@
         <md-subheader class="md-no-sticky">Matrices</md-subheader>
         <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
           <div class="md-list-item-text" >
-            <h3>{{matrix.name}}</h3>
+            <h4>{{matrix.name}}</h4>
             <p>Dimenssion: {{matrix.dimension}}</p>
           </div>
         </md-list-item>
@@ -23,7 +23,7 @@
                 <md-subheader class="md-no-sticky">Vectors</md-subheader>
         <md-list-item class="md-2-line"  ng-repeat="vector in vm.userVectors">
           <div class="md-list-item-text">
-            <h3>{{vector.name}}</h3>
+            <h4>{{vector.name}}</h4>
             <p>Dimenssion: {{vector.dimension}}</p>
           </div>
         </md-list-item>
@@ -48,12 +48,17 @@
                 </li>
               </ul> -->
         <md-list-item class="md-3-line" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
-          <!-- <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="aaaaaaaaaaaa" /> -->
-          <div class="md-list-item-text" layout="column">
+            
+            
+              <md-button class="md-raised" ng-click="showPrompt($event)">
+         <div class="md-list-item-text" layout="column">
             <h4>{{fun.name}}</h4>
             <!-- <h4>{{fun.title}}</h4> -->
             <p>{{fun.title}}</p>
           </div>
+    </md-button>
+            
+     
         </md-list-item>
         <md-divider></md-divider>
         <!-- </div> -->
@@ -70,6 +75,13 @@
   </md-toolbar>
 
   <md-content flex="" layout-padding="">
+      
+      
+      
+        <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
+      Prompt Dialog
+    </md-button>
+      
     <p>Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.</p>
 
     <p>
