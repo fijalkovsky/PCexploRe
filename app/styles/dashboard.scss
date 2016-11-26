@@ -72,8 +72,16 @@ h3 {
 }
 .napis {
     font-family: 'Fjalla One', sans-serif;
-    font-weight: lighter;
-    font-size: 112px;    
+    font-weight: lighter;   
+}
+.napisDia {
+    font-family: 'Fjalla One', sans-serif;
+    padding: 0;
+    font-weight: lighter;   
+    padding-left: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
+    
 }
 
 input[type=search] { 
@@ -107,4 +115,8 @@ input[type=search] {
   background-repeat:no-repeat;
   background-position:left center;
   outline:0;
+}
+
+.selector2 label {
+    font-size: 90px;
 }
