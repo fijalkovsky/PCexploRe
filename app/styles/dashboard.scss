@@ -92,3 +92,19 @@ h4{
     text-transform: uppercase;
     font-weight: lighter;
 }
+
+
+
+input[type=search] {
+  padding:10px;
+  padding-left:60px;
+  width:240px;
+  border:1px solid #3F3F3F;
+  border-radius: 20px;
+  font-size:15px;
+  color: #3F3F3F;
+  background-image:url('http://i47.tinypic.com/r02vbq.png');
+  background-repeat:no-repeat;
+  background-position:left center;
+  outline:0;
+}
