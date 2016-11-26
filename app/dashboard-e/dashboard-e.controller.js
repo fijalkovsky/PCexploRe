@@ -6,30 +6,46 @@ function dashboardEController($http, $scope, $mdDialog) {
   var vm = this;
   vm.query = '';
 
-    
-    
-     $scope.showPrompt = function(ev) {
-    // Appending dialog to document.body to cover sidenav in docs app
-    var confirm = $mdDialog.prompt()
-      .title('What would you name your dog?')
-      .textContent('Bowser is a common name.')
-      .placeholder('Dog name')
-      .ariaLabel('Dog name')
-      .initialValue('Buddy')
-      .targetEvent(ev)
-      .ok('Okay!')
-      .cancel('I\'m a cat person');
 
-    $mdDialog.show(confirm).then(function(result) {
-      $scope.status = 'You decided to name your dog ' + result + '.';
+
+  //    $scope.showPrompt = function(ev) {
+  //   // Appending dialog to document.body to cover sidenav in docs app
+  //   var confirm = $mdDialog.prompt()
+  //     .title('What would you name your dog?')
+  //     .textContent('')
+  //     .placeholder('Dog name')
+  //     .ariaLabel('Dog name')
+  //     .initialValue('Buddy')
+  //     .targetEvent(ev)
+  //     .ok('Okay!')
+  //     .cancel('I\'m a cat person');
+  //
+  //   $mdDialog.show(confirm).then(function(result) {
+  //     $scope.status = 'You decided to name your dog ' + result + '.';
+  //   }, function() {
+  //     $scope.status = 'You didn\'t name your dog.';
+  //   });
+  // };
+
+   $scope.showPrompt = function(ev) {
+    $mdDialog.show({
+      controller: () => vm,
+ controllerAs: 'vm',
+      templateUrl: '/dashboard-e/dialog.tmpl.html',
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
+    })
+    .then(function(answer) {
+      $scope.status = 'You said the information was "' + answer + '".';
     }, function() {
-      $scope.status = 'You didn\'t name your dog.';
+      $scope.status = 'You cancelled the dialog.';
     });
   };
-    
-    
-    
-    
+
+
+
+
 
   vm.przyklad = "Przykladowy napis";
   vm.functions;
