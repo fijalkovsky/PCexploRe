@@ -3,11 +3,12 @@ angular.
   module('dashboard-e')
     .controller('dashboardController', dashboardEController);
 
-function dashboardEController($http) {
+function dashboardEController($http,$scope) {
   var vm = this;
 
 var imagePath = 'img/list/60.jpeg';
-
+    
+    
   vm.przyklad = "Przykladowy napis";
   vm.functions;
 

@@ -1,0 +1,68 @@
+
+
+
+.dash[ng-cloak] {
+  display:none;
+}
+.dash {
+    background-color: red;
+    position: absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+div[flex="30"] {
+  background-color: #DFDFDF;  
+  
+}
+
+section[flex="40"] {
+  background-color: #fff;
+    overflow-y: scroll;
+}
+section[flex="70"] {
+  background-color: #fff;
+    overflow-y: scroll;
+}
+section[flex="20"] {
+ background-color: #fff;
+    overflow-y: scroll;
+}
+section[flex=""] {
+ background-color: #fff;
+    overflow-y: scroll;
+}
+
+
+/* Important to set height for column layout */
+.boxWithHeight {
+  box-sizing: border-box;
+  height: 100%;
+    background: #DFDFDF;
+}
+
+.a, section {
+  border: 5px solid #fff;
+  margin: 5px;  
+}
+
+section {
+  background-color: #fff;
+}
+
+h3 {
+    color: #000;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.displayList ul {
+  
+    list-style-type: none;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: lighter;
+}
+.toolbardemoBasicUsage md-toolbar .md-warn {
+  background:  white; }

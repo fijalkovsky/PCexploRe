@@ -1,16 +1,18 @@
-<div>
-  <div id="wrapper">
-    <h1>{{vm.przyklad}}</h1>
-    <md-button class="md-accent md-raised" ng-click="vm.funkcjaNaProbe()">Przykladowy przycisk z funkcja</md-button>
-    <!-- Sidebar -->
-  </div>
-  <div id="sidebar-wrapper">
+<div class="dash" layout="row"  class="icondemoFontIconsWithLigatures" ng-cloak>
 
-    <md-toolbar layout="row" class="md-hue-3">
-      <div class="md-toolbar-tools">
-        <span>Functions</span>
-      </div>
-    </md-toolbar>
+  <div flex="30" layout="column" class="boxWithHeight" layout-padding>
+    <section flex="40">
+        <h3>Creator</h3>
+        <div class="displayList">
+        <ul>
+        <li><md-button class="md-raised">CREATE MATRIX</md-button></li> 
+        <li><md-button class="md-raised">CREATE VECTOR</md-button></li>
+        </ul>
+        </div>     
+    </section>
+<!--      end create var-->
+    <section flex>
+    <h3>functions</h3>
     <input type="search" ng-model="vm.query" />
 
     <md-content>
@@ -33,42 +35,41 @@
         <md-divider></md-divider>
         <!-- </div> -->
       </md-list>
-    </md-content>
+    </md-content></section>
   </div>
-  <!-- /#sidebar-wrapper -->
-
-  <!-- Sidebar -->
-  <div id="sidebar-wrapper2">
-    <ul class="sidebar-nav">
-
-      <input type="search" ng-model="vm.query" />
-
-
-      <li>
-        <a href="#">lalalalalal</a>
-      </li>
-
-    </ul>
-  </div>
-  <!-- /#sidebar-wrapper -->
-
-  <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12 contentArea">
-          <h1>Simple Sidebar</h1>
-          <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the
-            page content will be pushed off canvas.</p>
-          <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-        </div>
-      </div>
+<!-- end list of foos-->
+  <div flex layout="column" class="boxWithHeight" layout-padding>
+    <div  layout="column"  class="contentdemoBasicUsage" >
+  <md-toolbar class="md-warn">
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">Toolbar: md-warn</h2>
     </div>
-  </div>
-  <!-- /#page-content-wrapper -->
+  </md-toolbar>
+
+  <md-content flex="" layout-padding="">
+    <p>Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.</p>
+
+    <p>
+Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea. Per cu vide munere fierent.
+    </p>
+
+    <p>
+Ad sea dolor accusata consequuntur. Sit facete convenire reprehendunt et. Usu cu nonumy dissentiet, mei choro omnes fuisset ad. Te qui docendi accusam efficiantur, doming noster prodesset eam ei. In vel posse movet, ut convenire referrentur eum, ceteros singulis intellegam eu sit.
+    </p>
+
+    <p>
+Sit saepe quaestio reprimique id, duo no congue nominati, cum id nobis facilisi. No est laoreet dissentias, idque consectetuer eam id. Clita possim assueverit cu his, solum virtute recteque et cum. Vel cu luptatum signiferumque, mel eu brute nostro senserit. Blandit euripidis consequat ex mei, atqui torquatos id cum, meliore luptatum ut usu. Cu zril perpetua gubergren pri. Accusamus rationibus instructior ei pro, eu nullam principes qui, reque justo omnes et quo.
+    </p>
+
+    <p>
+Sint unum eam id. At sit fastidii theophrastus, mutat senserit repudiare et has. Atqui appareat repudiare ad nam, et ius alii incorrupte. Alii nullam libris his ei, meis aeterno at eum. Ne aeque tincidunt duo. In audire malorum mel, tamquam efficiantur has te.
+    </p>
+
+ 
+
+  </md-content>
 
 </div>
+  </div>
+
 </div>
-<!-- </div>
-</div> -->

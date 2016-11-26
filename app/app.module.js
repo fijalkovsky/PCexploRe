@@ -7,5 +7,6 @@ angular.module('my.app', [
   'ngMaterial',
   'ngAnimate',
   'ngAria',
-  'dashboard-e'
+  'dashboard-e',
+    'welcome'
 ]);
