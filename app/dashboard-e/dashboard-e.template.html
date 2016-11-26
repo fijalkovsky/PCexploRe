@@ -5,39 +5,39 @@
         <h3>Creator</h3>
         <div class="displayList">
         <ul>
-        <li><md-button class="md-raised">CREATE MATRIX</md-button></li> 
+        <li><md-button class="md-raised">CREATE MATRIX</md-button></li>
         <li><md-button class="md-raised">CREATE VECTOR</md-button></li>
         </ul>
-        </div>  
-        
-        
+        </div>
+
+
         <md-subheader class="md-no-sticky">Matrices</md-subheader>
-        <md-list-item class="md-2-line" >
-          <div class="md-list-item-text" ng-repeat="matrix in vm.userMatrices">
+        <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
+          <div class="md-list-item-text" >
             <h3>{{matrix.name}}</h3>
             <p>Dimenssion: {{matrix.dimension}}</p>
           </div>
         </md-list-item>
      <br>
-        
+
                 <md-subheader class="md-no-sticky">Vectors</md-subheader>
-        <md-list-item class="md-2-line" >
-          <div class="md-list-item-text" ng-repeat="vector in vm.userVectors">
+        <md-list-item class="md-2-line"  ng-repeat="vector in vm.userVectors">
+          <div class="md-list-item-text">
             <h3>{{vector.name}}</h3>
             <p>Dimenssion: {{vector.dimension}}</p>
           </div>
         </md-list-item>
-    
-        
+
+
     </section>
 <!--      end create var-->
     <section flex>
     <h3>functions</h3>
-        
+
         <div class="displaySearcher">
             <input type="search" ng-model="vm.query" />
         </div>
-        
+
     <md-content>
       <md-list flex>
         <!-- <div ng-repeat="fun in vm.functions"> -->
@@ -88,7 +88,7 @@ Sit saepe quaestio reprimique id, duo no congue nominati, cum id nobis facilisi.
 Sint unum eam id. At sit fastidii theophrastus, mutat senserit repudiare et has. Atqui appareat repudiare ad nam, et ius alii incorrupte. Alii nullam libris his ei, meis aeterno at eum. Ne aeque tincidunt duo. In audire malorum mel, tamquam efficiantur has te.
     </p>
 
- 
+
 
   </md-content>
 
