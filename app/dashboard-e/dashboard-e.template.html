@@ -50,7 +50,7 @@
         <md-list-item class="md-3-line" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
 
 
-              <md-button class="md-raised" ng-click="showPrompt($event)">
+              <md-button class="md-raised" ng-click="vm.openDalog($event, fun.name)">
          <div class="md-list-item-text" layout="column">
             <h4>{{fun.name}}</h4>
             <!-- <h4>{{fun.title}}</h4> -->
@@ -77,7 +77,7 @@
   <md-content flex="" layout-padding="">
 
 
-      <!-- 
+      <!--
         <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
       Prompt Dialog
     </md-button> -->
