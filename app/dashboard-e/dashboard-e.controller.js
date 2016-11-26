@@ -1,10 +1,6 @@
 'use strict';
 angular.
   module('dashboard-e')
-  .config(function($mdIconProvider) {
-  $mdIconProvider
-    .iconSet('communication', 'img/icons/sets/communication-icons.svg', 24);
-})
     .controller('dashboardController', dashboardEController);
 
 function dashboardEController($http) {
