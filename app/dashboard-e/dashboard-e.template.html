@@ -8,13 +8,36 @@
         <li><md-button class="md-raised">CREATE MATRIX</md-button></li> 
         <li><md-button class="md-raised">CREATE VECTOR</md-button></li>
         </ul>
-        </div>     
+        </div>  
+        
+        
+        <md-subheader class="md-no-sticky">Matrices</md-subheader>
+        <md-list-item class="md-2-line" >
+          <div class="md-list-item-text" ng-repeat="matrix in vm.userMatrices">
+            <h3>{{matrix.name}}</h3>
+            <p>Dimenssion: {{matrix.dimension}}</p>
+          </div>
+        </md-list-item>
+     <br>
+        
+                <md-subheader class="md-no-sticky">Vectors</md-subheader>
+        <md-list-item class="md-2-line" >
+          <div class="md-list-item-text" ng-repeat="vector in vm.userVectors">
+            <h3>{{vector.name}}</h3>
+            <p>Dimenssion: {{vector.dimension}}</p>
+          </div>
+        </md-list-item>
+    
+        
     </section>
 <!--      end create var-->
     <section flex>
     <h3>functions</h3>
-    <input type="search" ng-model="vm.query" />
-
+        
+        <div class="displaySearcher">
+            <input type="search" ng-model="vm.query" />
+        </div>
+        
     <md-content>
       <md-list flex>
         <!-- <div ng-repeat="fun in vm.functions"> -->
@@ -24,10 +47,10 @@
                   <a href="#">{{fun.name}}</a>
                 </li>
               </ul> -->
-        <md-list-item class="md-3-line" ng-repeat="fun in vm.functions" ng-click="null">
+        <md-list-item class="md-3-line" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
           <!-- <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="aaaaaaaaaaaa" /> -->
           <div class="md-list-item-text" layout="column">
-            <h3>{{fun.name}}</h3>
+            <h4>{{fun.name}}</h4>
             <!-- <h4>{{fun.title}}</h4> -->
             <p>{{fun.title}}</p>
           </div>
@@ -42,7 +65,7 @@
     <div  layout="column"  class="contentdemoBasicUsage" >
   <md-toolbar class="moj">
     <div class="md-toolbar-tools">
-      <h2 class="md-flex">Toolbar: md-warn</h2>
+      <h2 class="napis">PCexploRe</h2>
     </div>
   </md-toolbar>
 

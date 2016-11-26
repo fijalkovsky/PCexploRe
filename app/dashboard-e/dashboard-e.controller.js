@@ -5,7 +5,7 @@ angular.
 
 function dashboardEController($http,$scope) {
   var vm = this;
-
+vm.query = '';
 var imagePath = 'img/list/60.jpeg';
     
     

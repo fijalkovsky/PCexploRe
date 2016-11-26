@@ -58,6 +58,8 @@ h3 {
     padding-bottom: 5px;
 }
 
+
+
 .displayList ul {
   
     list-style-type: none;
@@ -65,4 +67,28 @@ h3 {
     font-weight: lighter;
 }
 .moj {
-  background: #B36C6C !important; }
+    background: #B36C6C !important; 
+
+}
+.napis {
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: lighter;
+    font-size: 112px;    
+}
+
+input[type=search] { 
+
+    margin-bottom: 10px;
+}
+
+.displaySearcher{
+    text-align: center;
+}
+
+h4{
+    text-align: left;
+     font-family: 'Fjalla One', sans-serif;
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: lighter;
+}
