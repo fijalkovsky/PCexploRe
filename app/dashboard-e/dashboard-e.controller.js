@@ -5,7 +5,18 @@ module('dashboard-e')
 function dashboardEController($http, $scope, $mdDialog) {
   var vm = this;
   vm.query = '';
-  vm.currentFunction = '';
+  vm.currentFunction = {
+    "name": "",
+    "title": "Nazwa tej funkcji",
+    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+    "params": [
+      {
+        "matrix": "PC matrix",
+        "type": "matrix"
+      }
+    ],
+    "return": "Zwracana wartość"
+  },
 vm.openDalog = openDalog;
 
 
@@ -54,13 +65,13 @@ vm.openDalog = openDalog;
   }];
 
 
-/// FUNTIONS 
+/// FUNTIONS
   vm.functions = $http.get('dashboard-e/functions.json').then((response) => {
     vm.functions = response.data;
   });
 
   function openDalog(ev, funName) {
-    vm.currentFunction = funName;
+    vm.currentFunction.name = funName;
     showPrompt(ev);
   }
 

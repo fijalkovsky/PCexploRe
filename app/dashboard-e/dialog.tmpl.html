@@ -2,7 +2,7 @@
   <form ng-cloak>
     <md-toolbar>
       <div class="moj">
-        <h2 class="napisDia">{{vm.currentFunction}}</h2>
+        <h2 class="napisDia">{{vm.currentFunction.name}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <!-- <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon> -->
@@ -12,41 +12,36 @@
 
     <md-dialog-content>
       <div class="md-dialog-content">
-        <h2>{{vm.currentFunction}}</h2>
-        przykladowa macierz : {{vm.userMatrices[0].values}}
-          
-          <div class="selector2">
-          <md-input-container>
+<h2>{{vm.currentFunction.title}}</h2>
+        <div class="selector2">
+          matrix = <md-input-container >
             <label>Matrix</label>
-            <md-select>
-            <md-option ng-value="opt" ng-repeat="matrix in vm.userMatrices">{{ matrix.name }}</md-option>
+            <md-select ng-model="vm.size">
+              <md-option ng-repeat="matrix in vm.userMatrices" value="{{matrix.name}}">{{matrix.name}}</md-option>
             </md-select>
           </md-input-container>
-        </div>  
-          <div class="selector2">
-            <md-input-container>
-                <label>Vector</label>
-                <md-select>
-                <md-option ng-value="opt" ng-repeat="vector in vm.userVectors">{{ vector.name }}</md-option>
-                </md-select>
-            </md-input-container>
-          
-          </div>
-                    
-    
+        </div>
+        <div class="selector2">
+          vector = <md-input-container>
+            <label>Vetor</label>
+            <md-select ng-model="vm.size2">
+              <md-option ng-repeat="vector in vm.userVectors" value="{{vector.name}}">{{vector.name}}</md-option>
+            </md-select>
+          </md-input-container>
+
+        </div>
+
+
       </div>
     </md-dialog-content>
 
     <md-dialog-actions layout="row">
-      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-        More on Wikipedia
-      </md-button>
       <span flex></span>
       <md-button ng-click="cancel()">
         cancel
       </md-button>
       <md-button ng-click="save()">
-       save
+        save
       </md-button>
 
     </md-dialog-actions>
