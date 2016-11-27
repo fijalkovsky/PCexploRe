@@ -141,8 +141,6 @@ function dashboardEController($http, $scope, $mdDialog) {
   }
 
   function openMatrixDialog(ev1) {
-          console.log("heh");
-
    showPromptM(ev1);
   }
 

@@ -15,57 +15,6 @@ body {
 
 }
 
-header {
-  position: fixed;
-  z-index: 100%;
-  width: 100%;
-  height: 60px;
-
-}
-
-.listdemoBasicUsage md-divider {
-  margin-top: 10px;
-  margin-bottom: 0; }
-
-ul.topnav {
-    list-style-type: none;
-    background-color: #fff;
-    font-family: 'Fjalla One', sans-serif;
-    opacity: 0.95;
-
-}
-
-ul.topnav img {
-  float: left;
-  width: 14%;
-  padding: 20px;
-  padding-right: 30px;
-}
-
-ul.topnav li {
-  float: right;
-  padding: 20xp;
-}
-
-ul.topnav li a {
-    display: inline-block;
-    color: #B36C6C;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 20px;
-}
-
-ul.topnav li a:hover {
-  background-color: #3F3F3F;
-}
-
-ul.topnav li.icon {
-  display: none;
-}
-
-
 
 .welcome {
 
@@ -75,8 +24,8 @@ ul.topnav li.icon {
     overflow:hidden;
       background-image:
     linear-gradient(
-      rgba(0, 0, 0, 0.9),
-      rgba(0, 0, 0, 0.9)
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
     ),
   url(../images/backg.jpg);
     background-size: 100%;
@@ -88,12 +37,7 @@ ul.topnav li.icon {
 .welcomeText {
     width: 800px;
     top:100px;
-    margin: 200px;
-    text-align: center;
-    color: #fff;
-    font-size: 90px;
-    font-family: 'Fjalla One', sans-serif;
-    font-weight: lighter;
+  
 
 
 
@@ -110,25 +54,88 @@ ul.topnav li.icon {
 
 
 .logButt button {
-
-margin-bottom:20px;
-text-transform: uppercase;
-
-}
-
-
-
-.header a{
-    color:#fff
-}
-.header a:hover{
-    color:#fff;
+    margin:5px;
+    padding: 5px;
+    text-transform: uppercase;
+    border: none;
+    background: none;
+    font-family: 'Quicksand', sans-serif;
+    float: right;
+    color: #fff;
     text-decoration: none;
 }
-.header.home{padding:5em 0;text-align:center}
-.header.home.header.home h1{font-size:2em;margin:.5em 0; }
-.header.home p+a{margin:2.5em 0 0 0}
-.header.home span{display:block;font-size:.8em;font-weight:300;color:#BEC2C7;margin-top:1em}
-@media only screen and (min-width: 40em){
-    .header.home{padding:3.5em 0}
-    .header.home .logo{width:9.25em}.header.home h1{font-size:3em}}
+.logButt button a{ 
+    color: #fff;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.logButt button a:hover{ 
+    text-decoration: none;
+    color: grey;
+}
+
+
+.hometext h1 {
+    color: #fff;
+    font-size: 70px;
+    font-family: 'Quicksand', sans-serif;
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+
+.more-skewed {
+  display: inline-block;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  border-left: solid 2px white;
+  box-sizing: border-box;
+  padding: 15px 40px;
+  letter-spacing: 3px;
+  transition: all 1s ease-out;
+  overflow: hidden;
+}
+.more-skewed:before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0px;
+  bottom: 50%;
+  border-right: solid 2px white;
+  border-top: solid 2px white;
+  transform: skewX(25deg);
+  transform-origin: right bottom;
+  width: 100%;
+  transition: all 1s ease-out;
+  z-index: -1;
+}
+.more-skewed:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  bottom: 0px;
+  top: 50%;
+  border-right: solid 2px white;
+  border-bottom: solid 2px white;
+  transform: skewX(-25deg);
+  transform-origin: right top;
+  width: 100%;
+  transition: all 1s ease-out;
+  z-index: -1;
+}
+.more-skewed:hover {
+  color: #000;
+text-decoration: none;
+}
+.more-skewed:hover:before,
+.more-skewed:hover:after {
+  background: white;
+}
+
