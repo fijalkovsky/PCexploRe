@@ -96,6 +96,12 @@ function dashboardEController($http, $scope, $mdDialog) {
     vm.currentFunction.name = funName;
     showPrompt(ev);
   }
+    
+      function openMatrixDialog(ev1) {
+          console.log("heh");
+   
+   showPromptM(ev1);
+  }
 
   function showPrompt(ev) {
     $mdDialog.show({
@@ -103,6 +109,18 @@ function dashboardEController($http, $scope, $mdDialog) {
       controllerAs: 'vm',
       templateUrl: '/dashboard-e/dialog.tmpl.html',
       targetEvent: ev,
+      clickOutsideToClose: true,
+      fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
+    });
+
+  };
+
+  function showPromptM(ev1) {
+    $mdDialog.show({
+      controller: () => vm,
+      controllerAs: 'vm',
+      templateUrl: '/dashboard-e/matrixDia.tmpl.html',
+      targetEvent: ev1,
       clickOutsideToClose: true,
       fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
     });
