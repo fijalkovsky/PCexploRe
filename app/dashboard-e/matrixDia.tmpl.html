@@ -99,8 +99,10 @@
             X row{{$index}}
           </md-button>
         </th>
-        <td ng-repeat="column in vm.row track by $index">
-          <input type="number" ng-model="vm.row[$index]" placeholder="3333">
+        <td ng-repeat="column in row track by $index">
+            <div class="ma">
+          <input type="number" ng-model="row[$index]" placeholder="0">
+            </div>
         </td>
       </tr>
     </tbody>
