@@ -1,112 +1,905 @@
   [
     {
-    "name": "principalEigenValue1",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
+      "name": "principalEigenValue",
+      "title": "The largest principal eigenvalue",
+      "description": "Returns the largest principal eigenvalue of matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": "the largest principal eigenvalue of matrix",
+      "result": 0
+    },
+    {
+      "name": "principalEigenValueSym",
+      "title": "The largest principal eigenvalue (symbolic version)",
+      "description": "A symbolic version of function principalEigenValue",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": "the largest principal eigenvalue of matrix",
+      "result": 0
+    },
+    {
+      "name": "principalEigenVector",
+      "title": "Eigenvector of matrix",
+      "description": "Returns the eigenvector of matrix corresponding to itd principal eigenvalue",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": "the eigenvector of matrix corresponding to itd principal eigenvaluex",
+      "result": 0
+    },
+    {
+      "name": "principalEigenVectorSym",
+      "title": "Eigenvector of matrix (symbolic version)",
+      "description": "A symbolic version of function principalEigenVector",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": "the eigenvector of matrix corresponding to itd principal eigenvaluex",
+      "result": 0
+    },
+    {
+      "name": "saatyIdx",
+      "title": "Value of the Saaty Inconsistency Index",
+      "description": "Returns the value of the Saaty Inconsistency Index computed for the matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": "the value of the Saaty Inconsistency Index computed for the matrix",
+      "result": 0
+    },
+    {
+      "name": "saatyIdxSym",
+      "title": "Value of the Saaty Inconsistency Index (symbolic version)",
+      "description": "A symbolic version of function saatyIdxSym",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": "the value of the Saaty Inconsistency Index computed for the matrix",
+      "result": 0
+    },
+    {
+      "name": "eigenValueRank",
+      "title": "Rescaled principal eigen vector of matrix",
+      "description": "Returns the principal eigen vector of matrix rescaled in a way that the sum of its entries is 1",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " the rescaled principal eigen vector of matrix",
+      "result": 0
+    },
+    {
+      "name": "eigenValueRankSym",
+      "title": " Rescaled principal eigen vector of matrix (symbolic version)",
+      "description": "   A symbolic version of function eigenValueRank",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " the principal eigen vector of matrix rescaled in a way that the sum of its entries is 1",
+      "result": 0
+    },
+    {
+      "name": "ahp",
+      "title": " AHP ranking using eigenvalue based method",
+      "description": " Computes milticriteria ranking using eigenvalue based method using criteria matrix and alternatives matrixes. This is basic three levels AHP.",
+      "params": [
+        {
+          "name": "M",
+          "desc": "Main matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " multicriteria ranking using eigenvalue based method",
+      "result": 0
+    },
+    {
+      "name": "geometricRank",
+      "title": " Rank list given as geometric means",
+      "description": " Returns rank list given as geometric means of rows of the matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " The rank list given as geometric means",
+      "result": 0
+    },
+    {
+      "name": "geometricRescaledRank",
+      "title": " Rescaled rank list given as geometric means",
+      "description": "Returns rank list given as geometric means of rows of the matrix rescaled in way that the sum of its entries is 1",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " Rescaled rank list given as geometric means of rows of the matrix",
+      "result": 0
+    },
+    {
+      "name": "getMatrixEntry",
+      "title": " Element of matrix",
+      "description": "Returns [r,c] element of matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "row",
+          "desc": "number of row",
+          "type": "int",
+          "values": 0
+        },
+        {
+          "name": "column",
+          "desc": "number of column",
+          "type": "int",
+          "values": 0
+        }
+      ],
+      "return": " [r,c] element of matrix",
+      "result": 0
+    },
+    {
+      "name": "recreatePCMatrix",
+      "title": " Recreated matrix",
+      "description": " Recreates recipropal matrix of the basis of upper-triagle of matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " recreated PC matrix",
+      "result": 0
+    },
+    {
+      "name": "deleteRows",
+      "title": " Delete rows",
+      "description": " Delete rows from matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "list",
+          "desc": "indices of rows which need to be deleted",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " matrix without deleted rows",
+      "result": 0
+    },
+    {
+      "name": "deleteColumns",
+      "title": " Delete columns",
+      "description": " Delete columns from matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "list",
+          "desc": "indices of columns which need to be deleted",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " matrix without deleted columns",
+      "result": 0
+    },
+    {
+      "name": "deleteRowsAndColumns",
+      "title": "Delete rows and columns",
+      "description": " Delete columns and rows from matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "list",
+          "desc": "indices of rows and columns which need to be deleted",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " matrix without deleted row and columns",
+      "result": 0
+    },
+    {
+      "name": "setDiagonal",
+      "title": " Set diagonal of matrix",
+      "description": " Sets diagonal of matrix to specifed value",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "value",
+          "desc": "value which need to be set on the diagonal",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " Matrix with the specifed value on the diagonal",
+      "result": 0
+    },
+    {
+      "name": "HREmatrix",
+      "title": " Matrix for the HRE method",
+      "description": " HRE matrix together with HRE constant term vector forms the linear equation system Au=b",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " Matrix A for the HRE method",
+      "result": 0
+    },
+    {
+      "name": "HREconstantTermVector",
+      "title": " constant term vector for the HRE method",
+      "description": " HRE constant term vector together with HRE matrix forms the linear equation system Au=b",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " constant term vector b for the HRE method",
+      "result": 0
+    },
+    {
+      "name": "HREpartialRank",
+      "title": " Unknown HRE values",
+      "description": "Counts values for the unknown alternatives",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " values for the unknown alternatives",
+      "result": 0
+    },
+    {
+      "name": "HREfullRank",
+      "title": " full rank HRE",
+      "description": " Counts values for the unknown alternatives and add their to known alternatives",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " values for the both: known and unknown alternatives",
+      "result": 0
+    },
+    {
+      "name": "HRErescaledRank",
+      "title": " Rescaled HRE full rank",
+      "description": " Counts the rescaled HRE full rank list. Rescaled in the entries sum up to 1",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " the rescaled HRE full rank list",
+      "result": 0
+    },
+    {
+      "name": "HREgeomMatrix",
+      "title": " Matrix for the HRE geometric method",
+      "description": " HRE matrix together with HRE constant term vector forms the linear equation system Au=b",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " Matrix A for the HRE method",
+      "result": 0
+    },
+    {
+      "name": "HREgeomConstantTermVector",
+      "title": " constant term vector for the HRE geometric method",
+      "description": " HRE constant term vector together with HRE matrix forms the linear equation system Au=b",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " constant term vector b for the HRE method",
+      "result": 0
+    },
+    {
+      "name": "HREgeomIntermediateRank",
+      "title": " The base of unknown HRE values",
+      "description": " Counts values for the unknown alternatives befor they are raised by the power 10",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": "vector of values for the unknown alternatives",
+      "result": 0
+    },
+    {
+      "name": "HREgeomPartialRank",
+      "title": " Unknown HRE values",
+      "description": " Counts values for the unknown alternatives using HRE geometric method",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " vector of values for the unknown alternatives",
+      "result": 0
+    },
+    {
+      "name": "HREgeomFullRank",
+      "title": " full rank HRE using geometric method",
+      "description": " Counts values for the unknown alternatives and add their to known alternatives",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": " values for the both: known and unknown alternatives",
+      "result": 0
+    },
+    {
+      "name": "HREgeomRescaledRank",
+      "title": " Rescaled HRE full rank using geometric method",
+      "description": " Counts the rescaled HRE full rank list. Rescaled in the entries sum up to 1",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "knownVector",
+          "desc": "vector of known alternatives and others are marked by value 0",
+          "type": "double",
+          "values": 0
+        }
+      ],
+      "return": "the rescaled HRE full rank list",
+      "result": 0
+    },
+    {
+      "name": "koczkodajTriadIdx",
+      "title": " Koczkodaj triad innconsistency",
+      "description": "Returns the Koczkodaj triad inconsistency",
+      "params": [
+        {
+          "name": "triad",
+          "desc": "vector of 3 elements",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " the Koczkodaj triad inconsistency",
+      "result": 0
+    },
+    {
+      "name": "koczkodajTheWorstTriad",
+      "title": "The most inconsistent triad",
+      "description": " Counts the worst triad in matrix according to Koczkodaj inconsistency criterion",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": "the worst triad in matrix according to Koczkodaj inconsistency criterion",
+      "result": 0
+    },
+    {
+      "name": "koczkodajTheWorstTriads",
+      "title": " The most inconsistent triads",
+      "description": "Counts the worst triads in matrix according to Koczkodaj inconsistency criterion",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "n",
+          "desc": "number of triads to return",
+          "type": "int",
+          "values": 0
+        }
+      ],
+      "return": " n worst triads in matrix according to Koczkodaj inconsistency criterion",
+      "result": 0
+    },
+    {
+      "name": "koczkodajIdx",
+      "title": " Koczkodaj inconsistency",
+      "description": " Counts the value of Koczkodaj inconsistency for the matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": "Koczkodaj inconsistency",
+      "result": 0
+    },
+    {
+      "name": "koczkodajConsistentTriad",
+      "title": " Consistent triad",
+      "description": " Counts the closest consistenr triad",
+      "params": [
       {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue2",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue3",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue4",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue5",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue6",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue7",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue8",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue9",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  },
-  {
-    "name": "principalEigenValue10",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "matrix": "PC matrix"
-      }
-    ],
-    "return": "Zwracana wartość"
-  }
+          "name": "triad",
+          "desc": "vector of three values",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " the closest consistend triad",
+      "result": 0
+    },
+    {
+      "name": "koczkodajImprovedMatrixStep",
+      "title": " More consistent matrix",
+      "description": " Counts improved (more consistent) matrix in which the most inconsistent triad is replaced by tje closest consistent one",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " more consistent PC matrix",
+      "result": 0
+    },
+    {
+      "name": "AIJadd",
+      "title": " Aggregation matrix/vector (aritmetic means)",
+      "description": "Computes aggregation matrix/vector whose elements are aritmethic means of elements from input matrices/vectors (whose need to be the same dimension)",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " aggregation matrix/vector",
+      "result": 0
+    },
+    {
+      "name": "AIJgeom",
+      "title": " Aggregation matrix/vector (geometric means)",
+      "description": " Computes aggregation matrix/vector whose elements are aritmethic means",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " aggregation matrix/vector",
+      "result": 0
+    },
+    {
+      "name": "harkerMatrixPlaceHolderCount",
+      "title": " Number of zeros elements in row",
+      "description": " Counts number of zeros elements in given row in matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "row",
+          "desc": "number of row which will be checked",
+          "type": "int",
+          "values": 0
+        }
+      ],
+      "return": " number of zeros elements in row",
+      "result": 0
+    },
+    {
+      "name": "harkerMatrix",
+      "title": " Harher matrix",
+      "description": "Computes harker matrix A for a given incomplete PC matrix. Then matrix A is ready to use in eigenvalue based method. Empty and incorrect values are replaced by 0 and diagonal values are replaced by 1.",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " matrix which is ready to use in eigenvalue based method",
+      "result": 0
+    },
+    {
+      "name": "errorMatrix",
+      "title": " Ranking discrepancy",
+      "description": "Computes discrepancy for each element of matrix and create matrix containing entries in form e_ij = m_ji*(mju_i/mju_j). When the M matrix is consistent every r_ij equals 1.",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " error matrix E = [e_ij]",
+      "result": 0
+    },
+    {
+      "name": "localDiscrepancyMatrix",
+      "title": " Local discrepancy",
+      "description": " Compute matrix with entries d_ij = max{e_ij-1, 1/e_ij-1}",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " matrix with locals discrepancy",
+      "result": 0
+    },
+    {
+      "name": "globalDiscrepancy",
+      "title": " Global discrepancy",
+      "description": " Finds maximal entry of local discrepancy matrix",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " maximal value of local discrepancy",
+      "result": 0
+    },
+    {
+      "name": "cop1ViolationList",
+      "title": " List of COP1",
+      "description": "Counts the list of indices that violate the first Condition of Order Preservation postulate (formulated by Bana e Costa and Vansnick)",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " the matrix of indices that violate the first Condition of Order Preservation (every row includes one pair)",
+      "result": 0
+    },
+    {
+      "name": "cop1Check",
+      "title": " check COP1",
+      "description": " checks if the first Condition of Order Preservation  is fulfilled",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " true if the first Condition of Order Preservation  is fulfilled, else false",
+      "result": 0
+    },
+    {
+      "name": "cop2ViolationList",
+      "title": " List of COP2",
+      "description": "counts the list of indices that violate the second Condition of Order Preservation postulate (formulated by Bana e Costa and Vansnick)",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " the matrix of indices that violate the second Condition of Order Preservation (every row includes one pair)",
+      "result": 0
+    },
+    {
+      "name": "cop2Check",
+      "title": " check COP2",
+      "description": " checks if the second Condition of Order Preservation  is fulfilled",
+      "params": [
+        {
+          "name": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " true if the second Condition of Order Preservation is fulfilled, else false",
+      "result": 0
+    },
+    {
+      "name": "kendallTauDistance",
+      "title": " Kendall Tau distance for two vectors",
+      "description": " Computes Kendall (bubble sort) distance between two rank vectors",
+      "params": [
+        {
+          "name": "vector",
+          "desc": "first rank to compare",
+          "type": "vector",
+          "values": []
+        },
+        {
+          "name": "vectorB",
+          "desc": "second rank to compare",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " number of swap which need to be make to order of elements will be identical",
+      "result": 0
+    },
+    {
+      "name": "normalizedKendallTauDistance",
+      "title": " Normalized Kendall Tau distance for two vectors",
+      "description": " Computes Kendall (bubble sort) distance between two rank vectors and divited it by numbers of all possible pairs",
+      "params": [
+        {
+          "name": "vector",
+          "desc": "first rank to compare",
+          "type": "vector",
+          "values": []
+        },
+        {
+          "name": "vectorB",
+          "desc": "second rank to compare",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " proportion of Kendall Tau distance to numbers of all possible pairs",
+      "result": 0
+    },
+    {
+      "name": "consistentMatrixFromRank",
+      "title": " Consistent matrix from rank",
+      "description": " Creates consistent PC matrix from the rank vector V so that m_ij = v[i]/v[j]",
+      "params": [
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": "full PC matrix",
+      "result": 0
+    },
+    {
+      "name": "rankOrder",
+      "title": " Sort rank",
+      "description": " Sorts elements of rank",
+      "params": [
+        {
+          "name": "vector",
+          "desc": "ranking of matrix",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " ranking - sorted rank",
+      "result": 0
+    }
 ]
