@@ -79,15 +79,12 @@ h3 {
     padding: 0;
     font-weight: lighter;
     padding-left: 10px;
+    padding-right: 10px;
     font-size: 30px;
     text-transform: uppercase;
 
 }
 
-input[type=search] {
-
-    margin-bottom: 10px;
-}
 
 .displaySearcher{
     text-align: center;
@@ -115,8 +112,16 @@ input[type=search] {
   background-repeat:no-repeat;
   background-position:left center;
   outline:0;
+  margin-bottom: 10px;
 }
 
 .selector2 label {
     font-size: 90px;
+}
+
+
+.row{
+    display: block;
+    margin: 5px;
+
 }
