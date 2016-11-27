@@ -23,7 +23,11 @@
               <md-input-container>
                 <label>Matrix</label>
                 <md-select ng-model="arg.values">
-                  <md-option ng-repeat="matrix in vm.userMatrices" value="{{matrix.values}}">{{matrix.name}}</md-option>
+                  <md-option ng-repeat="matrix in vm.userMatrices" value="{{matrix.values}}">{{matrix.name}}
+                    <md-tooltip>
+                      {{arg.values}}
+                    </md-tooltip>
+                  </md-option>
                 </md-select>
               </md-input-container>
               {{arg.desc}}
@@ -34,7 +38,10 @@
               <md-input-container>
                 <label>Vetor</label>
                 <md-select ng-model="arg.values">
-                  <md-option ng-repeat="vector in vm.userVectors" value="{{vector.values}}">{{vector.name}}</md-option>
+                  <md-option ng-repeat="vector in vm.userVectors" value="{{vector.values}}">{{vector.name}}
+                    <md-tooltip>
+                      {{arg.values}}
+                    </md-tooltip></md-option>
                 </md-select>
               </md-input-container>
               {{arg.desc}}
@@ -62,7 +69,7 @@
 
       </div>
 
-      {{vm.currentFunction}}
+      <!-- {{vm.currentFunction}} -->
     </md-dialog-content>
 
     <md-dialog-actions layout="row">

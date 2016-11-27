@@ -1,110 +1,148 @@
-<div class="dash" layout="row"  class="icondemoFontIconsWithLigatures" ng-cloak>
+<div class="dash" layout="row" class="icondemoFontIconsWithLigatures" ng-cloak>
 
-  <div flex="30" layout="column" class="boxWithHeight" layout-padding>
-    <section flex="40">
-        <h3>Creator</h3>
-        <div class="displayList">
+  <div flex="20" layout="column" class="boxWithHeight" layout-padding>
+    <section flex>
+      <h3>Creator</h3>
+      <div class="displayList">
         <ul>
-        <li><md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">CREATE MATRIX</md-button></li>
-        <li><md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">CREATE VECTOR</md-button></li>
+          <li>
+            <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">CREATE MATRIX</md-button>
+          </li>
+          <li>
+            <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">CREATE VECTOR</md-button>
+          </li>
         </ul>
+      </div>
+
+      <md-subheader class="md-no-sticky">Matrices</md-subheader>
+      <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
+        <div class="md-list-item-text">
+          <h4>{{matrix.name}}</h4>
+          <p>Dimenssion: {{matrix.dimension}}</p>
         </div>
+      </md-list-item>
+      <br>
 
-
-        <md-subheader class="md-no-sticky">Matrices</md-subheader>
-        <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
-          <div class="md-list-item-text" >
-            <h4>{{matrix.name}}</h4>
-            <p>Dimenssion: {{matrix.dimension}}</p>
-          </div>
-        </md-list-item>
-     <br>
-
-                <md-subheader class="md-no-sticky">Vectors</md-subheader>
-        <md-list-item class="md-2-line"  ng-repeat="vector in vm.userVectors">
-          <div class="md-list-item-text">
-            <h4>{{vector.name}}</h4>
-            <p>Dimenssion: {{vector.dimension}}</p>
-          </div>
-        </md-list-item>
+      <md-subheader class="md-no-sticky">Vectors</md-subheader>
+      <md-list-item class="md-2-line" ng-repeat="vector in vm.userVectors">
+        <div class="md-list-item-text">
+          <h4>{{vector.name}}</h4>
+          <p>Dimenssion: {{vector.dimension}}</p>
+        </div>
+      </md-list-item>
 
 
     </section>
-<!--      end create var-->
-    <section flex>
-    <h3>functions</h3>
 
-        <div class="displaySearcher">
-            <input type="search" ng-model="vm.query" />
-        </div>
-
-    <md-content>
-      <md-list flex>
-        <!-- <div ng-repeat="fun in vm.functions"> -->
-        <!-- <ul class="sidebar-nav">
-                AAAAAAAAAAAAAAAA  {{fun}}
-              <li>
-                  <a href="#">{{fun.name}}</a>
-                </li>
-              </ul> -->
-        <md-list-item class="md-3-line" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
-
-
-              <md-button class="md-raised" ng-click="vm.openDalog($event, fun.name)">
-         <div class="md-list-item-text" layout="column">
-            <h4>{{fun.name}}</h4>
-            <!-- <h4>{{fun.title}}</h4> -->
-            <p>{{fun.title}}</p>
-          </div>
-    </md-button>
-
-
-        </md-list-item>
-        <md-divider></md-divider>
-        <!-- </div> -->
-      </md-list>
-    </md-content></section>
   </div>
-<!-- end list of foos-->
+  <!-- end list of foos-->
   <div flex layout="column" class="boxWithHeight" layout-padding>
-    <div  layout="column"  class="contentdemoBasicUsage" >
-  <md-toolbar class="moj">
-    <div class="md-toolbar-tools">
-      <h2 class="napis">PCexploRe</h2>
+    <div layout="column" class="contentdemoBasicUsage">
+      <md-toolbar class="moj">
+        <div class="md-toolbar-tools">
+          <h2 class="napis">PCexploRe</h2>
+        </div>
+      </md-toolbar>
+
+      <md-content flex="" layout-padding="">
+
+
+        <p>Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare,
+          cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.</p>
+
+        <p>
+          Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea. Per cu vide munere fierent.
+        </p>
+
+        <p>
+          Ad sea dolor accusata consequuntur. Sit facete convenire reprehendunt et. Usu cu nonumy dissentiet, mei choro omnes fuisset ad. Te qui docendi accusam efficiantur, doming noster prodesset eam ei. In vel posse movet, ut convenire referrentur eum, ceteros
+          singulis intellegam eu sit.
+        </p>
+
+        <p>
+          Sit saepe quaestio reprimique id, duo no congue nominati, cum id nobis facilisi. No est laoreet dissentias, idque consectetuer eam id. Clita possim assueverit cu his, solum virtute recteque et cum. Vel cu luptatum signiferumque, mel eu brute nostro senserit.
+          Blandit euripidis consequat ex mei, atqui torquatos id cum, meliore luptatum ut usu. Cu zril perpetua gubergren pri. Accusamus rationibus instructior ei pro, eu nullam principes qui, reque justo omnes et quo.
+        </p>
+
+        <p>
+          Sint unum eam id. At sit fastidii theophrastus, mutat senserit repudiare et has. Atqui appareat repudiare ad nam, et ius alii incorrupte. Alii nullam libris his ei, meis aeterno at eum. Ne aeque tincidunt duo. In audire malorum mel, tamquam efficiantur
+          has te.
+        </p>
+
+      </md-content>
+
     </div>
-  </md-toolbar>
+  </div>
 
-  <md-content flex="" layout-padding="">
+  <div flex="30" layout="column" class="boxWithHeight" layout-padding>
+    <section flex ng-if="!vm.functionDetailsView">
+      <h3>functions</h3>
+
+      <div class="displaySearcher">
+        <input type="search" ng-model="vm.query" />
+      </div>
+
+      <md-content>
+        <md-list flex>
+          <md-list-item class="md-3-line" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
+            <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
+            <div layout="row" align="start center">
+              <div style="width:200px">
+                <md-button ng-click="vm.openDalog($event, fun)" style="width:200px">
+                  <div class="md-list-item-text" layout="column">
+                    <h4>{{fun.name}}</h4>
+                    <p>{{fun.title}}</p>
+                  </div>
+                </md-button>
+              </div>
+              <div>
+                <md-button ng-click="vm.showDetailView(true, fun)">
+                  <h5>details</h5>
+                </md-button>
+              </div>
+            </div>
+            <md-divider/>
+            
+          </md-list-item>
+          <md-divider></md-divider>
+        </md-list>
+      </md-content>
+    </section>
 
 
-      <!--
-        <md-button class="md-primary md-raised" ng-click="showPrompt($event)">
-      Prompt Dialog
-    </md-button> -->
+    <section flex ng-if="vm.functionDetailsView">
 
-    <p>Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.</p>
+      <md-button ng-click="vm.showDetailView(false, {})">
+        <h5>back</h5>
+      </md-button>
+      <h3>{{vm.currentFunction.name}}</h3>
+      <div class="md-list-item-text">
+        <p style="font-size: x-large;">{{vm.currentFunction.title}}</p>
+        <p style="font-size: larger;">description: {{vm.currentFunction.description}}</p>
+        <p>return: {{vm.currentFunction.return}}</p>
 
-    <p>
-Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea. Per cu vide munere fierent.
-    </p>
+        <md-content>
+          <md-list flex>
+            <md-list-item class="md-3-line" ng-repeat="arg in vm.currentFunction.params">
+              <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
+              <div class="md-list-item-text">
+                <h4>name: {{arg.name}}</h4>
+                <p>desc: {{arg.desc}}</p>
+                <p>type: {{arg.type}}</p>
+                <md-divider/>
+              </div>
+              <!--
+            <div layout="row" align="start center" >
+              <span >{{arg.name}}</span>
+              <span>{{arg.desc}}</span>
+              <span>{{arg.type}}</span>
 
-    <p>
-Ad sea dolor accusata consequuntur. Sit facete convenire reprehendunt et. Usu cu nonumy dissentiet, mei choro omnes fuisset ad. Te qui docendi accusam efficiantur, doming noster prodesset eam ei. In vel posse movet, ut convenire referrentur eum, ceteros singulis intellegam eu sit.
-    </p>
-
-    <p>
-Sit saepe quaestio reprimique id, duo no congue nominati, cum id nobis facilisi. No est laoreet dissentias, idque consectetuer eam id. Clita possim assueverit cu his, solum virtute recteque et cum. Vel cu luptatum signiferumque, mel eu brute nostro senserit. Blandit euripidis consequat ex mei, atqui torquatos id cum, meliore luptatum ut usu. Cu zril perpetua gubergren pri. Accusamus rationibus instructior ei pro, eu nullam principes qui, reque justo omnes et quo.
-    </p>
-
-    <p>
-Sint unum eam id. At sit fastidii theophrastus, mutat senserit repudiare et has. Atqui appareat repudiare ad nam, et ius alii incorrupte. Alii nullam libris his ei, meis aeterno at eum. Ne aeque tincidunt duo. In audire malorum mel, tamquam efficiantur has te.
-    </p>
-
-
-
-  </md-content>
-
-</div>
+            </div> -->
+            </md-list-item>
+          </md-list>
+        </md-content>
+      </div>
+    </section>
   </div>
 
 </div>

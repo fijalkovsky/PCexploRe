@@ -7,42 +7,46 @@ function dashboardEController($http, $scope, $mdDialog) {
   vm.query = '';
 
   vm.currentFunction = {
-    "name": "",
-    "title": "Nazwa tej funkcji",
-    "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-    "params": [
-      {
-        "name": "matrix",
-        "desc": "PC matrix",
-        "type": "matrix",
-        "values": []
-      },
-      {
-        "name": "vector",
-        "desc": "vector of know values",
-        "type": "vector",
-        "values": []
-      },
-      {
-        "name": "row",
-        "desc": "number of row",
-        "type": "int",
-        "values": 0
-      },
-      {
-        "name": "value",
-        "desc": "value to set in matrix",
-        "type": "double",
-        "values": 0
-      }
-    ],
-    "return": "Zwracana wartość",
-    "result": 0
-  },
+      "result": 0
+  };
+  //   "name": "",
+  //   "title": "Nazwa tej funkcji",
+  //   "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
+  //   "params": [
+  //     {
+  //       "name": "matrix",
+  //       "desc": "PC matrix",
+  //       "type": "matrix",
+  //       "values": []
+  //     },
+  //     {
+  //       "name": "vector",
+  //       "desc": "vector of know values",
+  //       "type": "vector",
+  //       "values": []
+  //     },
+  //     {
+  //       "name": "row",
+  //       "desc": "number of row",
+  //       "type": "int",
+  //       "values": 0
+  //     },
+  //     {
+  //       "name": "value",
+  //       "desc": "value to set in matrix",
+  //       "type": "double",
+  //       "values": 0
+  //     }
+  //   ],
+  //   "return": "Zwracana wartość",
+  //   "result": 0
+  // }
   vm.przyklad = "Przykladowy napis";
-  vm.size;
-  vm.size2;
+  vm.functionDetailsView = false;
   vm.openDalog = openDalog;
+  vm.openMatrixDialog = openMatrixDialog;
+  vm.showDetailView = showDetailView;
+
   vm.functions;
   vm.userMatrices = [{
     "name": "mDwa",
@@ -55,7 +59,7 @@ function dashboardEController($http, $scope, $mdDialog) {
     "name": "mTrzy",
     "dimension": "3",
     "values": [
-      [1, 2, 3],
+      [1, 2, 4],
       [0.4, 1, 6],
       [0.2, 0.1, 1]
     ]
@@ -63,7 +67,7 @@ function dashboardEController($http, $scope, $mdDialog) {
     "name": "mDwadwa",
     "dimension": "2",
     "values": [
-      [1, 2],
+      [1, 3],
       [0.4, 1]
     ]
   }, {
@@ -92,15 +96,20 @@ function dashboardEController($http, $scope, $mdDialog) {
     vm.functions = response.data;
   });
 
-  function openDalog(ev, funName) {
-    vm.currentFunction.name = funName;
+  function openDalog(ev, clickedFnction) {
+    vm.currentFunction = clickedFnction;
     showPrompt(ev);
   }
-    
-      function openMatrixDialog(ev1) {
+
+  function openMatrixDialog(ev1) {
           console.log("heh");
-   
+
    showPromptM(ev1);
+  }
+
+  function showDetailView(bool, currentFunction){
+    vm.functionDetailsView = bool;
+    vm.currentFunction = currentFunction;
   }
 
   function showPrompt(ev) {
