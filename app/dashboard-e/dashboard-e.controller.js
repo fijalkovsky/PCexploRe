@@ -5,6 +5,45 @@ module('dashboard-e')
 function dashboardEController($http, $scope, $mdDialog) {
   var vm = this;
   vm.query = '';
+    
+    
+    
+    
+    vm.matrix = [[0]];
+  
+  vm.addColumn = function() {
+    vm.matrix.forEach(function(row) {
+      row.push(0);
+    });
+  };
+  
+  vm.addRow = function() {
+    var columnCount = vm.matrix[0].length;
+    var newRow = [];
+    for (var i = 0; i < columnCount; i++) {
+      newRow.push(0);
+    }
+    vm.matrix.push(newRow);
+  };
+
+  vm.deleteRow = function(idx) {
+    if (idx >= 0 && idx < vm.matrix.length) {
+      vm.matrix.splice(idx, 1);
+    }
+  };
+  
+  vm.deleteColumn = function(idx) {
+    if (idx >= 0 && idx < vm.matrix[0].length) {
+      vm.matrix.forEach(function(row) {
+        row.splice(idx, 1);
+      });
+    }
+  };
+
+    
+    
+    
+    
 
   vm.currentFunction = {
       "result": 0

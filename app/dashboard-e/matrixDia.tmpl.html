@@ -11,24 +11,29 @@
     </md-toolbar>
 
     <md-dialog-content>
-      <div class="md-dialog-content">
-            
+<!--                       ng-init="models = [{matrixName:'',matrixDim:'', items:['1','2','3']}]">-->
+      <div class="md-dialog-content cos2">
+<!--
+            {{models}}
+          
+          <div ng-repeat="model in models">
+              
               <md-input-container>
                 <label>Matrix name</label>
-                  <input ng-model="arg.matrixName" type="text">
+                  <input ng-model="model.matrixName" type="text">
               </md-input-container>       
           
             <md-input-container>
                 <label>Matrix dimension</label>
-                  <input ng-model="arg.matrixDim" type="number" min="0">
+                  <input ng-model="model.matrixDim" type="number" min="0">
               </md-input-container>
                          
+          </div>
           
-          
-        <div class="row">
+        <div class="row" >
         <div class="form-group">
             <div class="col-xs-3">
-                <input type="text" class="form-control" placeholder="State" />
+                <input type="text" class="form-control" ng-model="item.items" />
             </div>
             <div class="col-xs-3">
                 <input type="text" class="form-control" placeholder="City" />
@@ -36,6 +41,7 @@
             <div class="col-xs-3">
                 <input type="text" class="form-control" placeholder="Zip" />
             </div>
+
         </div>
           </div>
           
@@ -68,6 +74,45 @@
           </div>
 
       
+-->
+                     <md-input-container>
+                <label>Matrix name</label>
+                  <input ng-model="matrixName" type="text">
+              </md-input-container>       
+             
+          
+    <table>
+    <tbody>
+      <tr>
+        <th></th>
+        <th ng-repeat="column in vm.matrix[0] track by $index">
+          <md-button class="md-raised" ng-disabled="vm.matrix[0].length <= 1"
+                  ng-click="vm.deleteColumn($index)">
+            X col{{$index}}
+          </md-button>
+        </th>
+      </tr>
+      <tr ng-repeat="row in vm.matrix">
+        <th>
+          <md-button class="md-raised" ng-disabled="vm.matrix.length <= 1"
+                  ng-click="vm.deleteRow($index)">
+            X row{{$index}}
+          </md-button>
+        </th>
+        <td ng-repeat="column in vm.row track by $index">
+          <input type="number" ng-model="vm.row[$index]" placeholder="3333">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+          <md-divider></md-divider>
+    <div class="costam">
+  <md-button class="md-raised" ng-click="vm.addRow()">Add Row</md-button>
+  <md-button class="md-raised" ng-click="vm.addColumn()">Add Column</md-button>
+          </div>
+  <h3>As JSON:</h3>
+  <pre><code>{{vm.matrix}}</code></pre>
+          
 
         </div>
     </md-dialog-content>

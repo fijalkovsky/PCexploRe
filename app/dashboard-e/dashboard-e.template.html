@@ -6,10 +6,10 @@
       <div class="displayList">
         <ul>
           <li>
-            <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">CREATE MATRIX</md-button>
+              <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)"><h5>CREATE MATRIX</h5></md-button>
           </li>
           <li>
-            <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">CREATE VECTOR</md-button>
+            <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)"><h5>CREATE VECTOR</h5></md-button>
           </li>
         </ul>
       </div>
@@ -68,13 +68,14 @@
                 <md-button ng-click="vm.openDalog($event, fun)" flex="90" >
                   <div class="md-list-item-text" layout="column">
                     <h4>{{fun.name}}</h4>
-                    <p>{{fun.title}}</p>
+
                   </div>
                 </md-button>
+                  <p>{{fun.title}}</p>
               </div>
               <div style="min-width:50px">
-                <md-button ng-click="vm.showDetailView(true, fun)" style="min-width:50px">
-                  <h5>details</h5>
+                <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px">
+                  details
                 </md-button>
               </div>
             </div>
@@ -89,8 +90,8 @@
 
     <section flex ng-if="vm.functionDetailsView">
 
-      <md-button ng-click="vm.showDetailView(false, {})">
-        <h5>back</h5>
+      <md-button class="md-raised" ng-click="vm.showDetailView(false, {})">
+        back
       </md-button>
       <h3>{{vm.currentFunction.name}}</h3>
       <div class="md-list-item-text">
