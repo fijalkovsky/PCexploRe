@@ -5,22 +5,44 @@ module('dashboard-e')
 function dashboardEController($http, $scope, $mdDialog) {
   var vm = this;
   vm.query = '';
+
   vm.currentFunction = {
     "name": "",
     "title": "Nazwa tej funkcji",
     "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
     "params": [
       {
-        "matrix": "PC matrix",
-        "type": "matrix"
+        "name": "matrix",
+        "desc": "PC matrix",
+        "type": "matrix",
+        "values": []
+      },
+      {
+        "name": "vector",
+        "desc": "vector of know values",
+        "type": "vector",
+        "values": []
+      },
+      {
+        "name": "row",
+        "desc": "number of row",
+        "type": "int",
+        "values": 0
+      },
+      {
+        "name": "value",
+        "desc": "value to set in matrix",
+        "type": "double",
+        "values": 0
       }
     ],
-    "return": "Zwracana wartość"
+    "return": "Zwracana wartość",
+    "result": 0
   },
-vm.openDalog = openDalog;
-
-
   vm.przyklad = "Przykladowy napis";
+  vm.size;
+  vm.size2;
+  vm.openDalog = openDalog;
   vm.functions;
   vm.userMatrices = [{
     "name": "mDwa",
