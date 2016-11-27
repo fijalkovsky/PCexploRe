@@ -85,3 +85,50 @@ ul.topnav li.icon {
 
 }
 
+.welcomeText {
+    width: 800px;
+    top:100px;
+    margin: 200px;
+    text-align: center;
+    color: #fff;
+    font-size: 90px;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: lighter;
+
+    
+    
+}
+
+.home button {
+    border: 5px solid #fff;
+    background: none;
+    font-size: 30px;
+    margin: 0;
+    padding: 10px;
+
+}
+
+
+.logButt button {
+    
+margin-bottom:20px;
+text-transform: uppercase;
+    
+}
+
+
+
+.header a{
+    color:#fff
+}
+.header a:hover{
+    color:#fff;
+    text-decoration: none;
+}
+.header.home{padding:5em 0;text-align:center}
+.header.home.header.home h1{font-size:2em;margin:.5em 0; }
+.header.home p+a{margin:2.5em 0 0 0}
+.header.home span{display:block;font-size:.8em;font-weight:300;color:#BEC2C7;margin-top:1em}
+@media only screen and (min-width: 40em){
+    .header.home{padding:3.5em 0}
+    .header.home .logo{width:9.25em}.header.home h1{font-size:3em}}
