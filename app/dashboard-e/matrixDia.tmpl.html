@@ -1,0 +1,79 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="moj">
+        <h2 class="napisDia">{{vm.currentFunction.name}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <!-- <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon> -->
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <h2>{{vm.currentFunction.title}}</h2>
+
+
+        <md-list-item class="md-2-line" ng-repeat="arg in vm.currentFunction.params">
+          <div class="md-list-item-text">
+
+            <div ng-if="arg.type === 'matrix'" >
+              {{arg.name}} =
+              <md-input-container>
+                <label>Matrix</label>
+                <md-select ng-model="arg.values">
+                  <md-option ng-repeat="matrix in vm.userMatrices" value="{{matrix.values}}">{{matrix.name}}</md-option>
+                </md-select>
+              </md-input-container>
+              {{arg.desc}}
+            </div>
+
+            <div ng-if="arg.type === 'vector'">
+            {{arg.name}} =
+              <md-input-container>
+                <label>Vetor</label>
+                <md-select ng-model="arg.values">
+                  <md-option ng-repeat="vector in vm.userVectors" value="{{vector.values}}">{{vector.name}}</md-option>
+                </md-select>
+              </md-input-container>
+              {{arg.desc}}
+            </div>
+
+            <div ng-if="arg.type === 'int'" >
+              {{arg.name}} =
+               <md-input-container>
+                <label>Value</label>
+                <input ng-model="arg.values" type="number" min="0">
+              </md-input-container>
+              {{arg.desc}}
+            </div>
+
+            <div ng-if="arg.type === 'double'" >
+              {{arg.name}} = <md-input-container>
+                <label>Value</label>
+                <input ng-model="arg.values" type="number">
+              </md-input-container>
+              {{arg.desc}}
+            </div>
+
+          </div>
+        </md-list-item>
+
+      </div>
+
+      {{vm.currentFunction}}
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()">
+        cancel
+      </md-button>
+      <md-button ng-click="save()">
+        save
+      </md-button>
+
+    </md-dialog-actions>
+  </form>
+</md-dialog>
