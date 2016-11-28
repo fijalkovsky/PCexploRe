@@ -4,6 +4,8 @@ module('dashboard-e')
 
 function dashboardEController($http, $scope, $mdDialog) {
   var vm = this;
+
+  // ********************** VARIABLES ********************** //
   vm.query = '';
 
 
@@ -13,7 +15,23 @@ function dashboardEController($http, $scope, $mdDialog) {
       "values": [[0,0],[0,0]]
     };
 
-  vm.addColumn = function() {
+
+  // ********************** FUNCTIONS ********************** //
+  vm.addColumn = addColumn;
+
+
+
+
+
+
+
+
+
+  // ********************** FUNCTIONS BODY ********************** //
+
+
+
+  function addColumn() {
     vm.matrix.values.forEach(function(row) {
       row.push(0);
     });
@@ -52,7 +70,7 @@ function dashboardEController($http, $scope, $mdDialog) {
 
      vm.vector = {
        "name": "",
-       "values": [1,0],
+       "values": [[0]],
        "dimension": 0
      };
 
@@ -62,14 +80,14 @@ function dashboardEController($http, $scope, $mdDialog) {
     var columnCountV = vm.vector.values[0].length;
     var newRowV = [];
     for (var j = 0; j < columnCountV; j++) {
-      newRowV.values.push(0);
+      newRowV.push(0);
     }
     vm.vector.values.push(newRowV);
   };
 
   vm.deleteRowV = function(idxV) {
     if (idxV >= 0 && idxV < vm.vector.values.length) {
-      vm.vector.values.splice(idxV, 1);
+      vm.vector.values[0].splice(idxV, 1);
     }
   };
 
