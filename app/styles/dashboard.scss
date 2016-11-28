@@ -49,22 +49,40 @@ h5 {
 }
 
 #grid {
-    width: 400px;
-    height: 140px;
-
+  //  width: 400px;
+    /*height: 140px;*/
     margin: 0;
+
+    // &:after {
+    //   content: ' ';
+    //   display: block;
+    // }
+
+    // .cell {
+    //     border: 1px solid red;
+    //     float: left;
+    //     height: 50px;
+    //     width: 50px;
+    //     margin: 3px;
+    //     padding: 0;
+    //     text-align: center;
+    //
+    // }
+
+    .myrow {
+      $cellSize: 30px;
+      .cell {
+        display: inline-block;
+        width: $cellSize;
+        height: $cellSize;
+        border: 1px blue solid;
+        text-align: center;
+        line-height: $cellSize;
+      }
+    }
 }
 
-.cell {
-    border: 1px solid red;
-    float: left;
-    height: 50px;
-    width: 50px;
-    margin: 3px;
-    padding: 0;
-    text-align: center;
 
-}
 
 
 .md-dialog{
