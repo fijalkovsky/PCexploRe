@@ -16,8 +16,8 @@
         <md-input-container>
             <label>Vector name</label>
             <input ng-model="vectorName" type="text">
-        </md-input-container>       
-             
+        </md-input-container>
+
 
         <table>
         <tbody>
@@ -30,29 +30,28 @@
               </md-button>
             </th>
           </tr>
-          <tr ng-repeat="row in vm.vector">
+          <tr ng-repeat="rowV in vm.vector">
             <th>
               <md-button class="md-raised" ng-disabled="vm.vector.length <= 1"
                       ng-click="vm.deleteRowV($index)">
                 X row{{$index}}
               </md-button>
             </th>
-            <td ng-repeat="column in row track by $index">
+            <td ng-repeat="column in rowV track by $index">
                 <div class="mat">
-              <input type="number" ng-model="row[$index]" placeholder="0">
+              <input type="number" ng-model="rowV[$index]" placeholder="0">
                 </div>
             </td>
           </tr>
         </tbody>
         </table>
         <md-divider></md-divider>
-          
+
         <div>
             <md-button class="md-raised" ng-click="vm.addRowV()">Add Row</md-button>
-            <md-button class="md-raised" ng-click="vm.addColumnV()">Add Column</md-button>
         </div>
   <h3>As JSON:</h3>
-  <pre><code>{{vm.matrix}}</code></pre>
+  <pre><code>{{vm.vector}}</code></pre>
         </div>
     </md-dialog-content>
 

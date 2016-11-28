@@ -5,16 +5,16 @@ module('dashboard-e')
 function dashboardEController($http, $scope, $mdDialog) {
   var vm = this;
   vm.query = '';
-    
+
 
     vm.matrix = [[0]];
-  
+
   vm.addColumn = function() {
     vm.matrix.forEach(function(row) {
       row.push(0);
     });
   };
-  
+
   vm.addRow = function() {
     var columnCount = vm.matrix[0].length;
     var newRow = [];
@@ -29,7 +29,7 @@ function dashboardEController($http, $scope, $mdDialog) {
       vm.matrix.splice(idx, 1);
     }
   };
-  
+
   vm.deleteColumn = function(idx) {
     if (idx >= 0 && idx < vm.matrix[0].length) {
       vm.matrix.forEach(function(row) {
@@ -40,40 +40,36 @@ function dashboardEController($http, $scope, $mdDialog) {
 
 //    vector
      vm.vector = [[0]];
-  
-  vm.addColumnV = function() {
-    vm.vector.forEach(function(row) {
-      row.push(0);
-    });
-  };
-  
+
+
+
   vm.addRowV = function() {
-    var columnCount = vm.vector[0].length;
-    var newRow = [];
-    for (var i = 0; i < columnCount; i++) {
-      newRow.push(0);
+    var columnCountV = vm.vector[0].length;
+    var newRowV = [];
+    for (var j = 0; j < columnCountV; j++) {
+      newRowV.push(0);
     }
-    vm.vector.push(newRow);
+    vm.vector.push(newRowV);
   };
 
-  vm.deleteRowV = function(idx) {
-    if (idx >= 0 && idx < vm.vector.length) {
-      vm.vector.splice(idx, 1);
+  vm.deleteRowV = function(idxV) {
+    if (idxV >= 0 && idxV < vm.vector.length) {
+      vm.vector.splice(idxV, 1);
     }
   };
-  
-  vm.deleteColumnV = function(idx) {
-    if (idx >= 0 && idx < vm.vector[0].length) {
-      vm.vector.forEach(function(row) {
-        row.splice(idx, 1);
+
+  vm.deleteColumnV = function(idxV) {
+    if (idxV >= 0 && idxV < vm.vector[0].length) {
+      vm.vector.forEach(function(rowV) {
+        rowV.splice(idxV, 1);
       });
     }
   };
 
 //    end vetor
-    
-    
-    
+
+
+
 
   vm.currentFunction = {
       "result": 0
@@ -114,6 +110,7 @@ function dashboardEController($http, $scope, $mdDialog) {
   vm.functionDetailsView = false;
   vm.openDalog = openDalog;
   vm.openMatrixDialog = openMatrixDialog;
+  vm.openVectorDialog = openVectorDialog;
   vm.showDetailView = showDetailView;
 
   vm.functions;
@@ -173,8 +170,9 @@ function dashboardEController($http, $scope, $mdDialog) {
   function openMatrixDialog(ev1) {
    showPromptM(ev1);
   }
-    
+
   function openVectorDialog(ev2) {
+      console.log("heh");
    showPromptV(ev2);
   }
 
@@ -206,7 +204,7 @@ function dashboardEController($http, $scope, $mdDialog) {
     });
 
   };
-    
+
   function showPromptV(ev2) {
       console.log("cos");
     $mdDialog.show({
