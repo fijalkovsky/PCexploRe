@@ -44,15 +44,16 @@ section[flex=""] {
 h5 {
     font-size: 20px;
     padding: 5px;
+    font-family: 'Fjalla One', sans-serif;
 }
 
-.cos2{
-   
-}
-.costam {
-    display: inline;
-    text-align: center;
-    
+.md-dialog{
+ 
+  width:900px; height: 400px;
+  position: absolute;
+  top:0; bottom: 0; left: 0; right: 0;
+  margin: auto
+
 }
 
 .a, section {
@@ -105,9 +106,10 @@ h3 {
 h4{
     text-align: left;
      font-family: 'Fjalla One', sans-serif;
-    font-size: 50px;
+    font-size: 60px;
     text-transform: uppercase;
     font-weight: lighter;
+    color: red;
 }
 
 
@@ -138,6 +140,10 @@ input[type=search] {
 
 }
 
-.ma input[type="number"]{
+.mat input[type="number"]{
  border: none;
+    width: 40px;
+    border-bottom: 1px solid #dcdcdc;
+    text-align: center;
+    margin-left: 35px;
 }

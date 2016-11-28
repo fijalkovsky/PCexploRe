@@ -6,9 +6,7 @@ function dashboardEController($http, $scope, $mdDialog) {
   var vm = this;
   vm.query = '';
     
-    
-    
-    
+
     vm.matrix = [[0]];
   
   vm.addColumn = function() {

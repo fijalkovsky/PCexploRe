@@ -107,7 +107,7 @@ body {
   bottom: 50%;
   border-right: solid 2px white;
   border-top: solid 2px white;
-  transform: skewX(25deg);
+//  transform: skewX(25deg);
   transform-origin: right bottom;
   width: 100%;
   transition: all 1s ease-out;
@@ -121,7 +121,7 @@ body {
   top: 50%;
   border-right: solid 2px white;
   border-bottom: solid 2px white;
-  transform: skewX(-25deg);
+//  transform: skewX(-25deg);
   transform-origin: right top;
   width: 100%;
   transition: all 1s ease-out;
