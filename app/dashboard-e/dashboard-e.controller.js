@@ -68,9 +68,7 @@ function dashboardEController($http, $scope, $mdDialog) {
 
   vm.vector = {
     "name": "",
-    "values": [
-      [0]
-    ],
+    "values": [0],
     "dimension": 0
   };
 
@@ -109,6 +107,13 @@ function runCurrentFunction(){
       vm.userMatrices.forEach(function(userMatrix){
         if(arg.name === userMatrix.name){
           arg.values = userMatrix.values;
+        }
+      });
+    }
+    else if(arg.type === "vector"){
+      vm.userVectors.forEach(function(userVector){
+        if(arg.name === userVector.name){
+          arg.values = userVector.values;
         }
       });
     }
@@ -186,9 +191,7 @@ function runCurrentFunction(){
     $mdDialog.hide();
     vm.vector = {
       "name": "",
-      "values": [
-        [0]
-      ],
+      "values":   [0],
       "dimension": 0
     };
   }
