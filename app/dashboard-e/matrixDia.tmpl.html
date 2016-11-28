@@ -15,24 +15,24 @@
 
         <md-input-container>
             <label>Matrix name</label>
-            <input ng-model="matrixName" type="text">
-        </md-input-container>       
-             
+            <input ng-model="vm.matrix.name" type="text">
+        </md-input-container>
+
 
         <table>
         <tbody>
           <tr>
             <th></th>
-            <th ng-repeat="column in vm.matrix[0] track by $index">
-              <md-button class="md-raised" ng-disabled="vm.matrix[0].length <= 1"
+            <th ng-repeat="column in vm.matrix.values[0] track by $index">
+              <md-button class="md-raised" ng-disabled="vm.matrix.values[0].length <= 1"
                       ng-click="vm.deleteColumn($index)">
                 X col{{$index}}
               </md-button>
             </th>
           </tr>
-          <tr ng-repeat="row in vm.matrix">
+          <tr ng-repeat="row in vm.matrix.values">
             <th>
-              <md-button class="md-raised" ng-disabled="vm.matrix.length <= 1"
+              <md-button class="md-raised" ng-disabled="vm.matrix.values.length <= 1"
                       ng-click="vm.deleteRow($index)">
                 X row{{$index}}
               </md-button>
@@ -46,7 +46,7 @@
         </tbody>
         </table>
         <md-divider></md-divider>
-          
+
         <div>
             <md-button class="md-raised" ng-click="vm.addRow()">Add Row</md-button>
             <md-button class="md-raised" ng-click="vm.addColumn()">Add Column</md-button>
@@ -61,7 +61,7 @@
       <md-button ng-click="cancel()">
         cancel
       </md-button>
-      <md-button ng-click="save()">
+      <md-button ng-click="vm.saveNewMatrix(vm.matrix)">
         save
       </md-button>
 

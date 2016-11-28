@@ -7,38 +7,49 @@ function dashboardEController($http, $scope, $mdDialog) {
   vm.query = '';
 
 
-    vm.matrix = [[0]];
+    vm.matrix = {
+      "name": "",
+      "dimension": 2,
+      "values": [[0,0],[0,0]]
+    }
 
   vm.addColumn = function() {
-    vm.matrix.forEach(function(row) {
+    vm.matrix.values.forEach(function(row) {
       row.push(0);
     });
   };
 
   vm.addRow = function() {
-    var columnCount = vm.matrix[0].length;
+    var columnCount = vm.matrix.values[0].length;
     var newRow = [];
     for (var i = 0; i < columnCount; i++) {
       newRow.push(0);
     }
-    vm.matrix.push(newRow);
+    vm.matrix.values.push(newRow);
   };
 
   vm.deleteRow = function(idx) {
-    if (idx >= 0 && idx < vm.matrix.length) {
-      vm.matrix.splice(idx, 1);
+    if (idx >= 0 && idx < vm.matrix.values.length) {
+      vm.matrix.values.splice(idx, 1);
     }
   };
 
   vm.deleteColumn = function(idx) {
-    if (idx >= 0 && idx < vm.matrix[0].length) {
-      vm.matrix.forEach(function(row) {
+    if (idx >= 0 && idx < vm.matrix.values[0].length) {
+      vm.matrix.values.forEach(function(row) {
         row.splice(idx, 1);
       });
     }
   };
 
-//    vector
+  vm.saveNewMatrix = function(newMatrix){
+    newMatrix.dimension = newMatrix.values.length;
+    vm.userMatrices.push(newMatrix);
+    $mdDialog.hide();
+  };
+
+
+
      vm.vector = [[0]];
 
 
@@ -70,42 +81,10 @@ function dashboardEController($http, $scope, $mdDialog) {
 
 
 
-
   vm.currentFunction = {
       "result": 0
   };
-  //   "name": "",
-  //   "title": "Nazwa tej funkcji",
-  //   "description": "Opis funkcji. Może być trochę dłuższy niż się wydaje, np. tak jak ten. Może być nawet dłuższy.",
-  //   "params": [
-  //     {
-  //       "name": "matrix",
-  //       "desc": "PC matrix",
-  //       "type": "matrix",
-  //       "values": []
-  //     },
-  //     {
-  //       "name": "vector",
-  //       "desc": "vector of know values",
-  //       "type": "vector",
-  //       "values": []
-  //     },
-  //     {
-  //       "name": "row",
-  //       "desc": "number of row",
-  //       "type": "int",
-  //       "values": 0
-  //     },
-  //     {
-  //       "name": "value",
-  //       "desc": "value to set in matrix",
-  //       "type": "double",
-  //       "values": 0
-  //     }
-  //   ],
-  //   "return": "Zwracana wartość",
-  //   "result": 0
-  // }
+
   vm.przyklad = "Przykladowy napis";
   vm.functionDetailsView = false;
   vm.openDalog = openDalog;
