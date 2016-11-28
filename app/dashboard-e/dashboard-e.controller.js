@@ -9,10 +9,6 @@ function dashboardEController($http, $scope, $mdDialog) {
   vm.query = '';
   vm.przyklad = "Przykladowy napis";
   vm.functionDetailsView = false;
-  vm.openDalog = openDalog;
-  vm.openMatrixDialog = openMatrixDialog;
-  vm.openVectorDialog = openVectorDialog;
-  vm.showDetailView = showDetailView;
   vm.functions;
 
   vm.currentFunction = {
@@ -91,6 +87,10 @@ function dashboardEController($http, $scope, $mdDialog) {
   vm.addRowV = addRowV;
   vm.deleteRowV = deleteRowV;
   vm.saveNewVector = saveNewVector;
+  vm.openDalog = openDalog;
+  vm.openMatrixDialog = openMatrixDialog;
+  vm.openVectorDialog = openVectorDialog;
+  vm.showDetailView = showDetailView;
 
 
   // ********************** ACTIONS ********************** //
