@@ -91,6 +91,7 @@ function dashboardEController($http, $scope, $mdDialog) {
   vm.openMatrixDialog = openMatrixDialog;
   vm.openVectorDialog = openVectorDialog;
   vm.showDetailView = showDetailView;
+  vm.cancel = cancel;
 
 
   // ********************** ACTIONS ********************** //
@@ -100,6 +101,10 @@ function dashboardEController($http, $scope, $mdDialog) {
 
 
   // ********************** FUNCTIONS BODY ********************** //
+
+  function cancel() {
+    $mdDialog.hide();
+  }
 
   function addColumn() {
     vm.matrix.values.forEach(function(row) {

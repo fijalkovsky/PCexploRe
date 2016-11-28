@@ -45,6 +45,24 @@
       </md-toolbar>
 
       <md-content flex="" layout-padding="" style="min-height:400px">
+        <<h2 class="napisDia">{{vm.currentFunction.name}}</h2>
+
+        <div class="matrixLook"ng-repeat="matrix in vm.userMatrices">
+          Argumenty:{{matrix.values.length}}<br>
+          <!-- {{matrix.values}} -->
+          <div ng-repeat="n in matrix.values">
+            <div id="grid">
+                <div class="cell" ng-repeat="x in n">{{x}}</div>
+
+              </div>
+
+
+            <!-- tutaj: {{n}} -->
+            <!-- <li ng-repeat="x in n">{{x}}</li> -->
+          </div>
+        </div>
+
+      <p>  Wynik: {{vm.currentFunction.result}}</p>
 
       </md-content>
 
@@ -75,7 +93,7 @@
               </div>
               <div style="min-width:50px">
                 <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px">
-                 <h5>details</h5> 
+                 <h5>details</h5>
                 </md-button>
               </div>
             </div>
@@ -107,7 +125,7 @@
                 <h4>name: {{arg.name}}</h4>
                 <p>desc: {{arg.desc}}</p>
                 <p>type: {{arg.type}}</p>
-            
+
               </div>
               <!--
             <div layout="row" align="start center" >

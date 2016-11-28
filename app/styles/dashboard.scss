@@ -39,6 +39,7 @@ section[flex=""] {
 .boxWithHeight {
     box-sizing: border-box;
     height: 100%;
+    overflow: scroll;
     background: #DFDFDF;
 }
 h5 {
@@ -47,8 +48,27 @@ h5 {
     font-family: 'Fjalla One', sans-serif;
 }
 
+#grid {
+    width: 400px;
+    height: 140px;
+
+    margin: 0;
+}
+
+.cell {
+    border: 1px solid red;
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    padding: 0;
+    text-align: center;
+
+}
+
+
 .md-dialog{
- 
+
   width:900px; height: 400px;
   position: absolute;
   top:0; bottom: 0; left: 0; right: 0;
@@ -143,4 +163,14 @@ input[type=search] {
     border-bottom: 1px solid #dcdcdc;
     text-align: center;
     margin-left: 35px;
+}
+
+.matrixLook li {
+  list-style: none;
+  display: inline-block;
+  color: red;
+  padding: 5px;
+  font-size: 25px;
+  border: 1px solid grey;
+
 }
