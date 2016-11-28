@@ -38,7 +38,39 @@ function dashboardEController($http, $scope, $mdDialog) {
     }
   };
 
-    
+//    vector
+     vm.vector = [[0]];
+  
+  vm.addColumnV = function() {
+    vm.vector.forEach(function(row) {
+      row.push(0);
+    });
+  };
+  
+  vm.addRowV = function() {
+    var columnCount = vm.vector[0].length;
+    var newRow = [];
+    for (var i = 0; i < columnCount; i++) {
+      newRow.push(0);
+    }
+    vm.vector.push(newRow);
+  };
+
+  vm.deleteRowV = function(idx) {
+    if (idx >= 0 && idx < vm.vector.length) {
+      vm.vector.splice(idx, 1);
+    }
+  };
+  
+  vm.deleteColumnV = function(idx) {
+    if (idx >= 0 && idx < vm.vector[0].length) {
+      vm.vector.forEach(function(row) {
+        row.splice(idx, 1);
+      });
+    }
+  };
+
+//    end vetor
     
     
     
@@ -141,6 +173,10 @@ function dashboardEController($http, $scope, $mdDialog) {
   function openMatrixDialog(ev1) {
    showPromptM(ev1);
   }
+    
+  function openVectorDialog(ev2) {
+   showPromptV(ev2);
+  }
 
   function showDetailView(bool, currentFunction){
     vm.functionDetailsView = bool;
@@ -165,6 +201,19 @@ function dashboardEController($http, $scope, $mdDialog) {
       controllerAs: 'vm',
       templateUrl: '/dashboard-e/matrixDia.tmpl.html',
       targetEvent: ev1,
+      clickOutsideToClose: true,
+      fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
+    });
+
+  };
+    
+  function showPromptV(ev2) {
+      console.log("cos");
+    $mdDialog.show({
+      controller: () => vm,
+      controllerAs: 'vm',
+      templateUrl: '/dashboard-e/vectorDia.tmpl.html',
+      targetEvent: ev2,
       clickOutsideToClose: true,
       fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
     });
