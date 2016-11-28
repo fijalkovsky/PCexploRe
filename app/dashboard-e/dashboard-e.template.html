@@ -6,10 +6,12 @@
       <div class="displayList">
         <ul>
           <li>
-            <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)"><h5>CREATE MATRIX</h5></md-button>
+            <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">
+              <h5>CREATE MATRIX</h5></md-button>
           </li>
           <li>
-            <md-button class="md-raised" ng-click="vm.openVectorDialog($event)"><h5>CREATE VECTOR</h5></md-button>
+            <md-button class="md-raised" ng-click="vm.openVectorDialog($event)">
+              <h5>CREATE VECTOR</h5></md-button>
           </li>
         </ul>
       </div>
@@ -45,24 +47,25 @@
       </md-toolbar>
 
       <md-content flex="" layout-padding="" style="min-height:400px">
-        <h2 class="napisDia">{{vm.currentFunction.name}}</h2>
 
-        <div class="matrixLook" ng-repeat="matrix in vm.userMatrices">
-          Argumenty:{{matrix.values.length}}<br>
-          <!-- {{matrix.values}} -->
-          <div ng-repeat="n in matrix.values">
-            <div id="grid">
-                <div class="cell" ng-repeat="x in n">{{x}}</div>
+        <h2 class="napisDia">{{vm.currentFunction.name}}</h2>
+          {{vm.currentFunction.params}}
+          <div class="matrixLook" ng-repeat="matrix in vm.currentFunction.params">
+
+            <br>
+            <div id="grid" ng-repeat="row in matrix.values track by $index">
+              <div class="myrow">
+                <div class="cell" ng-repeat="cell in row">{{cell}}</div>
 
               </div>
 
 
-            <!-- tutaj: {{n}} -->
-            <!-- <li ng-repeat="x in n">{{x}}</li> -->
+              <!-- tutaj: {{n}} -->
+              <!-- <li ng-repeat="x in n">{{x}}</li> -->
+            </div>
           </div>
-        </div>
 
-      <p>  Wynik: {{vm.currentFunction.result}}</p>
+          <p> Wynik: {{vm.currentFunction.result}}</p>
 
       </md-content>
 
@@ -83,17 +86,17 @@
             <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
             <div flex layout="row" layout-align="space-between center">
               <div flex="75">
-                <md-button ng-click="vm.openDalog($event, fun)" flex="90" >
+                <md-button ng-click="vm.openDalog($event, fun)" flex="90">
                   <div class="md-list-item-text" layout="column">
                     <h4>{{fun.name}}</h4>
 
                   </div>
                 </md-button>
-                  <p>{{fun.title}}</p>
+                <p>{{fun.title}}</p>
               </div>
               <div style="min-width:50px">
                 <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px">
-                 <h5>details</h5>
+                  <h5>details</h5>
                 </md-button>
               </div>
             </div>

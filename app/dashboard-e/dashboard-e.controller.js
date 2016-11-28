@@ -92,6 +92,7 @@ function dashboardEController($http, $scope, $mdDialog) {
   vm.openVectorDialog = openVectorDialog;
   vm.showDetailView = showDetailView;
   vm.cancel = cancel;
+  vm.runCurrentFunction = runCurrentFunction;
 
 
   // ********************** ACTIONS ********************** //
@@ -101,6 +102,21 @@ function dashboardEController($http, $scope, $mdDialog) {
 
 
   // ********************** FUNCTIONS BODY ********************** //
+
+function runCurrentFunction(){
+  vm.currentFunction.params.forEach(function(arg){
+    if(arg.type === "matrix"){
+      vm.userMatrices.forEach(function(userMatrix){
+        if(arg.name === userMatrix.name){
+          arg.values = userMatrix.values;
+        }
+      });
+    }
+  });
+
+  cancel();
+}
+
 
   function cancel() {
     $mdDialog.hide();
