@@ -7,120 +7,18 @@ function dashboardEController($http, $scope, $mdDialog) {
 
   // ********************** VARIABLES ********************** //
   vm.query = '';
-
-
-    vm.matrix = {
-      "name": "",
-      "dimension": 2,
-      "values": [[0,0],[0,0]]
-    };
-
-
-  // ********************** FUNCTIONS ********************** //
-  vm.addColumn = addColumn;
-
-
-
-
-
-
-
-
-
-  // ********************** FUNCTIONS BODY ********************** //
-
-
-
-  function addColumn() {
-    vm.matrix.values.forEach(function(row) {
-      row.push(0);
-    });
-  };
-
-  vm.addRow = function() {
-    var columnCount = vm.matrix.values[0].length;
-    var newRow = [];
-    for (var i = 0; i < columnCount; i++) {
-      newRow.push(0);
-    }
-    vm.matrix.values.push(newRow);
-  };
-
-  vm.deleteRow = function(idx) {
-    if (idx >= 0 && idx < vm.matrix.values.length) {
-      vm.matrix.values.splice(idx, 1);
-    }
-  };
-
-  vm.deleteColumn = function(idx) {
-    if (idx >= 0 && idx < vm.matrix.values[0].length) {
-      vm.matrix.values.forEach(function(row) {
-        row.splice(idx, 1);
-      });
-    }
-  };
-
-  vm.saveNewMatrix = function(newMatrix){
-    newMatrix.dimension = newMatrix.values.length;
-    vm.userMatrices.push(newMatrix);
-    $mdDialog.hide();
-  };
-
-
-
-     vm.vector = {
-       "name": "",
-       "values": [[0]],
-       "dimension": 0
-     };
-
-
-
-  vm.addRowV = function() {
-    var columnCountV = vm.vector.values[0].length;
-    var newRowV = [];
-    for (var j = 0; j < columnCountV; j++) {
-      newRowV.push(0);
-    }
-    vm.vector.values.push(newRowV);
-  };
-
-  vm.deleteRowV = function(idxV) {
-    if (idxV >= 0 && idxV < vm.vector.values.length) {
-      vm.vector.values[0].splice(idxV, 1);
-    }
-  };
-
-  vm.deleteColumnV = function(idxV) {
-    if (idxV >= 0 && idxV < vm.vector.values[0].length) {
-      vm.vector.values.forEach(function(rowV) {
-        rowV.splice(idxV, 1);
-      });
-    }
-  };
-
-  vm.saveNewVector = function(newVector){
-    newVector.dimension = newVector.values.length;
-    vm.userVectors.push(newVector);
-    $mdDialog.hide();
-  };
-
-//    end vetor
-
-
-
-  vm.currentFunction = {
-      "result": 0
-  };
-
   vm.przyklad = "Przykladowy napis";
   vm.functionDetailsView = false;
   vm.openDalog = openDalog;
   vm.openMatrixDialog = openMatrixDialog;
   vm.openVectorDialog = openVectorDialog;
   vm.showDetailView = showDetailView;
-
   vm.functions;
+
+  vm.currentFunction = {
+    "result": 0
+  };
+
   vm.userMatrices = [{
     "name": "mDwa",
     "dimension": "2",
@@ -163,11 +61,122 @@ function dashboardEController($http, $scope, $mdDialog) {
     "dimension": "3"
   }];
 
+  vm.matrix = {
+    "name": "",
+    "dimension": 2,
+    "values": [
+      [0, 0],
+      [0, 0]
+    ]
+  };
 
-/// FUNTIONS
-  vm.functions = $http.get('dashboard-e/functions.json').then((response) => {
-    vm.functions = response.data;
-  });
+  vm.vector = {
+    "name": "",
+    "values": [
+      [0]
+    ],
+    "dimension": 0
+  };
+
+
+
+  // ********************** FUNCTIONS ********************** //
+
+  vm.getFunctions = getFunctions;
+  vm.addColumn = addColumn;
+  vm.addRow = addRow;
+  vm.deleteRow = deleteRow;
+  vm.deleteColumn = deleteColumn;
+  vm.saveNewMatrix = saveNewMatrix;
+  vm.addRowV = addRowV;
+  vm.deleteRowV = deleteRowV;
+  vm.saveNewVector = saveNewVector;
+
+
+  // ********************** ACTIONS ********************** //
+  vm.getFunctions();
+
+
+
+
+  // ********************** FUNCTIONS BODY ********************** //
+
+  function addColumn() {
+    vm.matrix.values.forEach(function(row) {
+      row.push(0);
+    });
+  }
+
+  function addRow() {
+    var columnCount = vm.matrix.values[0].length;
+    var newRow = [];
+    for (var i = 0; i < columnCount; i++) {
+      newRow.push(0);
+    }
+    vm.matrix.values.push(newRow);
+  }
+
+  function deleteRow(idx) {
+    if (idx >= 0 && idx < vm.matrix.values.length) {
+      vm.matrix.values.splice(idx, 1);
+    }
+  }
+
+  function deleteColumn(idx) {
+    if (idx >= 0 && idx < vm.matrix.values[0].length) {
+      vm.matrix.values.forEach(function(row) {
+        row.splice(idx, 1);
+      });
+    }
+  }
+
+  function saveNewMatrix(newMatrix) {
+    newMatrix.dimension = newMatrix.values.length;
+    vm.userMatrices.push(newMatrix);
+    $mdDialog.hide();
+    vm.matrix = {
+      "name": "",
+      "dimension": 2,
+      "values": [
+        [0, 0],
+        [0, 0]
+      ]
+    };
+  }
+
+  function addRowV() {
+    var columnCountV = vm.vector.values[0].length;
+    var newRowV = [];
+    for (var j = 0; j < columnCountV; j++) {
+      newRowV.push(0);
+    }
+    vm.vector.values.push(newRowV);
+  }
+
+  function deleteRowV(idxV) {
+    if (idxV >= 0 && idxV < vm.vector.values.length) {
+      vm.vector.values[0].splice(idxV, 1);
+    }
+  }
+
+  function saveNewVector(newVector) {
+    newVector.dimension = newVector.values.length;
+    vm.userVectors.push(newVector);
+    $mdDialog.hide();
+    vm.vector = {
+      "name": "",
+      "values": [
+        [0]
+      ],
+      "dimension": 0
+    };
+  }
+
+  function getFunctions() {
+    $http.get('dashboard-e/functions.json').then((response) => {
+      vm.functions = response.data;
+    });
+  }
 
   function openDalog(ev, clickedFnction) {
     vm.currentFunction = clickedFnction;
@@ -175,15 +184,14 @@ function dashboardEController($http, $scope, $mdDialog) {
   }
 
   function openMatrixDialog(ev1) {
-   showPromptM(ev1);
+    showPromptM(ev1);
   }
 
   function openVectorDialog(ev2) {
-      console.log("heh");
-   showPromptV(ev2);
+    showPromptV(ev2);
   }
 
-  function showDetailView(bool, currentFunction){
+  function showDetailView(bool, currentFunction) {
     vm.functionDetailsView = bool;
     vm.currentFunction = currentFunction;
   }
@@ -213,7 +221,7 @@ function dashboardEController($http, $scope, $mdDialog) {
   }
 
   function showPromptV(ev2) {
-      console.log("cos");
+    console.log("cos");
     $mdDialog.show({
       controller: () => vm,
       controllerAs: 'vm',
