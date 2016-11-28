@@ -11,7 +11,7 @@ function dashboardEController($http, $scope, $mdDialog) {
       "name": "",
       "dimension": 2,
       "values": [[0,0],[0,0]]
-    }
+    };
 
   vm.addColumn = function() {
     vm.matrix.values.forEach(function(row) {
@@ -50,31 +50,41 @@ function dashboardEController($http, $scope, $mdDialog) {
 
 
 
-     vm.vector = [[0]];
+     vm.vector = {
+       "name": "",
+       "values": [1,0],
+       "dimension": 0
+     };
 
 
 
   vm.addRowV = function() {
-    var columnCountV = vm.vector[0].length;
+    var columnCountV = vm.vector.values[0].length;
     var newRowV = [];
     for (var j = 0; j < columnCountV; j++) {
-      newRowV.push(0);
+      newRowV.values.push(0);
     }
-    vm.vector.push(newRowV);
+    vm.vector.values.push(newRowV);
   };
 
   vm.deleteRowV = function(idxV) {
-    if (idxV >= 0 && idxV < vm.vector.length) {
-      vm.vector.splice(idxV, 1);
+    if (idxV >= 0 && idxV < vm.vector.values.length) {
+      vm.vector.values.splice(idxV, 1);
     }
   };
 
   vm.deleteColumnV = function(idxV) {
-    if (idxV >= 0 && idxV < vm.vector[0].length) {
-      vm.vector.forEach(function(rowV) {
+    if (idxV >= 0 && idxV < vm.vector.values[0].length) {
+      vm.vector.values.forEach(function(rowV) {
         rowV.splice(idxV, 1);
       });
     }
+  };
+
+  vm.saveNewVector = function(newVector){
+    newVector.dimension = newVector.values.length;
+    vm.userVectors.push(newVector);
+    $mdDialog.hide();
   };
 
 //    end vetor
@@ -170,7 +180,7 @@ function dashboardEController($http, $scope, $mdDialog) {
       fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
     });
 
-  };
+  }
 
   function showPromptM(ev1) {
     $mdDialog.show({
@@ -182,7 +192,7 @@ function dashboardEController($http, $scope, $mdDialog) {
       fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
     });
 
-  };
+  }
 
   function showPromptV(ev2) {
       console.log("cos");
@@ -195,5 +205,5 @@ function dashboardEController($http, $scope, $mdDialog) {
       fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
     });
 
-  };
+  }
 }
