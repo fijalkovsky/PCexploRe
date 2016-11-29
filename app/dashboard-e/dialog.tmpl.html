@@ -24,9 +24,6 @@
                 <label>Matrix</label>
                 <md-select ng-model="arg.name">
                   <md-option ng-repeat="matrix in vm.userMatrices" value="{{matrix.name}}">{{matrix.name}}
-                    <md-tooltip>
-                      {{arg.values}}
-                    </md-tooltip>
                   </md-option>
                 </md-select>
               </md-input-container>
@@ -34,16 +31,14 @@
             </br>
               <!-- {{vm.currentFunction}} -->
             </div>
-
+  
             <div ng-if="arg.type === 'vector'">
             {{arg.constantName}} =
               <md-input-container>
                 <label>Vetor</label>
                 <md-select ng-model="arg.name">
                   <md-option ng-repeat="vector in vm.userVectors" value="{{vector.name}}">{{vector.name}}
-                    <md-tooltip>
-                      {{arg.values}}
-                    </md-tooltip></md-option>
+                  </md-option>
                 </md-select>
               </md-input-container>
               {{arg.desc}}

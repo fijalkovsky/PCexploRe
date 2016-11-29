@@ -46,7 +46,7 @@
         </div>
       </md-toolbar>
 
-      <md-content flex="" layout-padding="" style="min-height:400px">
+      <md-content ng-if="vm.currentFunction.result" flex="" layout-padding="" style="min-height:400px">
         <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': '&#x326;&nbsp;'; }}</span>) = {{vm.currentFunction.result}}</h2>
 
           <!-- {{vm.currentFunction.params}} -->
