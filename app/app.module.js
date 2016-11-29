@@ -8,5 +8,7 @@ angular.module('my.app', [
   'ngAnimate',
   'ngAria',
   'dashboard-e',
-    'welcome'
+    'welcome',
+    'login',
+    'signup'
 ]);
