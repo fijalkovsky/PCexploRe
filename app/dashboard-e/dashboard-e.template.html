@@ -20,7 +20,7 @@
       <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
         <div class="md-list-item-text">
           <h4>{{matrix.name}}</h4>
-          <p>Dimenssion: {{matrix.dimension}}</p>
+          <p>Dimenssion: {{matrix.values.length}}x{{matrix.values[0].length}}</p>
         </div>
       </md-list-item>
       <br>
@@ -29,7 +29,7 @@
       <md-list-item class="md-2-line" ng-repeat="vector in vm.userVectors">
         <div class="md-list-item-text">
           <h4>{{vector.name}}</h4>
-          <p>Dimenssion: {{vector.dimension}}</p>
+          <p>Length: {{vector.values.length}}</p>
         </div>
       </md-list-item>
 
@@ -52,7 +52,7 @@
         <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': '&#x326;&nbsp;'; }}</span>) = {{vm.currentFunction.result}}</h2>
 
           <!-- {{vm.currentFunction.params}} -->
-
+        </br></br>
         <h5>ARGUMENTS</h5>
 
           <div class="matrixLook" ng-repeat="matrix in vm.currentFunction.params" >

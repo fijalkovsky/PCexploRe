@@ -18,7 +18,6 @@
           <input ng-model="vm.vector.name" type="text">
         </md-input-container>
 
-
         <table>
           <tbody>
             <tr>
@@ -29,15 +28,15 @@
                 </md-button>
               </th>
             </tr>
-            <tr ng-repeat="rowV in vm.vector.values">
+            <tr ng-repeat="rowV in vm.vector.values track by $index">
               <th>
                 <md-button class="md-raised" ng-disabled="vm.vector.values.length <= 1" ng-click="vm.deleteRowV($index)">
                   X row{{$index}}
                 </md-button>
               </th>
-              <td ng-repeat="column in rowV track by $index">
+              <td>
                 <div class="mat">
-                  <input type="number" ng-model="rowV[$index]" placeholder="0">
+                  <input type="number" ng-model="vm.vector.values[$index]" placeholder="0">
                 </div>
               </td>
             </tr>

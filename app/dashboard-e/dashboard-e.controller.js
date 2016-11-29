@@ -187,17 +187,12 @@ function runCurrentFunction(){
   }
 
   function addRowV() {
-    var columnCountV = vm.vector.values[0].length;
-    var newRowV = [];
-    for (var j = 0; j < columnCountV; j++) {
-      newRowV.push(0);
-    }
-    vm.vector.values.push(newRowV);
+    vm.vector.values.push(0);
   }
 
   function deleteRowV(idxV) {
     if (idxV >= 0 && idxV < vm.vector.values.length) {
-      vm.vector.values[0].splice(idxV, 1);
+      vm.vector.values.splice(idxV, 1);
     }
   }
 
