@@ -47,26 +47,34 @@
       </md-toolbar>
 
       <md-content flex="" layout-padding="" style="min-height:400px">
+        <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': '&#x326;&nbsp;'; }}</span>) = {{result}}</h2>
 
-        <h2 class="napisDia">{{vm.currentFunction.name}}</h2>
-          {{vm.currentFunction.params}}
-          <div class="matrixLook" ng-repeat="matrix in vm.currentFunction.params">
+          <!-- {{vm.currentFunction.params}} -->
 
-            <br>
+        <h5>ARGUMENTS</h5>
+
+          <div class="matrixLook" ng-repeat="matrix in vm.currentFunction.params" >
+            <h2 class="napisDia"><span>{{matrix.type}}</span></h2>
+
+            <div ng-if="matrix.type === 'matrix'">
             <div id="grid" ng-repeat="row in matrix.values track by $index">
               <div class="myrow">
                 <div class="cell" ng-repeat="cell in row">{{cell}}</div>
-
               </div>
-
-
               <!-- tutaj: {{n}} -->
               <!-- <li ng-repeat="x in n">{{x}}</li> -->
             </div>
           </div>
 
-          <p> Wynik: {{vm.currentFunction.result}}</p>
+          <div ng-if="matrix.type === 'vector'">
+            <div id="grid" ng-repeat="row in matrix.values track by $index">
+              <div class="myrow">
+                <div class="cell">{{row}}</div>
+              </div>
+            </div>
+        </div>
 
+        </div>
       </md-content>
 
     </div>
