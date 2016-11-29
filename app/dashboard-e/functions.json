@@ -5,7 +5,7 @@
       "description": "Returns the largest principal eigenvalue of matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -20,7 +20,7 @@
       "description": "A symbolic version of function principalEigenValue",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -35,7 +35,7 @@
       "description": "Returns the eigenvector of matrix corresponding to itd principal eigenvalue",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -50,7 +50,7 @@
       "description": "A symbolic version of function principalEigenVector",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -65,7 +65,7 @@
       "description": "Returns the value of the Saaty Inconsistency Index computed for the matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -80,7 +80,7 @@
       "description": "A symbolic version of function saatyIdxSym",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -95,7 +95,7 @@
       "description": "Returns the principal eigen vector of matrix rescaled in a way that the sum of its entries is 1",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -110,7 +110,7 @@
       "description": "   A symbolic version of function eigenValueRank",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -125,7 +125,7 @@
       "description": " Computes milticriteria ranking using eigenvalue based method using criteria matrix and alternatives matrixes. This is basic three levels AHP.",
       "params": [
         {
-          "name": "M",
+          "constantName": "M",
           "desc": "Main matrix",
           "type": "matrix",
           "values": []
@@ -140,7 +140,7 @@
       "description": " Returns rank list given as geometric means of rows of the matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -155,7 +155,7 @@
       "description": "Returns rank list given as geometric means of rows of the matrix rescaled in way that the sum of its entries is 1",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -170,19 +170,19 @@
       "description": "Returns [r,c] element of matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "row",
+          "constantName": "row",
           "desc": "number of row",
           "type": "int",
           "values": 0
         },
         {
-          "name": "column",
+          "constantName": "column",
           "desc": "number of column",
           "type": "int",
           "values": 0
@@ -197,7 +197,7 @@
       "description": " Recreates recipropal matrix of the basis of upper-triagle of matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -212,13 +212,13 @@
       "description": " Delete rows from matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "list",
+          "constantName": "list",
           "desc": "indices of rows which need to be deleted",
           "type": "vector",
           "values": []
@@ -233,13 +233,13 @@
       "description": " Delete columns from matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "list",
+          "constantName": "list",
           "desc": "indices of columns which need to be deleted",
           "type": "vector",
           "values": []
@@ -254,13 +254,13 @@
       "description": " Delete columns and rows from matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "list",
+          "constantName": "list",
           "desc": "indices of rows and columns which need to be deleted",
           "type": "vector",
           "values": []
@@ -275,13 +275,13 @@
       "description": " Sets diagonal of matrix to specifed value",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "valueToSet",
+          "constantName": "valueToSet",
           "desc": "value which need to be set on the diagonal",
           "type": "double",
           "values": 0
@@ -296,13 +296,13 @@
       "description": " HRE matrix together with HRE constant term vector forms the linear equation system Au=b",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -317,13 +317,13 @@
       "description": " HRE constant term vector together with HRE matrix forms the linear equation system Au=b",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -338,13 +338,13 @@
       "description": "Counts values for the unknown alternatives",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -359,13 +359,13 @@
       "description": " Counts values for the unknown alternatives and add their to known alternatives",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -380,13 +380,13 @@
       "description": " Counts the rescaled HRE full rank list. Rescaled in the entries sum up to 1",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -401,13 +401,13 @@
       "description": " HRE matrix together with HRE constant term vector forms the linear equation system Au=b",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -422,13 +422,13 @@
       "description": " HRE constant term vector together with HRE matrix forms the linear equation system Au=b",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -443,13 +443,13 @@
       "description": " Counts values for the unknown alternatives befor they are raised by the power 10",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -464,13 +464,13 @@
       "description": " Counts values for the unknown alternatives using HRE geometric method",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -485,13 +485,13 @@
       "description": " Counts values for the unknown alternatives and add their to known alternatives",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -506,13 +506,13 @@
       "description": " Counts the rescaled HRE full rank list. Rescaled in the entries sum up to 1",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -527,7 +527,7 @@
       "description": "Returns the Koczkodaj triad inconsistency",
       "params": [
         {
-          "name": "triad",
+          "constantName": "triad",
           "desc": "vector of 3 elements",
           "type": "vector",
           "values": []
@@ -542,7 +542,7 @@
       "description": " Counts the worst triad in matrix according to Koczkodaj inconsistency criterion",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -557,13 +557,13 @@
       "description": "Counts the worst triads in matrix according to Koczkodaj inconsistency criterion",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "numberOfTriads",
+          "constantName": "numberOfTriads",
           "desc": "number of triads to return",
           "type": "int",
           "values": 0
@@ -578,7 +578,7 @@
       "description": " Counts the value of Koczkodaj inconsistency for the matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -593,7 +593,7 @@
       "description": " Counts the closest consistenr triad",
       "params": [
       {
-          "name": "triad",
+          "constantName": "triad",
           "desc": "vector of three values",
           "type": "vector",
           "values": []
@@ -608,7 +608,7 @@
       "description": " Counts improved (more consistent) matrix in which the most inconsistent triad is replaced by tje closest consistent one",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -623,7 +623,7 @@
       "description": "Computes aggregation matrix/vector whose elements are aritmethic means of elements from input matrices/vectors (whose need to be the same dimension)",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -638,7 +638,7 @@
       "description": " Computes aggregation matrix/vector whose elements are aritmethic means",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -653,13 +653,13 @@
       "description": " Counts number of zeros elements in given row in matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "row",
+          "constantName": "row",
           "desc": "number of row which will be checked",
           "type": "int",
           "values": 0
@@ -674,7 +674,7 @@
       "description": "Computes harker matrix A for a given incomplete PC matrix. Then matrix A is ready to use in eigenvalue based method. Empty and incorrect values are replaced by 0 and diagonal values are replaced by 1.",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
@@ -689,13 +689,13 @@
       "description": "Computes discrepancy for each element of matrix and create matrix containing entries in form e_ij = m_ji*(mju_i/mju_j). When the M matrix is consistent every r_ij equals 1.",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []
@@ -710,13 +710,13 @@
       "description": " Compute matrix with entries d_ij = max{e_ij-1, 1/e_ij-1}",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []
@@ -731,13 +731,13 @@
       "description": " Finds maximal entry of local discrepancy matrix",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []
@@ -752,13 +752,13 @@
       "description": "Counts the list of indices that violate the first Condition of Order Preservation postulate (formulated by Bana e Costa and Vansnick)",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []
@@ -773,13 +773,13 @@
       "description": " checks if the first Condition of Order Preservation  is fulfilled",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []
@@ -794,13 +794,13 @@
       "description": "counts the list of indices that violate the second Condition of Order Preservation postulate (formulated by Bana e Costa and Vansnick)",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []
@@ -815,13 +815,13 @@
       "description": " checks if the second Condition of Order Preservation  is fulfilled",
       "params": [
         {
-          "name": "matrix",
+          "constantName": "matrix",
           "desc": "PC matrix",
           "type": "matrix",
           "values": []
         },
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []
@@ -836,13 +836,13 @@
       "description": " Computes Kendall (bubble sort) distance between two rank vectors",
       "params": [
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "first rank to compare",
           "type": "vector",
           "values": []
         },
         {
-          "name": "vectorB",
+          "constantName": "vectorB",
           "desc": "second rank to compare",
           "type": "vector",
           "values": []
@@ -857,13 +857,13 @@
       "description": " Computes Kendall (bubble sort) distance between two rank vectors and divited it by numbers of all possible pairs",
       "params": [
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "first rank to compare",
           "type": "vector",
           "values": []
         },
         {
-          "name": "vectorB",
+          "constantName": "vectorB",
           "desc": "second rank to compare",
           "type": "vector",
           "values": []
@@ -878,7 +878,7 @@
       "description": " Creates consistent PC matrix from the rank vector V so that m_ij = v[i]/v[j]",
       "params": [
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []
@@ -893,7 +893,7 @@
       "description": " Sorts elements of rank",
       "params": [
         {
-          "name": "vector",
+          "constantName": "vector",
           "desc": "ranking of matrix",
           "type": "vector",
           "values": []

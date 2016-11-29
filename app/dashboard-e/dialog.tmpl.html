@@ -19,7 +19,7 @@
           <div class="md-list-item-text">
 
             <div ng-if="arg.type === 'matrix'" >
-              {{arg.name}} =
+              {{arg.constantName}} =
               <md-input-container>
                 <label>Matrix</label>
                 <md-select ng-model="arg.name">
@@ -36,7 +36,7 @@
             </div>
 
             <div ng-if="arg.type === 'vector'">
-            {{arg.name}} =
+            {{arg.constantName}} =
               <md-input-container>
                 <label>Vetor</label>
                 <md-select ng-model="arg.name">
@@ -50,7 +50,7 @@
             </div>
 
             <div ng-if="arg.type === 'int'" >
-              {{arg.name}} =
+              {{arg.constantName}} =
                <md-input-container>
                 <label>Value</label>
                 <input ng-model="arg.values" type="number" min="0">
@@ -59,7 +59,7 @@
             </div>
 
             <div ng-if="arg.type === 'double'" >
-              {{arg.name}} = <md-input-container>
+              {{arg.constantName}} = <md-input-container>
                 <label>Value</label>
                 <input ng-model="arg.values" type="number">
               </md-input-container>

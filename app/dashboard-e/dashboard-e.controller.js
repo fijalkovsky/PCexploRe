@@ -5,19 +5,23 @@ module('dashboard-e')
 function functionsService($http) {
 
 
-  this.runFunction = function(name, args) {
+  this.runFunction = function(currentFunction) {
+    console.log(currentFunction);
+    var args = currentFunction.params;
     var params = {};
-    params.name = name;
+    params.name = currentFunction.name;
     args.forEach(function(arg) {
-      params[arg.name] = arg.values;
+      params[arg.constantName] = arg.values;
     });
+    console.log(params);
     $http({
-      url: '127.0.0.1:8080/function',
+      url: 'http://127.0.0.1:8080/function',
       method: 'POST',
       data: params
     }).then(function success(resp) {
       console.log('success');
       console.log(resp);
+      currentFunction.result = resp.data;
     }, function error(resp) {
       console.log('error');
       console.log(resp);
@@ -45,6 +49,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   };
 
   vm.userMatrices = [{
+    "constantName": "matrix",
+    "type": "matrix",
     "name": "mDwa",
     "dimension": "2",
     "values": [
@@ -52,6 +58,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
       [0.4, 1]
     ]
   }, {
+    "constantName": "matrix",
+    "type": "matrix",
     "name": "mTrzy",
     "dimension": "3",
     "values": [
@@ -60,6 +68,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
       [0.2, 0.1, 1]
     ]
   }, {
+    "constantName": "matrix",
+    "type": "matrix",
     "name": "mDwadwa",
     "dimension": "2",
     "values": [
@@ -67,6 +77,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
       [0.4, 1]
     ]
   }, {
+    "constantName": "matrix",
+    "type": "matrix",
     "name": "mTrzytrzy",
     "dimension": "3",
     "values": [
@@ -77,6 +89,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   }];
 
   vm.userVectors = [{
+    "constantName": "vector",
+    "type": "vector",
     "name": "vectorDwa",
     "values": [0.4, 0.6],
     "dimension": "2"
@@ -87,6 +101,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   }];
 
   vm.matrix = {
+    "constantName": "vector",
+    "type": "vector",
     "name": "",
     "dimension": 2,
     "values": [
@@ -96,6 +112,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   };
 
   vm.vector = {
+    "constantName": "vector",
+    "type": "vector",
     "name": "",
     "values": [0],
     "dimension": 0
@@ -147,7 +165,7 @@ function runCurrentFunction(){
       });
     }
   });
-FunctionsService.runFunction(vm.currentFunction.name, vm.currentFunction.params);
+ FunctionsService.runFunction( vm.currentFunction);
   cancel();
 }
 
@@ -190,6 +208,8 @@ FunctionsService.runFunction(vm.currentFunction.name, vm.currentFunction.params)
     vm.userMatrices.push(newMatrix);
     $mdDialog.hide();
     vm.matrix = {
+      "constantName": "matrix",
+      "type": "matrix",
       "name": "",
       "dimension": 2,
       "values": [
@@ -219,6 +239,8 @@ FunctionsService.runFunction(vm.currentFunction.name, vm.currentFunction.params)
     vm.userVectors.push(newVector);
     $mdDialog.hide();
     vm.vector = {
+      "constantName": "vector",
+      "type": "vector",
       "name": "",
       "values":   [0],
       "dimension": 0
