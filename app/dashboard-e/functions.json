@@ -281,7 +281,7 @@
           "values": []
         },
         {
-          "name": "value",
+          "name": "valueToSet",
           "desc": "value which need to be set on the diagonal",
           "type": "double",
           "values": 0
@@ -302,7 +302,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -323,7 +323,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -344,7 +344,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -365,7 +365,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -386,7 +386,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -407,7 +407,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -428,7 +428,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -449,7 +449,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -470,7 +470,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -491,7 +491,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -512,7 +512,7 @@
           "values": []
         },
         {
-          "name": "knownVector",
+          "name": "vector",
           "desc": "vector of known alternatives and others are marked by value 0",
           "type": "double",
           "values": 0
@@ -563,7 +563,7 @@
           "values": []
         },
         {
-          "name": "n",
+          "name": "numberOfTriads",
           "desc": "number of triads to return",
           "type": "int",
           "values": 0
