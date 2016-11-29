@@ -1,38 +1,45 @@
 <div class="dash" layout="row" class="icondemoFontIconsWithLigatures" ng-cloak>
 
   <div flex="20" layout="column" class="boxWithHeight" layout-padding>
-    <section flex>
+    <section flex="25">
       <h3>Creator</h3>
-      <div class="displayList">
-        <ul>
-          <li>
-            <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">
-              <h5>CREATE MATRIX</h5></md-button>
-          </li>
-          <li>
-            <md-button class="md-raised" ng-click="vm.openVectorDialog($event)">
-              <h5>CREATE VECTOR</h5></md-button>
-          </li>
-        </ul>
+      <div layout="row" layout-align="space-between center" class="displayList">
+        <div>
+
+        <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">
+          <h5>MATRIX</h5>
+        </md-button>
       </div>
+        <div>
+
+        <md-button class="md-raised" ng-click="vm.openVectorDialog($event)">
+          <h5>VECTOR</h5>
+        </md-button>
+      </div>
+
+      </div>
+    </section>
+    <section flex>
 
       <md-subheader class="md-no-sticky">Matrices</md-subheader>
       <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
         <div class="md-list-item-text">
           <h4>{{matrix.name}}</h4>
-          <p>Dimenssion: {{matrix.values.length}}x{{matrix.values[0].length}}</p>
+          <p>Dimenssion:
+            {{matrix.values.length}}x{{matrix.values[0].length}}</p>
         </div>
       </md-list-item>
       <br>
+      <md-divider></md-divider>
 
       <md-subheader class="md-no-sticky">Vectors</md-subheader>
       <md-list-item class="md-2-line" ng-repeat="vector in vm.userVectors">
         <div class="md-list-item-text">
           <h4>{{vector.name}}</h4>
-          <p>Length: {{vector.values.length}}</p>
+          <p>Length:
+            {{vector.values.length}}</p>
         </div>
       </md-list-item>
-
 
     </section>
 
@@ -46,18 +53,21 @@
         </div>
       </md-toolbar>
 
+      <!-- ng-if="vm.currentFunction.result" -->
+      <md-content flex="" layout-padding="" style="min-height:400px">
+        <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': '&#x326;&nbsp;'; }}</span>) =
+          {{vm.currentFunction.result}}</h2>
 
-<!-- ng-if="vm.currentFunction.result" -->
-      <md-content  flex="" layout-padding="" style="min-height:400px">
-        <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': '&#x326;&nbsp;'; }}</span>) = {{vm.currentFunction.result}}</h2>
+        <!-- {{vm.currentFunction.params}} -->
+      </br>
+    </br>
+    <h5>ARGUMENTS</h5>
 
-          <!-- {{vm.currentFunction.params}} -->
-        </br></br>
-        <h5>ARGUMENTS</h5>
-
-          <div class="matrixLook" ng-repeat="matrix in vm.currentFunction.params" >
-            <h2 class="napisDia"><span>{{matrix.type}}</span></h2>
-<!--
+    <div class="matrixLook" ng-repeat="matrix in vm.currentFunction.params">
+      <h2 class="napisDia">
+        <span>{{matrix.type}}</span>
+      </h2>
+      <!--
             <div ng-if="matrix.type === 'matrix'">
             <div id="grid" ng-repeat="row in matrix.values track by $index">
               <div class="myrow">
@@ -67,110 +77,127 @@
             </div>
           </div> -->
 
+      <div ng-if="matrix.type === 'matrix'">
+        <div align=center>
+          <table class="matrix">
+            <tr ng-repeat="row in matrix.values track by $index">
+              <td ng-repeat="cell in row">{{cell}}</td>
 
-<div ng-if="matrix.type === 'matrix'">
-          <div align=center >
-              <table class="matrix" >
-                  <tr ng-repeat="row in matrix.values track by $index">
-                      <td ng-repeat="cell in row">{{cell}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
-                  </tr>
-              </table>
-          </div>
-</div>
-
-
-          <div ng-if="matrix.type === 'vector'">
-            <!-- <div id="grid" ng-repeat="row in matrix.values track by $index">
+      <div ng-if="matrix.type === 'vector'">
+        <!-- <div id="grid" ng-repeat="row in matrix.values track by $index">
               <div class="myrow">
                 <div class="cell">{{row}}</div>
               </div>
             </div> -->
-            <div align=center>
-                <table class="matrix" >
-                    <tr ng-repeat="row in matrix.values track by $index">
-                        <td>{{row}}</td>
+        <div align=center>
+          <table class="matrix">
+            <tr ng-repeat="row in matrix.values track by $index">
+              <td>{{row}}</td>
 
-                    </tr>
-                </table>
-            </div>
+            </tr>
+          </table>
         </div>
-
-        </div>
-      </md-content>
-
-    </div>
-  </div>
-
-  <div flex="30" layout="column" class="boxWithHeight" layout-padding>
-    <section flex ng-if="!vm.functionDetailsView">
-      <h3>functions</h3>
-
-      <div class="displaySearcher">
-        <input type="search" ng-model="vm.query" />
       </div>
 
-      <md-content>
-        <md-list flex>
-          <md-list-item class="md-3-line" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
-            <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
-            <div flex layout="row" layout-align="space-between center">
-              <div flex="75">
-                <md-button ng-click="vm.openDalog($event, fun)" flex="90">
-                  <div class="md-list-item-text" layout="column">
-                    <h4>{{fun.name}}</h4>
+    </div>
+  </md-content>
 
-                  </div>
-                </md-button>
-                <p>{{fun.title}}</p>
-              </div>
-              <div style="min-width:50px">
-                <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px">
-                  <h5>details</h5>
-                </md-button>
-              </div>
-            </div>
-            <md-divider/>
+</div>
+</div>
 
-          </md-list-item>
-          <md-divider></md-divider>
-        </md-list>
-      </md-content>
-    </section>
+<div flex="30" layout="column" class="boxWithHeight" layout-padding>
+<section flex="25" ng-if="!vm.functionDetailsView">
+  <h3>functions</h3>
 
+  <div class="displaySearcher">
+    <input type="search" ng-model="vm.query"/>
+  </div>
+</section>
+<section flex ng-if="!vm.functionDetailsView">
 
-    <section flex ng-if="vm.functionDetailsView">
-
-      <md-button class="md-raised" ng-click="vm.showDetailView(false, {})">
-        back
-      </md-button>
-      <h3>{{vm.currentFunction.name}}</h3>
-      <div class="md-list-item-text">
-        <p style="font-size: x-large;">{{vm.currentFunction.title}}</p>
-        <p style="font-size: larger;">description: {{vm.currentFunction.description}}</p>
-        <p>return: {{vm.currentFunction.return}}</p>
-
-        <md-content>
-          <md-list flex>
-            <md-list-item class="md-3-line" ng-repeat="arg in vm.currentFunction.params">
-              <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
-              <div class="md-list-item-text">
-                <h4>name: {{arg.name}}</h4>
-                <p>desc: {{arg.desc}}</p>
-                <p>type: {{arg.type}}</p>
+  <md-content>
+    <md-list flex>
+      <md-list-item class="md-3-line" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
+        <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
+        <div flex layout="row" layout-align="space-between center">
+          <div flex="75">
+            <md-button ng-click="vm.openDalog($event, fun)" flex="90">
+              <div class="md-list-item-text" layout="column">
+                <h4>{{fun.name}}</h4>
 
               </div>
-              <!--
+            </md-button>
+            <p>{{fun.title}}</p>
+          </div>
+          <div style="min-width:50px">
+            <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px">
+              <h5>details</h5>
+            </md-button>
+          </div>
+        </div>
+        <md-divider/>
+
+      </md-list-item>
+      <md-divider></md-divider>
+    </md-list>
+  </md-content>
+</section>
+
+<section flex="25" ng-if="vm.functionDetailsView">
+  <div flex layout="row" layout-align="space-around center">
+    <h3>function</h3>
+
+  </div>
+
+  <h3>{{vm.currentFunction.name}}</h3>
+
+</section>
+
+<section flex ng-if="vm.functionDetailsView">
+
+  <!-- <md-button class="md-icon-button md-primary" aria-label="Settings">
+   <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+ </md-button> -->
+  <!-- <h3>{{vm.currentFunction.name}}</h3> -->
+  <div class="md-list-item-text">
+    <p style="font-size: x-large;">{{vm.currentFunction.title}}</p>
+    <p style="font-size: larger;">description:
+      {{vm.currentFunction.description}}</p>
+    <p>return:
+      {{vm.currentFunction.return}}</p>
+
+    <md-content>
+      <md-list flex>
+        <md-list-item class="md-3-line" ng-repeat="arg in vm.currentFunction.params">
+          <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
+          <div class="md-list-item-text">
+            <h4>name:
+              {{arg.constantName}}</h4>
+            <p>desc:
+              {{arg.desc}}</p>
+            <p>type:
+              {{arg.type}}</p>
+
+          </div>
+          <!--
             <div layout="row" align="start center" >
               <span >{{arg.name}}</span>
               <span>{{arg.desc}}</span>
               <span>{{arg.type}}</span>
             </div> -->
-            </md-list-item>
-          </md-list>
-        </md-content>
-      </div>
-    </section>
+        </md-list-item>
+      </md-list>
+    </md-content>
+    <md-button class="md-raised small-button" ng-click="vm.showDetailView(false, {})">
+      back
+    </md-button>
   </div>
+</section>
+</div>
 
 </div>

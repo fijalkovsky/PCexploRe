@@ -2,7 +2,6 @@ $icon-font-path: '../fonts/';
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-@import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 
 body {
@@ -32,6 +31,11 @@ body {
     background-repeat: no-repeat;
 
 
+}
+
+.small-button {
+    min-width: 90%;
+    max-width: 90%;
 }
 
 .welcomeText {
