@@ -88,10 +88,19 @@
     </div>
     <br><br>
 <md-divider></md-divider>
-<h2 class="napisDia">RESULT</h5>
+<h2 class="napisDia">RESULT</h2>
     <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) =
       {{vm.currentFunction.result}}</h2>
 
+    <h2 class="napisDia" ng-if="matrix.type === 'matrix'">{{vm.currentFunction.name}} = </h2>
+<!-- {{vm.currentFunction.result.values}} -->
+    <div align=center>
+      <table class="matrix">
+        <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
+          <td ng-repeat="cell in row">{{cell}}</td>
+        </tr>
+      </table>
+    </div>
   </md-content>
 
 </div>
