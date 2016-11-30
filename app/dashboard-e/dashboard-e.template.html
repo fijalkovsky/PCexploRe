@@ -25,7 +25,7 @@
       <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
         <div class="md-list-item-text">
           <h4 style="text-transform: none">{{matrix.name}}</h4>
-          <p>Dimenssion:
+          <p style="font-size:10px;">Dimenssion:
             {{matrix.values.length}}x{{matrix.values[0].length}}</p>
         </div>
       </md-list-item>
@@ -36,7 +36,7 @@
       <md-list-item class="md-2-line" ng-repeat="vector in vm.userVectors">
         <div class="md-list-item-text">
           <h4 style="text-transform: none">{{vector.name}}</h4>
-          <p>Length:
+          <p style="font-size:10px;">Length:
             {{vector.values.length}}</p>
         </div>
       </md-list-item>
@@ -52,6 +52,16 @@
           <h2 class="napis">PCexploRe</h2>
         </div>
       </md-toolbar>
+
+      <md-content class="powitanie" ng-if="!vm.currentFunction.result" flex="" layout-padding="">
+
+<ul>
+<li>Search functions </li>
+<li>Read about them</li>
+<li>Check your variables</li>
+
+</ul>
+      </modal-content>
 
 
   <md-content ng-if="vm.currentFunction.result" flex="" layout-padding="" style="min-height:400px; padding-top: 10px;">

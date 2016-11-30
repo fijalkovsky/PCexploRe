@@ -1,24 +1,18 @@
-// .header {
-//   height: 80px;
-//   width: 100%;
-//   background: red;
-// }
-//
-// .header li {
-//   display: inline;
-// }
-// .dropdown .md-button{
-//   display: inline;
-// }
-// .content {
-//   top: 80px;
-//   height: 100%;
-//   width: 100%;
-//
-//   background: white;
-// }
-//
+.powitanie {
+  min-height:400px; padding-top: 10px; background: none;
+  text-align: center;
+  margin-top: 60px;
+list-style: none;
+  text-shadow: 4px 4px 4px #aaa;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 45px;
+}
+.powitanie ul {
+  list-style:decimal;
+  padding-left: 90px;
+  margin: 0;
 
+}
 .male{
   height: 35px !important;
   font-family: 'Fjalla One', sans-serif;
