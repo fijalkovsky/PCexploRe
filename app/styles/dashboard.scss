@@ -20,14 +20,28 @@
 //
 
 .male{
-  height: 20px !important;
+  height: 35px !important;
   font-family: 'Fjalla One', sans-serif;
     font-size: 15px;
+
+}
+
+.smaller span {
+  font-size: 15px;
+  text-align: justify;
+}
+
+.he {
+  padding-top: 5px;
 }
 
 h2 {
   font-family: 'Fjalla One', sans-serif;
   font-size: 25px;
+
+}
+.przycisk {
+  padding: 0;
 
 }
 .przycisk h4 {

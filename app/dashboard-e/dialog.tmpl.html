@@ -19,6 +19,8 @@
           <div class="md-list-item-text">
 
             <div ng-if="arg.type === 'matrix'" >
+            <div layout="row" layout-align="center center">
+            <div>
               {{arg.constantName}} =
               <md-input-container>
                 <label>Matrix</label>
@@ -27,12 +29,19 @@
                   </md-option>
                 </md-select>
               </md-input-container>
-              {{arg.desc}}
-            </br>
+            </div>
+              <div>
+              <h2 class="napisDia smaller">
+                <span>{{arg.desc}}</span>
+              </h2>
+            </div>
+          </div>
               <!-- {{vm.currentFunction}} -->
             </div>
-  
+
             <div ng-if="arg.type === 'vector'">
+        <div layout="row" layout-align="center center">
+          <div>
             {{arg.constantName}} =
               <md-input-container>
                 <label>Vetor</label>
@@ -41,24 +50,47 @@
                   </md-option>
                 </md-select>
               </md-input-container>
-              {{arg.desc}}
+            </div>
+            <div>
+              <h2 class="napisDia smaller">
+                <span>{{arg.desc}}</span>
+              </h2>
+            </div>
+          </div>
             </div>
 
             <div ng-if="arg.type === 'int'" >
+
+          <div layout="row" layout-align="center center">
+            <div>
               {{arg.constantName}} =
                <md-input-container>
                 <label>Value</label>
                 <input ng-model="arg.values" type="number" min="0">
               </md-input-container>
-              {{arg.desc}}
+            </div>
+            <div>
+              <h2 class="napisDia smaller">
+                <span>{{arg.desc}}</span>
+              </h2>
+            </div>
+          </div>
             </div>
 
             <div ng-if="arg.type === 'double'" >
+        <div layout="row" layout-align="center center">
+          <div>
               {{arg.constantName}} = <md-input-container>
                 <label>Value</label>
                 <input ng-model="arg.values" type="number">
               </md-input-container>
-              {{arg.desc}}
+          </div>
+          <div>
+              <h2 class="napisDia smaller">
+                <span>{{arg.desc}}</span>
+              </h2>
+          </div>
+        </div>
             </div>
 
           </div>
