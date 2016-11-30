@@ -129,13 +129,13 @@
 
   <md-content>
     <md-list flex>
-      <md-list-item class="md-3-line" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
+      <md-list-item class="male" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
         <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
-        <div flex layout="row" layout-align="space-between center">
+        <div flex layout="row"  layout-align="space-between center">
           <div flex="75">
             <md-button ng-click="vm.openDalog($event, fun)" flex="90">
               <div class="md-list-item-text przycisk" layout="column">
-                <h4>{{fun.name}}</h4>
+                <h4 style="font-family: 'Fjalla One', sans-serif; font-size: 15px;">{{fun.name}}</h4>
               </div>
             </md-button>
             <!-- <p>{{fun.title}}</p> -->
@@ -187,7 +187,7 @@
       <md-list flex>
         <md-list-item class="md-3-line" ng-repeat="arg in vm.currentFunction.params">
           <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
-          <div class="md-list-item-text">
+          <div class="md-list-item-text" >
             <h4>name:
               {{arg.constantName}}</h4>
             <p>desc:
