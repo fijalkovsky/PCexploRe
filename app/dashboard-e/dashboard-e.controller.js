@@ -63,7 +63,7 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
     "dimension": "2"
   }, {
     "name": "vectorTrzy",
-    "values": [0, 2, 5],
+    "values": [0.2, 0.3, 0.5],
     "dimension": "3"
   }];
 

@@ -97,7 +97,7 @@
     <div align="center">
       <table class="matrix">
         <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
-          <td ng-repeat="cell in row">{{cell}}</td>
+          <td ng-repeat="cell in row track by $index">{{cell}}</td>
         </tr>
       </table>
     </div>
@@ -112,6 +112,7 @@
     </table>
   </div>
 </div>
+{{vm.currentFunction.result}}
   </md-content>
 
 </div>
