@@ -24,7 +24,7 @@
           <tr>
             <th></th>
             <th ng-repeat="column in vm.matrix.values[0] track by $index">
-              <md-button class="md-raised" ng-disabled="vm.matrix.values[0].length <= 1"
+              <md-button class="md-raised small"  ng-disabled="vm.matrix.values[0].length <= 1"
                       ng-click="vm.deleteColumn($index)">
                 X
               </md-button>
