@@ -55,7 +55,7 @@
 
       <!-- ng-if="vm.currentFunction.result" -->
       <md-content flex="" layout-padding="" style="min-height:400px">
-        <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': '&#x326;&nbsp;'; }}</span>) =
+        <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) =
           {{vm.currentFunction.result}}</h2>
 
         <!-- {{vm.currentFunction.params}} -->
@@ -129,14 +129,13 @@
             <md-button ng-click="vm.openDalog($event, fun)" flex="90">
               <div class="md-list-item-text" layout="column">
                 <h4>{{fun.name}}</h4>
-
               </div>
             </md-button>
-            <p>{{fun.title}}</p>
+            <!-- <p>{{fun.title}}</p> -->
           </div>
           <div style="min-width:50px">
             <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px">
-              <h5>details</h5>
+              details
             </md-button>
           </div>
         </div>
@@ -165,11 +164,17 @@
  </md-button> -->
   <!-- <h3>{{vm.currentFunction.name}}</h3> -->
   <div class="md-list-item-text">
-    <p style="font-size: x-large;">{{vm.currentFunction.title}}</p>
-    <p style="font-size: larger;">description:
-      {{vm.currentFunction.description}}</p>
-    <p>return:
-      {{vm.currentFunction.return}}</p>
+    <p style="font-size: x-large;" align="center">{{vm.currentFunction.title}}</p>
+    <div layout="row" flex>
+    <p style="min-width: 100px;">description:</p>
+    <p style="font-size: larger;">  {{vm.currentFunction.description}}</p>
+  </div>
+  <div layout="row" flex>
+  <p style="min-width: 100px;">return:</p>
+  <p style="font-size: larger;">  {{vm.currentFunction.return}}</p>
+</div>
+    <!-- <p>return:
+      {{vm.currentFunction.return}}</p> -->
 
     <md-content>
       <md-list flex>
