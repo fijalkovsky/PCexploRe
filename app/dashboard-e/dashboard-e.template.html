@@ -58,14 +58,14 @@
 
         <!-- {{vm.currentFunction.params}} -->
 
-    <h2 class="napisDia">ARGUMENTS</h5>
+    <h2 class="napisDia">ARGUMENTS</h2>
 
     <div class="matrixLook" ng-repeat="matrix in vm.currentFunction.params">
       <h2 class="napisDia">
         <span>{{matrix.type}}</span>
       </h2>
       <div ng-if="matrix.type === 'matrix'">
-        <div align=center>
+        <div align="center">
           <table class="matrix">
             <tr ng-repeat="row in matrix.values track by $index">
               <td ng-repeat="cell in row">{{cell}}</td>
@@ -76,7 +76,7 @@
       </div>
 
       <div ng-if="matrix.type === 'vector'">
-        <div align=center>
+        <div align="center">
           <table class="matrix">
             <tr ng-repeat="row in matrix.values track by $index">
               <td>{{row}}</td>
@@ -89,18 +89,29 @@
     <br><br>
 <md-divider></md-divider>
 <h2 class="napisDia">RESULT</h2>
-    <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) =
-      {{vm.currentFunction.result}}</h2>
+    <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.result">{{matrix.name}}{{ $last? '': ','; }}</span>) = </h2>
 
-    <h2 class="napisDia" ng-if="matrix.type === 'matrix'">{{vm.currentFunction.name}} = </h2>
-<!-- {{vm.currentFunction.result.values}} -->
-    <div align=center>
+      <h2 ng-if="matrix.type === 'double' || matrix.type === 'int'">{}{vm.currentFunction.result.values}}</h2>
+
+    <div class="napisDia" ng-if="matrix.type === 'matrix'">
+    <div align="center">
       <table class="matrix">
         <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
           <td ng-repeat="cell in row">{{cell}}</td>
         </tr>
       </table>
     </div>
+  </div>
+
+  <div class="napisDia" ng-if="matrix.type === 'vector'">
+  <div align="center">
+    <table class="matrix">
+      <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
+        <td ng-repeat="cell in row">{{cell}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
   </md-content>
 
 </div>
