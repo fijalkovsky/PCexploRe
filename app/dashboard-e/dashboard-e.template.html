@@ -66,7 +66,7 @@
             <div align="center">
               <table class="matrix">
                 <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
-                  <td ng-repeat="cell in row">{{cell}}</td>
+                  <td ng-repeat="cell in row track by $index">{{cell}}</td>
                 </tr>
               </table>
             </div>
@@ -93,7 +93,7 @@
         <div align="center">
           <table class="matrix">
             <tr ng-repeat="row in matrix.values track by $index">
-              <td ng-repeat="cell in row">{{cell}}</td>
+              <td ng-repeat="cell in row track by $index">{{cell}}</td>
 
             </tr>
           </table>
@@ -186,7 +186,7 @@
       <md-list flex>
         <md-list-item class="md-3-line" ng-repeat="arg in vm.currentFunction.params">
           <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
-          <div class="md-list-item-text" >
+          <div class="" >
             <h4>name:
               {{arg.constantName}}</h4>
             <p>desc:
