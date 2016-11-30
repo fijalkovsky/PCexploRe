@@ -18,6 +18,9 @@
 //   background: white;
 // }
 //
+.przycisk h4 {
+  text-transform: none;
+}
 .matrix {
     position: relative;
 }
@@ -85,7 +88,7 @@ section[flex=""] {
 .boxWithHeight {
     box-sizing: border-box;
     height: 100%;
-    overflow: none;
+    overflow: scroll;
     background: #DFDFDF;
 }
 h5 {
