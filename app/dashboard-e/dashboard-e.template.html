@@ -57,6 +57,31 @@
   <md-content flex="" layout-padding="" style="min-height:400px">
 
         <!-- {{vm.currentFunction.params}} -->
+        <h2 class="napisDia">RESULT</h2>
+            <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) = </h2>
+
+              <h2 align="center" ng-if="vm.currentFunction.result.type === 'double' || vm.currentFunction.result.type === 'int'">{{vm.currentFunction.result.values}}</h2>
+
+            <div class="napisDia" ng-if="vm.currentFunction.result.type === 'matrix'">
+            <div align="center">
+              <table class="matrix">
+                <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
+                  <td ng-repeat="cell in row">{{cell}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="napisDia" ng-if="vm.currentFunction.result.type === 'vector'">
+          <div align="center">
+            <table class="matrix">
+              <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
+                <td>{{row}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <md-divider></md-divider>
 
     <h2 class="napisDia">ARGUMENTS</h2>
 
@@ -86,33 +111,7 @@
       </div>
 
     </div>
-    <br><br>
-<md-divider></md-divider>
-<h2 class="napisDia">RESULT</h2>
-    <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) = </h2>
 
-      <h2 ng-if="vm.currentFunction.result.type === 'double' || vm.currentFunction.result.type === 'int'">{{vm.currentFunction.result.values}}</h2>
-
-    <div class="napisDia" ng-if="vm.currentFunction.result.type === 'matrix'">
-    <div align="center">
-      <table class="matrix">
-        <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
-          <td ng-repeat="cell in row track by $index">{{cell}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="napisDia" ng-if="vm.currentFunction.result.type === 'vector'">
-  <div align="center">
-    <table class="matrix">
-      <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
-        <td>{{row}}</td>
-      </tr>
-    </table>
-  </div>
-</div>
-{{vm.currentFunction.result}}
   </md-content>
 
 </div>
@@ -134,7 +133,7 @@
         <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
         <div flex layout="row"  layout-align="space-between center">
           <div flex="75">
-            <md-button ng-click="vm.openDalog($event, fun)" flex="90">
+            <md-button class="he" ng-click="vm.openDalog($event, fun)" flex="90">
               <div class="md-list-item-text przycisk" layout="column">
                 <h4 style="font-family: 'Fjalla One', sans-serif; font-size: 15px;">{{fun.name}}</h4>
               </div>
@@ -142,7 +141,7 @@
             <!-- <p>{{fun.title}}</p> -->
           </div>
           <div style="min-width:50px">
-            <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px">
+            <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px;margin-bottom:15px;margin-top:5px;font-size:14px;">
               details
             </md-button>
           </div>
