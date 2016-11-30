@@ -53,8 +53,8 @@
         </div>
       </md-toolbar>
 
-      <!-- ng-if="vm.currentFunction.result" -->
-  <md-content flex="" layout-padding="" style="min-height:400px">
+
+  <md-content ng-if="vm.currentFunction.result" flex="" layout-padding="" style="min-height:400px; padding-top: 10px;">
 
         <!-- {{vm.currentFunction.params}} -->
         <h2 class="napisDia">RESULT</h2>
@@ -149,7 +149,6 @@
         <md-divider/>
 
       </md-list-item>
-      <md-divider></md-divider>
     </md-list>
   </md-content>
 </section>

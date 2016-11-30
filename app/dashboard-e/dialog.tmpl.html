@@ -19,7 +19,7 @@
           <div class="md-list-item-text">
 
             <div ng-if="arg.type === 'matrix'" >
-            <div layout="row" layout-align="center center">
+            <div layout="row" layout-align="start center">
             <div>
               {{arg.constantName}} =
               <md-input-container>
@@ -40,7 +40,7 @@
             </div>
 
             <div ng-if="arg.type === 'vector'">
-        <div layout="row" layout-align="center center">
+        <div layout="row" layout-align="start center">
           <div>
             {{arg.constantName}} =
               <md-input-container>
@@ -61,7 +61,7 @@
 
             <div ng-if="arg.type === 'int'" >
 
-          <div layout="row" layout-align="center center">
+          <div layout="row" layout-align="start center">
             <div>
               {{arg.constantName}} =
                <md-input-container>
@@ -78,7 +78,7 @@
             </div>
 
             <div ng-if="arg.type === 'double'" >
-        <div layout="row" layout-align="center center">
+        <div layout="row" layout-align="start center">
           <div>
               {{arg.constantName}} = <md-input-container>
                 <label>Value</label>
