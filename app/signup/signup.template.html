@@ -13,9 +13,9 @@
         <p id="profile-name" class="profile-name-card loginLabel">SIGN UP</p>
         <form class="form-signin">
             <span id="reauth-email" class="reauth-email"></span>
-            <input type="nick" id="inputEmail" class="form-control" placeholder="Nickname" required autofocus>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+            <input type="nick" id="inputEmail" class="form-control" placeholder="Nickname" ng-model="vm.nickname" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="vm.password" required>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="vm.signup()">Sign up</button>
         </form><!-- /form -->
     </div><!-- /card-container -->
 </div><!-- /container -->

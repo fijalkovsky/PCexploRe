@@ -18,6 +18,13 @@
 //   background: white;
 // }
 //
+
+h2 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 25px;
+
+
+}
 .przycisk h4 {
   text-transform: none;
 }
@@ -92,7 +99,7 @@ section[flex=""] {
     background: #DFDFDF;
 }
 h5 {
-    font-size: 20px;
+    font-size: 25px;
     padding: 5px;
     font-family: 'Fjalla One', sans-serif;
 }
@@ -180,14 +187,17 @@ h3 {
     font-weight: lighter;
     padding-left: 10px;
     padding-right: 10px;
-    font-size: 30px;
+    font-size: 20px;
+    text-align: center;
+    
 
 
 }
 
+
 .napisDia span{
-  font-size: 25px;
   color: grey;
+  text-align: center;
 
 }
 

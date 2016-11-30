@@ -8,4 +8,18 @@ function signupEController($http,$scope) {
 
 
   console.log("signup");
+
+  vm.signup = signup;
+
+  function signup() {
+
+    var user = {
+      username: vm.username,
+      password: vm.password
+    };
+
+      //     $http.post('signup', user).success(function (){
+      //
+      // }
+    }
 }

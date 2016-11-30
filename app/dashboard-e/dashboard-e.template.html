@@ -54,29 +54,16 @@
       </md-toolbar>
 
       <!-- ng-if="vm.currentFunction.result" -->
-      <md-content flex="" layout-padding="" style="min-height:400px">
-        <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) =
-          {{vm.currentFunction.result}}</h2>
+  <md-content flex="" layout-padding="" style="min-height:400px">
 
         <!-- {{vm.currentFunction.params}} -->
-      </br>
-    </br>
-    <h5>ARGUMENTS</h5>
+
+    <h2 class="napisDia">ARGUMENTS</h5>
 
     <div class="matrixLook" ng-repeat="matrix in vm.currentFunction.params">
       <h2 class="napisDia">
         <span>{{matrix.type}}</span>
       </h2>
-      <!--
-            <div ng-if="matrix.type === 'matrix'">
-            <div id="grid" ng-repeat="row in matrix.values track by $index">
-              <div class="myrow">
-                <div class="cell" ng-repeat="cell in row">{{cell}}</div>
-              </div>
-
-            </div>
-          </div> -->
-
       <div ng-if="matrix.type === 'matrix'">
         <div align=center>
           <table class="matrix">
@@ -89,22 +76,22 @@
       </div>
 
       <div ng-if="matrix.type === 'vector'">
-        <!-- <div id="grid" ng-repeat="row in matrix.values track by $index">
-              <div class="myrow">
-                <div class="cell">{{row}}</div>
-              </div>
-            </div> -->
         <div align=center>
           <table class="matrix">
             <tr ng-repeat="row in matrix.values track by $index">
               <td>{{row}}</td>
-
             </tr>
           </table>
         </div>
       </div>
 
     </div>
+    <br><br>
+<md-divider></md-divider>
+<h2 class="napisDia">RESULT</h5>
+    <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) =
+      {{vm.currentFunction.result}}</h2>
+
   </md-content>
 
 </div>
