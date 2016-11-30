@@ -24,7 +24,7 @@
       <md-subheader class="md-no-sticky">Matrices</md-subheader>
       <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
         <div class="md-list-item-text">
-          <h4>{{matrix.name}}</h4>
+          <h4 style="text-transform: none">{{matrix.name}}</h4>
           <p>Dimenssion:
             {{matrix.values.length}}x{{matrix.values[0].length}}</p>
         </div>
@@ -35,7 +35,7 @@
       <md-subheader class="md-no-sticky">Vectors</md-subheader>
       <md-list-item class="md-2-line" ng-repeat="vector in vm.userVectors">
         <div class="md-list-item-text">
-          <h4>{{vector.name}}</h4>
+          <h4 style="text-transform: none">{{vector.name}}</h4>
           <p>Length:
             {{vector.values.length}}</p>
         </div>
