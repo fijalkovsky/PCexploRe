@@ -82,7 +82,7 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
     "constantName": "vector",
     "type": "vector",
     "name": "",
-    "values": [0],
+    "values": [0,0],
     "dimension": 0
   };
 
@@ -204,7 +204,7 @@ function runCurrentFunction(){
       "constantName": "vector",
       "type": "vector",
       "name": "",
-      "values":   [0],
+      "values":   [0,1],
       "dimension": 0
     };
   }
