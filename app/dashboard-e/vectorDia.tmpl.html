@@ -22,18 +22,16 @@
           <tbody>
             <tr>
               <th></th>
-              <th ng-repeat="column in vm.vector.values[0] track by $index">
-                <md-button class="md-raised" ng-disabled="vm.vector.values[0].length <= 1" ng-click="vm.deleteColumnV($index)">
-                  X col{{$index}}
-                </md-button>
-              </th>
+              <th ng-repeat="column in vm.vector.values[0] track by $index"></th>
             </tr>
             <tr ng-repeat="rowV in vm.vector.values track by $index">
               <th>
-                <md-button class="md-warn" ng-disabled="vm.matrix.values.length <= 1" ng-click="vm.deleteRowV($index)"><h5>-</h5></md-button>
+                <md-button class="md-warn" ng-disabled="vm.matrix.values.length <= 1" ng-click="vm.deleteRowV($index)">
+                  <h5>-</h5>
+                </md-button>
 
               </th>
-              <td style="background-color: #f5f5f5" >
+              <td style="background-color: #f5f5f5">
                 <div class="mat">
                   <input type="number" style="background-color: #f5f5f5;margin-right:10px; margin-left:10px" ng-model="vm.vector.values[$index]" placeholder="0">
                 </div>
@@ -42,9 +40,10 @@
           </tbody>
         </table>
 
-
         <div>
-<md-button md-no-ink class="md-primary" ng-click="vm.addRowV()"><h3>+</h3></md-button>
+          <md-button md-no-ink class="md-primary" ng-click="vm.addRowV()">
+            <h3>+</h3>
+          </md-button>
         </div>
       </div>
     </md-dialog-content>
