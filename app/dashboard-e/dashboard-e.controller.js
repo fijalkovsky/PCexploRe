@@ -10,6 +10,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   vm.przyklad = "Przykladowy napis";
   vm.functionDetailsView = false;
   vm.functions;
+  vm.matrixToShow = {};
+  vm.vectorToShow = {};
 
   vm.currentFunction = {
     "result": 0
@@ -145,15 +147,35 @@ function runCurrentFunction(){
   }
 
 
-  function seeMatrix(){
-
+  function seeMatrix(matrix){
+      vm.showMatrix = true;
+      vm.showVector = false;
+      vm.showFunction = false;
+      vm.matrixToShow = matrix;
   }
-  vm.deleteMatrix = deleteMatrix;
-  vm.seeVector = seeVector;
-  vm.deleteVector = deleteVector;
 
+  function deleteMatrix(matrix){
+      vm.showMatrix = true;
+      vm.showVector = false;
+      vm.showFunction = false;
+      vm.matrixToShow = matrix;
+  }
 
+  function seeVector(vector){
+      vm.showMatrix = true;
+      vm.showVector = false;
+      vm.showFunction = false;
+      vm.matrixToShow = matrix;
+  }
 
+  function deleteVector(vector){
+      vm.showMatrix = true;
+      vm.showVector = false;
+      vm.showFunction = false;
+      vm.matrixToShow = matrix;
+  }
+
+  
   function addColumn() {
     vm.matrix.values.forEach(function(row) {
       row.push(0);
