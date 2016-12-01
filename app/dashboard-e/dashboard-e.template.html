@@ -23,13 +23,22 @@
 
       <md-subheader class="md-no-sticky">Matrices</md-subheader>
       <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
-        <div class="md-list-item-text">
-          <h4 style="text-transform: none; font-size:15px;">{{matrix.name}}</h4>
-          <p style="font-size:10px;">Dimension:
-            {{matrix.values.length}}x{{matrix.values[0].length}}</p>
+        <div layout="row" layout-align="space-between center">
+
+          <div flex="60" class="md-list-item-text">
+            <h4 style="text-transform: none; font-size:15px;">{{matrix.name}}</h4>
+            <p style="font-size:10px;">Dimension:
+              {{matrix.values.length}}x{{matrix.values[0].length}}</p>
+          </div>
+          <div flex layout="row">
+            <button class="editVar" ng-click="vm.seeMatrix(matrix)">
+              <i class="material-icons">visibility</i>
+            </button>
+            <button class="editVar" ng-click="vm.deleteMatrix(matrix.name)">
+              <i class="material-icons">delete</i>
+            </button>
+          </div>
         </div>
-        <button class="editVar"  ng-click="vm.seeMatrix(matrix)"><i class="material-icons">visibility</i></button>
-        <button class="editVar" ng-click="vm.deleteMatrix(matrix.name)"><i class="material-icons">delete</i></button>
 
       </md-list-item>
       <br>
@@ -42,8 +51,12 @@
           <p style="font-size:10px;">Length:
             {{vector.values.length}}</p>
         </div>
-        <button class="editVar" ng-click="vm.seeVector(vector)"><i class="material-icons">visibility</i></button>
-        <button class="editVar" ng-click="vm.deleteVector(vector.name)"><i class="material-icons">delete</i></button>
+        <button class="editVar" ng-click="vm.seeVector(vector)">
+          <i class="material-icons">visibility</i>
+        </button>
+        <button class="editVar" ng-click="vm.deleteVector(vector.name)">
+          <i class="material-icons">delete</i>
+        </button>
 
       </md-list-item>
 
@@ -135,15 +148,17 @@
         <div>
           <h3>{{vm.matrixToShow.name}}</h3>
         </div>
-          <div class="napisDia">
-            <div align="center">
-              <table class="matrix">
-                <tr ng-repeat="row in vm.matrixToShow.values track by $index">
-                  <td ng-repeat="cell in row track by $index">{{cell}}</td>
-                </tr>
-              </table>
-            </div>
+        <div class="napisDia">
+          <div align="center">
+            <table class="matrix">
+              <tr ng-repeat="row in vm.matrixToShow.values track by $index">
+                <td ng-repeat="cell in row track by $index">{{cell}}</td>
+              </tr>
+            </table>
           </div>
+        </div>
+      </br>
+    </br>
       </md-content>
 
       <md-content ng-if="vm.showVector">
@@ -161,7 +176,8 @@
             </table>
           </div>
         </div>
-
+      </br>
+    </br>
       </md-content>
 
     </div>
