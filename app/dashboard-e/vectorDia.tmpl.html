@@ -30,13 +30,12 @@
             </tr>
             <tr ng-repeat="rowV in vm.vector.values track by $index">
               <th>
-                <md-button class="md-raised" ng-disabled="vm.vector.values.length <= 1" ng-click="vm.deleteRowV($index)">
-                  X row{{$index}}
-                </md-button>
+                <md-button class="md-warn" ng-disabled="vm.matrix.values.length <= 1" ng-click="vm.deleteRowV($index)"><h5>-</h5></md-button>
+
               </th>
               <td style="background-color: #f5f5f5" >
                 <div class="mat">
-                  <input type="number" style="background-color: #f5f5f5" ng-model="vm.vector.values[$index]" placeholder="0">
+                  <input type="number" style="background-color: #f5f5f5;margin-right:10px; margin-left:10px" ng-model="vm.vector.values[$index]" placeholder="0">
                 </div>
               </td>
             </tr>
@@ -45,7 +44,7 @@
         <md-divider></md-divider>
 
         <div>
-          <md-button class="md-raised" ng-click="vm.addRowV()">Add Row</md-button>
+<md-button md-no-ink class="md-primary" ng-click="vm.addRowV()"><h3>+</h3></md-button>
         </div>
       </div>
     </md-dialog-content>
