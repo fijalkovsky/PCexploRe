@@ -7,13 +7,13 @@
         <div>
 
           <md-button class="md-raised" ng-click="vm.openMatrixDialog($event)">
-            <h5>MATRIX</h5>
+            MATRIX
           </md-button>
         </div>
         <div>
 
           <md-button class="md-raised" ng-click="vm.openVectorDialog($event)">
-            <h5>VECTOR</h5>
+            VECTOR
           </md-button>
         </div>
 
@@ -21,7 +21,7 @@
     </section>
     <section flex>
 
-      <md-subheader class="md-no-sticky">Matrices</md-subheader>
+      <md-subheader class="md-no-sticky" style="font-size: 20px;">Matrices</md-subheader>
       <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
         <div layout="row" layout-align="space-between center">
 
@@ -44,7 +44,7 @@
       <br>
       <md-divider></md-divider>
 
-      <md-subheader class="md-no-sticky">Vectors</md-subheader>
+      <md-subheader class="md-no-sticky" style="font-size: 20px;">Vectors</md-subheader>
       <md-list-item class="md-2-line" ng-repeat="vector in vm.userVectors">
         <div class="md-list-item-text ">
           <h4 style="text-transform: none; font-size:15px;">{{vector.name}}</h4>
@@ -74,13 +74,16 @@
 
       <md-content class="powitanie" ng-if="!vm.showFunction && !vm.showVector && !vm.showMatrix" flex="" layout-padding="">
 
-        <ul>
-          <li>Search functions
-          </li>
-          <li>Read about them</li>
-          <li>Check your variables</li>
+          Search functions <br />
+          Read about them <br />
+          Check your variables <br />
+          <small>
+            just... <br/>
+          </small>
 
-        </ul>
+        <br/>
+          ExploRe PC
+
       </md-content>
 
       <md-content ng-if="vm.showFunction" flex="" layout-padding="" style="min-height:400px; padding-top: 10px;">
