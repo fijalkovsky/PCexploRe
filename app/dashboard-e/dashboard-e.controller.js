@@ -12,6 +12,9 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   vm.functions;
   vm.matrixToShow = {};
   vm.vectorToShow = {};
+  vm.showMatrix = false;
+  vm.showVector = false;
+  vm.showFunction = false;
 
   vm.currentFunction = {
     "result": 0
@@ -29,43 +32,41 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   }, {
     "constantName": "matrix",
     "type": "matrix",
-    "name": "mTrzy",
-    "dimension": "3",
+    "name": "exapmleMatrix",
+    "dimension": "5",
     "values": [
-      [1, 2, 4],
-      [0.4, 1, 6],
-      [0.2, 0.1, 1]
-    ]
-  }, {
-    "constantName": "matrix",
-    "type": "matrix",
-    "name": "mDwadwa",
-    "dimension": "2",
-    "values": [
-      [1, 3],
-      [0.4, 1]
-    ]
-  }, {
-    "constantName": "matrix",
-    "type": "matrix",
-    "name": "mTrzytrzy",
-    "dimension": "3",
-    "values": [
-      [1, 2, 3],
-      [0.4, 1, 6],
-      [0.2, 0.1, 1]
+      [1, 0.6, 0.57, 0.625, 0.5],
+      [1.67, 1, 0.714, 2.5, 3.33],
+      [1.75, 1.4, 1, 3.5, 4],
+      [1.6, 0.4, 0.28, 1, 1.33],
+      [2, 0.33, 0.25, 0.75, 1]
     ]
   }];
 
   vm.userVectors = [{
     "constantName": "vector",
     "type": "vector",
-    "name": "vectorDwa",
-    "values": [0.4, 0.6],
-    "dimension": "2"
+    "name": "mk",
+    "values": [0,5,7,0,0],
+    "dimension": "5"
   }, {
-    "name": "vectorTrzy",
-    "values": [0.2, 0.3, 0.5],
+    "constantName": "vector",
+    "type": "vector",
+    "name": "listToDelete",
+    "values": [1,2,3],
+    "dimension": "3"
+  },
+  {
+    "constantName": "vector",
+    "type": "vector",
+    "name": "triad",
+    "values": [0.8, 3, 0.12],
+    "dimension": "3"
+  },{
+    "constantName": "vector",
+    "type": "vector",
+    "name": "rank",
+    "values": [0.12, 0.30, 0.39, 0.08, 0.11],
     "dimension": "3"
   }];
 
@@ -84,7 +85,7 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
     "constantName": "vector",
     "type": "vector",
     "name": "",
-    "values": [0,0],
+    "values": [0, 0],
     "dimension": 0
   };
 
@@ -120,26 +121,28 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
 
   // ********************** FUNCTIONS BODY ********************** //
 
-function runCurrentFunction(){
-  vm.currentFunction.params.forEach(function(arg){
-    if(arg.type === "matrix"){
-      vm.userMatrices.forEach(function(userMatrix){
-        if(arg.name === userMatrix.name){
-          arg.values = userMatrix.values;
-        }
-      });
-    }
-    else if(arg.type === "vector"){
-      vm.userVectors.forEach(function(userVector){
-        if(arg.name === userVector.name){
-          arg.values = userVector.values;
-        }
-      });
-    }
-  });
- FunctionsService.runFunction( vm.currentFunction);
-  cancel();
-}
+  function runCurrentFunction() {
+    vm.showMatrix = false;
+    vm.showVector = false;
+    vm.showFunction = true;
+    vm.currentFunction.params.forEach(function(arg) {
+      if (arg.type === "matrix") {
+        vm.userMatrices.forEach(function(userMatrix) {
+          if (arg.name === userMatrix.name) {
+            arg.values = userMatrix.values;
+          }
+        });
+      } else if (arg.type === "vector") {
+        vm.userVectors.forEach(function(userVector) {
+          if (arg.name === userVector.name) {
+            arg.values = userVector.values;
+          }
+        });
+      }
+    });
+    FunctionsService.runFunction(vm.currentFunction);
+    cancel();
+  }
 
 
   function cancel() {
@@ -147,35 +150,37 @@ function runCurrentFunction(){
   }
 
 
-  function seeMatrix(matrix){
-      vm.showMatrix = true;
-      vm.showVector = false;
-      vm.showFunction = false;
-      vm.matrixToShow = matrix;
+  function seeMatrix(matrix) {
+    vm.showMatrix = true;
+    vm.showVector = false;
+    vm.showFunction = false;
+    vm.matrixToShow = matrix;
   }
 
-  function deleteMatrix(matrix){
-      vm.showMatrix = true;
-      vm.showVector = false;
-      vm.showFunction = false;
-      vm.matrixToShow = matrix;
+  function deleteMatrix(name) {
+    vm.userMatrices.forEach(function(item, index, object) {
+      if (item.name === name) {
+        object.splice(item, 1);
+      }
+    });
   }
 
-  function seeVector(vector){
-      vm.showMatrix = true;
-      vm.showVector = false;
-      vm.showFunction = false;
-      vm.matrixToShow = matrix;
+  function seeVector(vector) {
+    vm.showMatrix = false;
+    vm.showVector = true;
+    vm.showFunction = false;
+    vm.vectorToShow = vector;
   }
 
-  function deleteVector(vector){
-      vm.showMatrix = true;
-      vm.showVector = false;
-      vm.showFunction = false;
-      vm.matrixToShow = matrix;
+  function deleteVector(name) {
+    vm.userVectors.forEach(function(item, index, object) {
+      if (item.name === name) {
+        object.splice(item, 1);
+      }
+    });
   }
 
-  
+
   function addColumn() {
     vm.matrix.values.forEach(function(row) {
       row.push(0);
@@ -239,7 +244,7 @@ function runCurrentFunction(){
       "constantName": "vector",
       "type": "vector",
       "name": "",
-      "values":   [0,1],
+      "values": [0, 1],
       "dimension": 0
     };
   }
@@ -265,7 +270,7 @@ function runCurrentFunction(){
 
   function showDetailView(bool, currentFunction) {
     vm.functionDetailsView = bool;
-    vm.currentFunction = currentFunction;
+    // vm.currentFunction = currentFunction;
   }
 
   function showPrompt(ev) {
