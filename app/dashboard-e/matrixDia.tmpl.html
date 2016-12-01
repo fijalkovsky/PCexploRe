@@ -14,44 +14,53 @@
       <div class="md-dialog-content">
 
         <md-input-container>
-            <label>Matrix name</label>
-            <input ng-model="vm.matrix.name" type="text">
+          <label>Matrix name</label>
+          <input ng-model="vm.matrix.name" type="text">
         </md-input-container>
 
+        <div layout="row">
+          <div>
 
-        <table>
-        <tbody>
-          <tr>
-            <th></th>
-            <th ng-repeat="column in vm.matrix.values[0] track by $index">
-              <md-button class="md-raised "  ng-disabled="vm.matrix.values[0].length <= 1"
-                      ng-click="vm.deleteColumn($index)">
-                X
-              </md-button>
-            </th>
-          </tr>
-          <tr ng-repeat="row in vm.matrix.values track by $index">
-            <th>
-              <md-button class="md-raised" ng-disabled="vm.matrix.values.length <= 1"
-                      ng-click="vm.deleteRow($index)">
-                X
-              </md-button>
-            </th>
-            <td style="background-color: #f5f5f5" ng-repeat="column in row track by $index">
-                <div class="mat" >
-              <input style="background-color: #f5f5f5" type="number" ng-model="row[$index]" placeholder="0">
-                </div>
-            </td>
-          </tr>
-        </tbody>
-        </table>
-        <md-divider></md-divider>
+            <table>
+              <tbody>
+                <tr>
+                  <th></th>
+                  <th ng-repeat="column in vm.matrix.values[0] track by $index">
+                    <md-button class="md-warn" ng-disabled="vm.matrix.values.length[0] <= 1" ng-click="vm.deleteColumn($index)"><h5>-</h5></md-button>
 
+                    <!-- <md-button class="md-raised " ng-disabled="vm.matrix.values[0].length <= 1" ng-click="vm.deleteColumn($index)">
+                      X
+                    </md-button> -->
+                  </th>
+                </tr>
+                <tr ng-repeat="row in vm.matrix.values track by $index">
+                  <th>
+                    <md-button class="md-warn" ng-disabled="vm.matrix.values.length <= 1" ng-click="vm.deleteRow($index)"><h5>-</h5></md-button>
+                    <!-- <md-button class="md-raised" ng-disabled="vm.matrix.values.length <= 1" ng-click="vm.deleteRow($index)">
+                      X
+                    </md-button> -->
+                  </th>
+                  <td style="background-color: #f5f5f5" ng-repeat="column in row track by $index">
+                    <div class="mat">
+                      <input style="background-color: #f5f5f5" type="number" ng-model="row[$index]" placeholder="0">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <md-button md-no-ink class="md-primary" ng-click="vm.addColumn()"><h3>+</h3></md-button>
+          </div>
+        </div>
         <div>
-            <md-button class="md-raised" ng-click="vm.addRow()">Add Row</md-button>
-            <md-button class="md-raised" ng-click="vm.addColumn()">Add Column</md-button>
+          <md-button md-no-ink class="md-primary" ng-click="vm.addRow()"><h3>+</h3></md-button>
+
         </div>
-        </div>
+        <!-- <md-divider></md-divider> -->
+
+
+      </div>
     </md-dialog-content>
 
     <md-dialog-actions layout="row">
