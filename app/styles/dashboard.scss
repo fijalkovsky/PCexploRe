@@ -15,10 +15,7 @@ list-style: none;
 }
 
 
-.variables {
-  margin-top: 10px;
-  height: 30px;
-}
+
 .male{
   height: 35px !important;
   font-family: 'Fjalla One', sans-serif;
@@ -207,6 +204,18 @@ h3 {
 .napis {
     font-family: 'Fjalla One', sans-serif;
     font-weight: lighter;
+}
+.editVar{
+  background: none;
+  margin: 5px;
+  border: none;
+}
+.editVar:hover {
+  background: #dcdcdc;
+}
+.editVar i {
+  width: 10px;
+  height: 5px;
 }
 .napisDia {
     font-family: 'Fjalla One', sans-serif;

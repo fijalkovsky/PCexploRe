@@ -22,14 +22,14 @@
     <section flex>
 
       <md-subheader class="md-no-sticky">Matrices</md-subheader>
-      <md-list-item class="variables" ng-repeat="matrix in vm.userMatrices">
+      <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
         <div class="md-list-item-text">
           <h4 style="text-transform: none; font-size:15px;" >{{matrix.name}}</h4>
           <p style="font-size:10px;">Dimension:
             {{matrix.values.length}}x{{matrix.values[0].length}}</p>
         </div>
-        <button ng-click="vm.seeMatrix(matrix)">see</button>
-        <button ng-click="vm.deleteMatrix(matrix.name)">x</button>
+        <button class="editVar"  ng-click="vm.seeMatrix(matrix)"><i class="material-icons">visibility</i></button>
+        <button class="editVar" ng-click="vm.deleteMatrix(matrix.name)"><i class="material-icons">delete</i></button>
 
       </md-list-item>
       <br>
@@ -42,8 +42,9 @@
           <p style="font-size:10px;">Length:
             {{vector.values.length}}</p>
         </div>
-        <button ng-click="vm.seeVector(vector)">see</button>
-        <button ng-click="vm.deleteVector(vector.name)">x</button>
+        <button class="editVar" ng-click="vm.seeVector(vector)"><i class="material-icons">visibility</i></button>
+        <button class="editVar" ng-click="vm.deleteVector(vector.name)"><i class="material-icons">delete</i></button>
+
       </md-list-item>
 
     </section>
