@@ -105,7 +105,10 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   vm.showDetailView = showDetailView;
   vm.cancel = cancel;
   vm.runCurrentFunction = runCurrentFunction;
-
+  vm.seeMatrix = seeMatrix;
+  vm.deleteMatrix = deleteMatrix;
+  vm.seeVector = seeVector;
+  vm.deleteVector = deleteVector;
 
   // ********************** ACTIONS ********************** //
   vm.getFunctions();
@@ -140,6 +143,16 @@ function runCurrentFunction(){
   function cancel() {
     $mdDialog.hide();
   }
+
+
+  function seeMatrix(){
+
+  }
+  vm.deleteMatrix = deleteMatrix;
+  vm.seeVector = seeVector;
+  vm.deleteVector = deleteVector;
+
+
 
   function addColumn() {
     vm.matrix.values.forEach(function(row) {
