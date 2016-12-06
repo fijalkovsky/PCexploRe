@@ -15,7 +15,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   vm.showMatrix = false;
   vm.showVector = false;
   vm.showFunction = false;
-
+  vm.numOfParams = 0;
+  vm.clickedFunction = {};
   vm.currentFunction = {
     "result": 0
   };
@@ -47,22 +48,21 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
     "constantName": "vector",
     "type": "vector",
     "name": "mk",
-    "values": [0,5,7,0,0],
+    "values": [0, 5, 7, 0, 0],
     "dimension": "5"
   }, {
     "constantName": "vector",
     "type": "vector",
     "name": "listToDelete",
-    "values": [1,2,3],
+    "values": [1, 2, 3],
     "dimension": "3"
-  },
-  {
+  }, {
     "constantName": "vector",
     "type": "vector",
     "name": "triad",
     "values": [0.8, 3, 0.12],
     "dimension": "3"
-  },{
+  }, {
     "constantName": "vector",
     "type": "vector",
     "name": "rank",
@@ -112,7 +112,7 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   vm.deleteMatrix = deleteMatrix;
   vm.seeVector = seeVector;
   vm.deleteVector = deleteVector;
-
+  vm.setNumOfParams = setNumOfParams;
   // ********************** ACTIONS ********************** //
   vm.getFunctions();
 
@@ -121,26 +121,86 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
 
   // ********************** FUNCTIONS BODY ********************** //
 
+  function buildOneMatrix(matrices) {
+    let oneMatrix = [];
+    matrices.forEach((matrix) => {
+      matrix.values.forEach((row) => {
+        oneMatrix.push(row);
+      });
+    });
+    return oneMatrix;
+  }
+
+  function buildOneVector(vectors) {
+    let oneVector = [];
+    vectors.forEach((vector) => {
+      vector.values.forEach((element) => {
+        oneVector.push(element);
+      });
+    });
+    return oneVector;
+  }
+
+
   function runCurrentFunction() {
     vm.showMatrix = false;
     vm.showVector = false;
     vm.showFunction = true;
-    vm.currentFunction.params.forEach(function(arg) {
-      if (arg.type === "matrix") {
-        vm.userMatrices.forEach(function(userMatrix) {
-          if (arg.name === userMatrix.name) {
-            arg.values = userMatrix.values;
-          }
-        });
-      } else if (arg.type === "vector") {
-        vm.userVectors.forEach(function(userVector) {
-          if (arg.name === userVector.name) {
-            arg.values = userVector.values;
-          }
-        });
+
+      vm.currentFunction.params.forEach(function(arg) {
+        if (arg.type === "matrix") {
+          vm.userMatrices.forEach(function(userMatrix) {
+            if (arg.name === userMatrix.name) {
+              arg.values = userMatrix.values;
+            }
+          });
+        } else if (arg.type === "vector") {
+          vm.userVectors.forEach(function(userVector) {
+            if (arg.name === userVector.name) {
+              arg.values = userVector.values;
+            }
+          });
+        }
+      });
+
+      if (vm.currentFunction.name === 'ahp') {
+        let tempFunction = angular.copy(vm.currentFunction);
+        const oneMatrix = buildOneMatrix(tempFunction.params);
+        let arg = {};
+        arg.constantName = "matrix";
+        arg.values = oneMatrix;
+        tempFunction.params = [];
+        tempFunction.params.push(arg);
+        FunctionsService.runMultipleFunction(vm.currentFunction, tempFunction);
       }
-    });
-    FunctionsService.runFunction(vm.currentFunction);
+      else if (vm.currentFunction.name === 'AIJaddMatrices' || vm.currentFunction.name === 'AIJgeomMatrices' ) {
+        let tempFunction = angular.copy(vm.currentFunction);
+        const oneMatrix = buildOneMatrix(tempFunction.params);
+        let arg = {};
+        arg.constantName = "matrix";
+        arg.values = oneMatrix;
+        tempFunction.params = [];
+        tempFunction.params.push(arg);
+        FunctionsService.runMultipleFunction(vm.currentFunction, tempFunction);
+      }
+      else  if (vm.currentFunction.name === 'AIJaddVectors' || vm.currentFunction.name === 'AIJgeomVectors' ) {
+        let tempFunction = angular.copy(vm.currentFunction);
+        const oneVector = buildOneVector(tempFunction.params);
+        let arg = {};
+        arg.constantName = "vector";
+        arg.values = oneVector;
+        tempFunction.params = [];
+        tempFunction.params.push(arg);
+        let arg2 = {};
+        arg2.constantName = "column";
+        arg2.values = tempFunction.params[0].values.length/vm.numOfParams;
+        tempFunction.params.push(arg2);
+        FunctionsService.runMultipleFunction(vm.currentFunction, tempFunction);
+      }
+      else {
+      FunctionsService.runFunction(vm.currentFunction);
+    }
+
     cancel();
   }
 
@@ -255,9 +315,62 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
     });
   }
 
-  function openDalog(ev, clickedFnction) {
-    vm.currentFunction = clickedFnction;
-    showPrompt(ev);
+
+  function setNumOfParams(numOfParams) {
+    vm.currentFunction = vm.clickedFunction;
+    if(vm.currentFunction.name === 'ahp'){
+      prepareParamsInFunction(numOfParams);
+    } else {
+      prepareParamsInAIJFunction(numOfParams);
+    }
+    showPrompt(null);
+  }
+
+  function prepareParamsInFunction(numOfParams) {
+    vm.currentFunction.params = [];
+    if (numOfParams > 0) {
+      vm.currentFunction.params.push({
+        "constantName": "main matrix",
+        "desc": "Main PC matrix",
+        "type": "matrix",
+        "values": []
+      });
+    }
+    if (numOfParams > 1) {
+      for (i = 0; i < numOfParams; i++) {
+        vm.currentFunction.params.push({
+          "constantName": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        });
+      }
+    }
+  }
+
+  function prepareParamsInAIJFunction(numOfParams) {
+    let oldParams = angular.copy(vm.currentFunction.params);
+    vm.currentFunction.params = [];
+    if (numOfParams > 0) {
+      for (i = 0; i < numOfParams; i++) {
+        vm.currentFunction.params.push({
+          "constantName": oldParams[0].constantName,
+          "desc": oldParams[0].desc,
+          "type": oldParams[0].type,
+          "values": []
+        });
+      }
+    }
+  }
+
+  function openDalog(ev, clickedFunction) {
+    vm.clickedFunction = clickedFunction;
+    if (clickedFunction.name === 'ahp' || clickedFunction.name.substring(0,3) === 'AIJ') {
+      showSetterNumberOfParams(ev);
+    } else {
+      vm.currentFunction = clickedFunction;
+      showPrompt(ev);
+    }
   }
 
   function openMatrixDialog(ev1) {
@@ -272,6 +385,19 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
     vm.functionDetailsView = bool;
     // vm.currentFunction = currentFunction;
   }
+
+  function showSetterNumberOfParams(ev1) {
+    $mdDialog.show({
+      controller: () => vm,
+      controllerAs: 'vm',
+      templateUrl: '/dashboard-e/numOfParams.tmpl.html',
+      targetEvent: ev1,
+      clickOutsideToClose: true,
+      fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
+    });
+
+  }
+
 
   function showPrompt(ev) {
     $mdDialog.show({

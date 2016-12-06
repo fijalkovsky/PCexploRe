@@ -125,8 +125,14 @@
       "description": " Computes milticriteria ranking using eigenvalue based method using criteria matrix and alternatives matrixes. This is basic three levels AHP.",
       "params": [
         {
-          "constantName": "M",
+          "constantName": "matrix",
           "desc": "Main matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "constantName": "matrices",
+          "desc": "Others matrices",
           "type": "matrix",
           "values": []
         }
@@ -618,39 +624,9 @@
       "result": 0
     },
     {
-      "name": "AIJadd",
-      "title": " Aggregation matrix/vector (aritmetic means)",
-      "description": "Computes aggregation matrix/vector whose elements are aritmethic means of elements from input matrices/vectors (whose need to be the same dimension)",
-      "params": [
-        {
-          "constantName": "matrix",
-          "desc": "PC matrix",
-          "type": "matrix",
-          "values": []
-        }
-      ],
-      "return": " aggregation matrix/vector",
-      "result": 0
-    },
-    {
-      "name": "AIJgeom",
-      "title": " Aggregation matrix/vector (geometric means)",
-      "description": " Computes aggregation matrix/vector whose elements are aritmethic means",
-      "params": [
-        {
-          "constantName": "matrix",
-          "desc": "PC matrix",
-          "type": "matrix",
-          "values": []
-        }
-      ],
-      "return": " aggregation matrix/vector",
-      "result": 0
-    },
-    {
-      "name": "harkerMatrixPlaceHolderCount",
-      "title": " Number of zeros elements in row",
-      "description": " Counts number of zeros elements in given row in matrix",
+      "name": "AIJaddMatrices",
+      "title": " Aggregation matrix (aritmetic means)",
+      "description": "Computes aggregation matrix whose elements are aritmethic means of elements from input matrices (whose need to be the same dimension)",
       "params": [
         {
           "constantName": "matrix",
@@ -659,13 +635,76 @@
           "values": []
         },
         {
-          "constantName": "row",
-          "desc": "number of row which will be checked",
-          "type": "int",
-          "values": 0
+          "constantName": "matrices",
+          "desc": "Others matrices",
+          "type": "matrix",
+          "values": []
         }
       ],
-      "return": " number of zeros elements in row",
+      "return": " aggregation matrix",
+      "result": 0
+    },
+    {
+      "name": "AIJaddVectors",
+      "title": " Aggregation vector (aritmetic means)",
+      "description": "Computes aggregation vector whose elements are aritmethic means of elements from input vectors (whose need to be the same dimension)",
+      "params": [
+        {
+          "constantName": "vector",
+          "desc": "vector",
+          "type": "vector",
+          "values": []
+        },
+        {
+          "constantName": "vectors",
+          "desc": "Others vectors",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " aggregation matrix",
+      "result": 0
+    },
+    {
+      "name": "AIJgeomMatrices",
+      "title": " Aggregation matrix (geometric means)",
+      "description": "Computes aggregation matrix whose elements are geometric means of elements from input matrices (whose need to be the same dimension)",
+      "params": [
+        {
+          "constantName": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "constantName": "matrices",
+          "desc": "Others matrices",
+          "type": "matrix",
+          "values": []
+        }
+      ],
+      "return": " aggregation matrix",
+      "result": 0
+    },
+    {
+      "name": "AIJgeomVectors",
+      "title": " Geometric vector (geometric means)",
+      "description": "Computes aggregation vector whose elements are geometric means of elements from input vectors (whose need to be the same dimension)",
+      "params": [
+        {
+          "constantName": "vector",
+          "desc": "vector",
+          "type": "vector",
+          "values": []
+        },
+        {
+          "constantName": "vectors",
+          "desc": "Others vectors",
+          "type": "vector",
+          "values": []
+        }
+      ],
+      "return": " aggregation matrix",
       "result": 0
     },
     {
