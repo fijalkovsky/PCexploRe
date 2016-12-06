@@ -1,0 +1,28 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="moj">
+        <h2 class="napisDia">{{vm.clickedFunction.name}}</h2>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+
+      <span>{{vm.clickedFunction.name==='ahp' ? 'How many parameters?' : 'How many elements?'}}</span>
+      <div class="md-dialog-content">
+        <input type="number" ng-model="vm.numOfParams" placeholder="3">
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button class="back-color" ng-click="vm.cancel()">
+        cancel
+      </md-button>
+      <md-button class="back-color" ng-click="vm.setNumOfParams(vm.numOfParams)">
+        save
+      </md-button>
+
+    </md-dialog-actions>
+  </form>
+</md-dialog>
