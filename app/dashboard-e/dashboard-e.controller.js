@@ -2,7 +2,7 @@ angular.
 module('dashboard-e')
   .controller('dashboardController', dashboardEController);
 
-function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
+function dashboardEController($http, $scope, $mdDialog, FunctionsService, VariablesService) {
   var vm = this;
 
   // ********************** VARIABLES ********************** //
@@ -20,64 +20,81 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   vm.currentFunction = {
     "result": 0
   };
+  vm.userMatrices = {};
+  vm.userId = 12;
+// po zalogowaniu:
+  // vm.user = {id: ... }
+// vm.userMatrices =VariablesService.getUserMatrices(12);
 
-  vm.userMatrices = [{
-    "constantName": "matrix",
-    "type": "matrix",
-    "name": "mDwa",
-    "dimension": "2",
-    "values": [
-      [1, 2],
-      [0.4, 1]
-    ]
-  }, {
-    "constantName": "matrix",
-    "type": "matrix",
-    "name": "exapmleMatrix",
-    "dimension": "5",
-    "values": [
-      [1, 0.6, 0.57, 0.625, 0.5],
-      [1.67, 1, 0.714, 2.5, 3.33],
-      [1.75, 1.4, 1, 3.5, 4],
-      [1.6, 0.4, 0.28, 1, 1.33],
-      [2, 0.33, 0.25, 0.75, 1]
-    ]
-  }];
+  VariablesService.getUserMatrices(vm.userId).then(function(matrices){
+        vm.userMatrices = matrices;
+        console.log(matrices);
+    }
+  );
 
-  vm.userVectors = [{
-    "constantName": "vector",
-    "type": "vector",
-    "name": "mk",
-    "values": [0, 5, 7, 0, 0],
-    "dimension": "5"
-  }, {
-    "constantName": "vector",
-    "type": "vector",
-    "name": "listToDelete",
-    "values": [1, 2, 3],
-    "dimension": "3"
-  }, {
-    "constantName": "vector",
-    "type": "vector",
-    "name": "triad",
-    "values": [0.8, 3, 0.12],
-    "dimension": "3"
-  }, {
-    "constantName": "vector",
-    "type": "vector",
-    "name": "rank",
-    "values": [0.12, 0.30, 0.39, 0.08, 0.11],
-    "dimension": "3"
-  }];
+  VariablesService.getUserVectors(vm.userId).then(function(vectors){
+        vm.userVectors = vectors;
+    }
+  );
+
+
+  // vm.userMatrices = [{
+  //   "constantName": "matrix",
+  //   "type": "matrix",
+  //   "name": "mDwa",
+  //   "dimension": "2",
+  //   "values": [
+  //     [1, 2],
+  //     [0.4, 1]
+  //   ]
+  // }, {
+  //   "constantName": "matrix",
+  //   "type": "matrix",
+  //   "name": "exapmleMatrix",
+  //   "dimension": "5",
+  //   "values": [
+  //     [1, 0.6, 0.57, 0.625, 0.5],
+  //     [1.67, 1, 0.714, 2.5, 3.33],
+  //     [1.75, 1.4, 1, 3.5, 4],
+  //     [1.6, 0.4, 0.28, 1, 1.33],
+  //     [2, 0.33, 0.25, 0.75, 1]
+  //   ]
+  // }];
+
+  // vm.userVectors = [{
+  //   "constantName": "vector",
+  //   "type": "vector",
+  //   "name": "mk",
+  //   "values": [0, 5, 7, 0, 0],
+  //   "dimension": "5"
+  // }, {
+  //   "constantName": "vector",
+  //   "type": "vector",
+  //   "name": "listToDelete",
+  //   "values": [1, 2, 3],
+  //   "dimension": "3"
+  // }, {
+  //   "constantName": "vector",
+  //   "type": "vector",
+  //   "name": "triad",
+  //   "values": [0.8, 3, 0.12],
+  //   "dimension": "3"
+  // }, {
+  //   "constantName": "vector",
+  //   "type": "vector",
+  //   "name": "rank",
+  //   "values": [0.12, 0.30, 0.39, 0.08, 0.11],
+  //   "dimension": "3"
+  // }];
 
   vm.matrix = {
-    "constantName": "vector",
-    "type": "vector",
+    "constantName": "matrix",
+    "type": "matrix",
     "name": "",
     "dimension": 2,
     "values": [
-      [0, 0],
-      [0, 0]
+      [1, 2],
+      [0.3, 1]
     ]
   };
 
@@ -113,6 +130,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   vm.seeVector = seeVector;
   vm.deleteVector = deleteVector;
   vm.setNumOfParams = setNumOfParams;
+  vm.saveVectorsToDB = saveVectorsToDB;
+  vm.saveMatricesToDB = saveMatricesToDB;
   // ********************** ACTIONS ********************** //
   vm.getFunctions();
 
@@ -120,6 +139,13 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
 
 
   // ********************** FUNCTIONS BODY ********************** //
+  function saveMatricesToDB(){
+    VariablesService.saveMatricesToDB(vm.userMatrices, vm.userId);
+  }
+
+  function saveVectorsToDB(){
+    VariablesService.saveVectorsToDB(vm.userVectors, vm.userId);
+  }
 
   function buildOneMatrix(matrices) {
     let oneMatrix = [];
@@ -220,7 +246,7 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   function deleteMatrix(name) {
     vm.userMatrices.forEach(function(item, index, object) {
       if (item.name === name) {
-        object.splice(item, 1);
+        object.splice(index, 1);
       }
     });
   }
@@ -235,7 +261,7 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
   function deleteVector(name) {
     vm.userVectors.forEach(function(item, index, object) {
       if (item.name === name) {
-        object.splice(item, 1);
+        object.splice(index, 1);
       }
     });
   }
@@ -280,8 +306,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService) {
       "name": "",
       "dimension": 2,
       "values": [
-        [0, 0],
-        [0, 0]
+        [1, 2],
+        [0.4, 1]
       ]
     };
   }

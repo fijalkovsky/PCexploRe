@@ -21,7 +21,7 @@
     </section>
     <section flex>
 
-      <md-subheader class="md-no-sticky" style="font-size: 20px;">Matrices</md-subheader>
+      <md-subheader class="md-no-sticky" style="font-size: 20px;">Matrices <md-button ng-click="vm.saveMatricesToDB()">save</md-button></md-subheader>
       <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
         <div layout="row" layout-align="space-between center">
 
@@ -44,7 +44,7 @@
       <br>
       <md-divider></md-divider>
 
-      <md-subheader class="md-no-sticky" style="font-size: 20px;">Vectors</md-subheader>
+      <md-subheader class="md-no-sticky" style="font-size: 20px;">Vectors <md-button ng-click="vm.saveVectorsToDB()">save</md-button></md-subheader>
       <md-list-item class="md-2-line" ng-repeat="vector in vm.userVectors">
         <div class="md-list-item-text ">
           <h4 style="text-transform: none; font-size:15px;">{{vector.name}}</h4>
@@ -189,7 +189,7 @@
   <br/>
 <br/>
 </md-content>
-
+aaa{{vm.userMatrices}}
 </div>
 </div>
 
