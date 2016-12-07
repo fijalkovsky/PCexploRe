@@ -1,6 +1,6 @@
 <div class="dash" layout="row" class="icondemoFontIconsWithLigatures" ng-cloak>
 
-  <div flex="20" layout="column" class="boxWithHeight" layout-padding>
+  <div flex="25" layout="column" class="boxWithHeight" layout-padding>
     <section flex="25">
       <h3>Creator</h3>
       <div layout="row" layout-align="space-between center" class="displayList">
@@ -22,7 +22,7 @@
     <section flex>
 
       <md-subheader class="md-no-sticky" style="font-size: 20px;">Matrices <md-button ng-click="vm.saveMatricesToDB()">save</md-button></md-subheader>
-      <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices">
+      <md-list-item class="md-2-line" ng-repeat="matrix in vm.userMatrices track by $index">
         <div layout="row" layout-align="space-between center">
 
           <div flex="60" class="md-list-item-text">
@@ -33,6 +33,9 @@
           <div flex layout="row">
             <button class="editVar" ng-click="vm.seeMatrix(matrix)">
               <i class="material-icons">visibility</i>
+            </button>
+            <button class="editVar" ng-click="vm.editMatrix(matrix)">
+              <i class="material-icons">edit</i>
             </button>
             <button class="editVar" ng-click="vm.deleteMatrix(matrix.name)">
               <i class="material-icons">delete</i>
@@ -49,10 +52,13 @@
         <div class="md-list-item-text ">
           <h4 style="text-transform: none; font-size:15px;">{{vector.name}}</h4>
           <p style="font-size:10px;">Length:
-            {{vector.values.length}}</p>
+            {{vector.dimension}}</p>
         </div>
         <button class="editVar" ng-click="vm.seeVector(vector)">
           <i class="material-icons">visibility</i>
+        </button>
+        <button class="editVar" ng-click="vm.editVector(vector)">
+          <i class="material-icons">edit</i>
         </button>
         <button class="editVar" ng-click="vm.deleteVector(vector.name)">
           <i class="material-icons">delete</i>
@@ -99,7 +105,7 @@
         <h2 class="napisDia">RESULT</h2>
         <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) =
         </h2>
-
+          {{vm.currentFunction.result}}
         <h2 align="center" ng-if="vm.currentFunction.result.type === 'double' || vm.currentFunction.result.type === 'int'">{{vm.currentFunction.result.values}}</h2>
 
         <div class="napisDia" ng-if="vm.currentFunction.result.type === 'matrix'">
@@ -110,6 +116,7 @@
               </tr>
             </table>
           </div>
+          <md-button ng-click="vm.saveResultAsMatrix(vm.currentFunction.result)">save matrix</md-button>
         </div>
 
         <div class="napisDia" ng-if="vm.currentFunction.result.type === 'vector'">
@@ -120,6 +127,7 @@
               </tr>
             </table>
           </div>
+          <md-button ng-click="vm.saveResultAsVector(vm.currentFunction.result)">save</md-button>
         </div>
         <md-divider></md-divider>
 
@@ -189,7 +197,6 @@
   <br/>
 <br/>
 </md-content>
-aaa{{vm.userMatrices}}
 </div>
 </div>
 

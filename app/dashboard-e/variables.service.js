@@ -7,7 +7,8 @@ function variablesService($http) {
   return {
     getUserMatrices: getUserMatrices,
     getUserVectors: getUserVectors,
-    saveMatricesToDB: saveMatricesToDB
+    saveMatricesToDB: saveMatricesToDB,
+    saveVectorsToDB: saveVectorsToDB
   };
 
   function getUserMatrices(userId){
@@ -26,6 +27,7 @@ function variablesService($http) {
       url: 'http://127.0.0.1:2000/vectors/'+userId,
       method: 'GET'
     }).then(function(resp) {
+      console.log(resp.da);
       return resp.data;
     }, function(error){
       return [];
@@ -39,7 +41,6 @@ function variablesService($http) {
     matrices.forEach((matrix) => {
       matrix.dimension1 = matrix.values.length;
       matrix.dimension2 = matrix.values[0].length;
-
       matrix.values = twoDimToOne(matrix.values);
     });
     $http({
@@ -55,11 +56,31 @@ function variablesService($http) {
 
   function twoDimToOne(array) {
 
-//     matrix = [].concat.apply([], array);
+  //     matrix = [].concat.apply([], array);
     // matrix.map(String)
   //    matrix.map((value) => ""+value);
      console.log("\"");
     // console.log(matrix);
      return "" + array;
   }
+
+  function saveVectorsToDB(vector, userId){
+    vectors = angular.copy(vector);
+    vectors.ownerId = userId;
+
+    vectors.forEach((vector) => {
+      vector.dimension = vector.values.length;
+      vector.values = twoDimToOne(vector.values);
+    });
+    $http({
+      url: 'http://127.0.0.1:2000/vectors/'+userId,
+      method: 'PUT',
+      data: vectors
+    }).then(function(resp) {
+      console.log('zapisalem');
+    }, function(error){
+      console.log('blad');
+    });
+  }
+
 }
