@@ -259,7 +259,18 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
         FunctionsService.runMultipleFunction(vm.currentFunction, tempFunction);
       }
       else {
-      FunctionsService.runFunction(vm.currentFunction);
+      FunctionsService.runFunction(vm.currentFunction).then(function(error){
+        if(error){
+          vm.errorMessage = error;
+          $mdDialog.show({
+          controller: () => vm,
+          controllerAs: 'vm',
+          templateUrl: '/dashboard-e/error.tmpl.html',
+          clickOutsideToClose: true,
+          fullscreen: vm.customFullscreen
+        });
+      }
+      });
     }
 
     cancel();

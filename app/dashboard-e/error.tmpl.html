@@ -8,16 +8,17 @@
 
     <md-dialog-content>
       <div class="md-dialog-content">
-        <span> coś poszło nie tak, Ewe wymyśli jak to napisać</span><br/>
-        <span> w każdym razie beznadziejnie wywołujesz funckje, kliknij okejke i zastanów się nad swoim postępowaniem</span>
-</div>
+
+        <span>ERROR: {{vm.errorMessage}}</span><br/>
+        <span>
+          Try again</span>
+      </div>
     </md-dialog-content>
 
-    <!-- <md-dialog-actions layout="row">
-      <span flex></span>
-      <md-button class="back-color" ng-click="close()">
+    <md-dialog-actions layout="row">
+      <md-button class="back-color" ng-click="vm.cancel()">
         OK
       </md-button>
-    </md-dialog-actions> -->
+    </md-dialog-actions>
   </form>
 </md-dialog>
