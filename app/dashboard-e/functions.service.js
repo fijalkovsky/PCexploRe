@@ -2,8 +2,9 @@ angular.
 module('dashboard-e')
   .service('FunctionsService', functionsService);
 
-function functionsService($http) {
+function functionsService($http, $mdDialog) {
 
+  
 
   this.runFunction = function(currentFunction) {
     var args = currentFunction.params;
@@ -17,7 +18,19 @@ function functionsService($http) {
       method: 'POST',
       data: params
     }).then(function success(resp) {
-      currentFunction.result = resp.data;
+
+      if(resp.data.type === 'error'){
+        $mdDialog.show({
+          controller: () => this,
+          controllerAs: 'this',
+          templateUrl: '/dashboard-e/error.tmpl.html',
+          clickOutsideToClose: true,
+        });
+        console.log('######ERROR');
+      } else {
+        currentFunction.result = resp.data;
+
+      }
     }, function error(resp) {
       console.log('error');
     });
@@ -39,6 +52,10 @@ function functionsService($http) {
     }, function error(resp) {
       console.log('error');
     });
+  };
+
+  this.close = function(){
+    $mdDialog.hide();
   };
 
 }

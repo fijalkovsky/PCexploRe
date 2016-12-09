@@ -2,7 +2,7 @@ angular.
 module('dashboard-e')
   .controller('dashboardController', dashboardEController);
 
-function dashboardEController($http, $scope, $mdDialog, FunctionsService, VariablesService) {
+function dashboardEController($http, $scope, $mdDialog, $location, FunctionsService, VariablesService, UsersService) {
   var vm = this;
 
   // ********************** VARIABLES ********************** //
@@ -21,7 +21,8 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService, Variab
     "result": 0
   };
   vm.userMatrices = {};
-  vm.userId = 12;
+  vm.userId = 0;
+  vm.user = {};
 // po zalogowaniu:
   // vm.user = {id: ... }
 // vm.userMatrices =VariablesService.getUserMatrices(12);
@@ -50,7 +51,7 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService, Variab
   //     [2, 0.33, 0.25, 0.75, 1]
   //   ]
   // }];
-
+  //
   // vm.userVectors = [{
   //   "constantName": "vector",
   //   "type": "vector",
@@ -127,10 +128,19 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService, Variab
 
   vm.saveResultAsMatrix = saveResultAsMatrix;
   vm.saveResultAsVector = saveResultAsVector;
-  // ********************** ACTIONS ********************** //
-  vm.getFunctions();
+  vm.logout = logout;
 
-    
+  // ********************** ACTIONS ********************** //
+  vm.isLogged = UsersService.getIsLogged();
+  if(!UsersService.getIsLogged()){
+    console.log('zaloguj sie');
+  vm.userMatrices = [];
+  vm.userVectors = [];
+  } else {
+
+  vm.user = UsersService.getUser();
+  vm.userId = vm.user.id;
+
     VariablesService.getUserMatrices(vm.userId).then(function(matrices){
           vm.userMatrices = matrices;
           console.log(matrices);
@@ -141,11 +151,18 @@ function dashboardEController($http, $scope, $mdDialog, FunctionsService, Variab
           vm.userVectors = vectors;
       }
     );
+  }
+  vm.getFunctions();
 
 
 
 
   // ********************** FUNCTIONS BODY ********************** //
+  function logout(){
+    UsersService.logout();
+    $location.path('/');
+  }
+
   function saveMatricesToDB(){
     VariablesService.saveMatricesToDB(vm.userMatrices, vm.userId);
   }

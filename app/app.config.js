@@ -24,7 +24,6 @@ angular
             controllerAs: 'vm',
             templateUrl: 'signup/signup.template.html'
           })
-
     .when('/dashboard', {
         controller: 'dashboardController',
         controllerAs: 'vm',

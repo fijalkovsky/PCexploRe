@@ -13,15 +13,16 @@
         <p id="profile-name" class="profile-name-card loginLabel">LOG IN</p>
         <form class="form-signin">
             <span id="reauth-email" class="reauth-email"></span>
-            <input type="nick" id="inputEmail" class="form-control" placeholder="Nickname" ng-model="vm.nickname"required autofocus>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="vm.password" required>
-            <div id="remember" class="checkbox">
+            <input type="nick" id="inputEmail" class="form-control" placeholder="Nickname" ng-model="vm.user.login" required autofocus>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="vm.user.password" required>
+            <!-- <div id="remember" class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" data-ng-click="login()">Log in</button>
+            </div> -->
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" data-ng-click="vm.login()">Log in</button>
         </form><!-- /form -->
+        <span ng-if="vm.blad">Username or password is incorrect</span>
     </div><!-- /card-container -->
 </div><!-- /container -->
 
