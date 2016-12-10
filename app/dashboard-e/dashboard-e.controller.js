@@ -9,7 +9,7 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
   vm.query = '';
   vm.przyklad = "Przykladowy napis";
   vm.functionDetailsView = false;
-  vm.functions = [];
+  // vm.functions = [];
   vm.matrixToShow = {};
   vm.vectorToShow = {};
   vm.showMatrix = false;
@@ -494,7 +494,7 @@ function saveResultAsVector(resultVector){
     vm.showMatrix = false;
     vm.showVector = false;
     vm.showFunction = false;
-    // vm.currentFunction = currentFunction;
+    vm.currentFunction = currentFunction;
   }
 
   function showSetterNumberOfParams(ev1) {
