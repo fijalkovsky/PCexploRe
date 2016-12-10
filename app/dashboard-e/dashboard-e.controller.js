@@ -488,6 +488,7 @@ function saveResultAsVector(resultVector){
 
   function showDetailView(bool, currentFunction) {
     vm.functionDetailsView = bool;
+    
     // vm.currentFunction = currentFunction;
   }
 

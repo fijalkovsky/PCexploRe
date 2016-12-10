@@ -14,7 +14,10 @@ list-style: none;
 
 }
 
-
+.k {
+  border: none;
+  background: none;
+}
 
 .male{
   height: 35px !important;
@@ -207,11 +210,11 @@ h3 {
 }
 .editVar{
   background: none;
-  margin: 5px;
+  margin: 0px;
   border: none;
 }
 .editVar:hover {
-  background: #dcdcdc;
+  background: #f2f2f2;
 }
 .editVar i {
   margin-top: 12px;
@@ -239,6 +242,7 @@ h3 {
 
 .displaySearcher{
     text-align: center;
+    margin-top:20px;
 }
 
 h4{
@@ -251,11 +255,11 @@ h4{
 
 input[type=search] {
   padding:10px;
-  padding-left:60px;
+  padding-left:40px;
   width:240px;
   border:1px solid #3F3F3F;
   border-radius: 20px;
-  font-size:15px;
+  font-size:14px;
   color: #3F3F3F;
   background-image:url('http://i47.tinypic.com/r02vbq.png');
   background-repeat:no-repeat;
@@ -263,6 +267,8 @@ input[type=search] {
   outline:0;
   margin-bottom: 10px;
 }
+
+.material-icons.md-15 { font-size: 15px; }
 
 .selector2 label {
     font-size: 90px;
