@@ -180,10 +180,55 @@ ul.alert-dropdown {
 
 
 
+
+
+@media(max-width:800px) {
+
+    .hero-spacer {
+        width: 410px;
+    }
+
+}
+
+
+@media(min-width:980px) {
+
+    .hero-spacer {
+        width: 590px;
+    }
+
+}
+
+
+
 @media(min-width:1900px) {
 
     .hero-spacer {
         width: 950px;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .hero-spacer {
+        width: 380px;
+    }
+
+}
+
+@media(max-width:360px) {
+
+    .hero-spacer {
+        width: 290px;
+    }
+
+}
+
+@media(max-width:320px) {
+
+    .hero-spacer {
+        width: 250px;
     }
 
 }
