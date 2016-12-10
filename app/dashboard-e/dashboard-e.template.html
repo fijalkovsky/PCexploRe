@@ -9,10 +9,10 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li>
-                    <a><i class="fa fa-user"></i> username{{username}}</a>
+                    <a><i class="fa fa-user"></i>  {{vm.user.name}}</a>
                 </li>
                 <li>
-                    <a><i class="fa fa-sign-out"></i></a>
+                    <a ng-click="vm.logout()" ng-if="vm.isLogged"><i class="fa fa-sign-out"></i></a>
                 </li>
 
 
