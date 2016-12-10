@@ -49,35 +49,20 @@
       <div class="row">
         <div class="col-xs-12 col-md-8">
           <header class="jumbotron hero-spacer" ng-if="!vm.showFunction && !vm.showVector && !vm.showMatrix && !vm.functionDetailsView">
-            Search functions
-            <br/>
-            Read about them
-            <br/>
-            Check your variables
-            <br/>
-            <small>
-              just...
-              <br/>
-            </small>
 
-            <br/>
-            <big>
-              ExploRe PC
-            </big>
-          </header>
-          <header class="jumbotron hero-spacer" ng-if="vm.functionDetailsView">
-            <!-- <p style="font-size: x-large;" align="center">{{vm.currentFunction.title}}</p>
-            <div layout="row" flex>
-              <p style="min-width: 100px;">description:</p>
-              <p style="font-size: larger;">
-                {{vm.currentFunction.description}}</p>
+            <div layout="column" layout-align="center center">
+            <h2 class="panel-title hvr-wobble-skew mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Search functions</h2>
+            <h2 class="panel-title hvr-wobble-skew mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Read about them</h2>
+            <h2 class="panel-title hvr-wobble-skew mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Check your variables</h2>
             </div>
-            <div layout="row" flex>
-              <p style="min-width: 100px;">return:</p>
-              <p style="font-size: larger;">
-                {{vm.currentFunction.return}}</p>
-            </div> -->
+            <div layout="column" layout-align="center center">
+              <div class="hvr-icon-push pcexplore">PCexploRe</div>
+            </div>
 
+          </header>
+          <!-- main -->
+
+          <header class="jumbotron hero-spacer" ng-if="vm.functionDetailsView">
             <h3>{{vm.currentFunction.title}}</h3>
             <p class="detailsStyle"><span>Description:</span> {{vm.currentFunction.description}}</p>
             <p class="detailsStyle"><span>Return:</span> {{vm.currentFunction.return}}</p>

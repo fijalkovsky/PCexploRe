@@ -7,10 +7,13 @@
     </md-toolbar>
 
     <md-dialog-content>
-
-      <span>{{vm.clickedFunction.name==='ahp' ? 'How many parameters?' : 'How many elements?'}}</span>
       <div class="md-dialog-content">
-        <input type="number" ng-model="vm.numOfParams" placeholder="3">
+      <h2>{{vm.clickedFunction.name==='ahp' ? 'How many parameters?' : 'How many elements?'}}</h2>
+      <md-input-container>
+        <div layout="row" layout-align="center center">
+        <input style="text-align:center;"type="number" ng-model="vm.numOfParams" >
+        </div>
+      </md-input-container>
       </div>
     </md-dialog-content>
 

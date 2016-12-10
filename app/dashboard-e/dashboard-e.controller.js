@@ -494,7 +494,7 @@ function saveResultAsVector(resultVector){
     vm.showMatrix = false;
     vm.showVector = false;
     vm.showFunction = false;
-    // vm.currentFunction = currentFunction;
+    vm.currentFunction = currentFunction;
   }
 
   function showSetterNumberOfParams(ev1) {

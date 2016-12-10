@@ -42,7 +42,7 @@
                   </th>
                   <td style="background-color: #f5f5f5" ng-repeat="column in row track by $index">
                     <div class="mat">
-                      <input style="background-color: #f5f5f5;  font-size: 30px" type="number" ng-model="row[$index]" placeholder="0">
+                      <input style="background-color: #f5f5f5;  font-size: 15px" type="number" ng-model="row[$index]" placeholder="0">
                     </div>
                   </td>
                 </tr>
@@ -65,10 +65,10 @@
 
     <md-dialog-actions layout="row">
       <span flex></span>
-      <md-button class="back-color" ng-click="vm.cancel()">
+      <md-button  ng-click="vm.cancel()">
         cancel
       </md-button>
-      <md-button class="back-color" ng-click="vm.saveNewMatrix(vm.matrix)">
+      <md-button  ng-click="vm.saveNewMatrix(vm.matrix)">
         save
       </md-button>
 
