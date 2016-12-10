@@ -115,7 +115,7 @@ ul.alert-dropdown {
     }
     .hero-spacer {
         width: 560px;
-  
+
     }
 
 
@@ -180,53 +180,10 @@ ul.alert-dropdown {
 
 
 
-/*@media(min-width:px) {
-    .side-nav {
-        position: fixed;
-        top: 50px;
-        left: 225px;
-        width: 280px;
-        margin-left: -225px;
-        border: none;
-        border-radius: 0;
-        overflow-y: auto;
-        background-color: #222;
-        bottom: 0;
-        overflow-x: hidden;
-        padding-bottom: 40px;
-    }
+@media(min-width:1900px) {
+
     .hero-spacer {
-        width: 600px;
+        width: 950px;
     }
 
-
-    .side-nav>li>a {
-        width: 280px;
-        font-size: 14px;
-    }
-
-    .pads {
-      margin-bottom: 8px;
-      padding: 5px;
-    }
-    .pads:hover {
-      background-color: #000;
-      padding:5px;
-    }
-
-    .pads a {
-      padding-left: 20px;
-      width: 280px;
-    }
-    .panel-default {
-      height: 250px;
-      overflow-y: scroll;
-    }
-
-    .side-nav li a:hover,
-    .side-nav li a:focus {
-        outline: none;
-        background-color: #000 !important;
-        width: 280px;
-    }
-}*/
+}
