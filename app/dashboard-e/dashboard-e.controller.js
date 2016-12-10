@@ -9,7 +9,7 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
   vm.query = '';
   vm.przyklad = "Przykladowy napis";
   vm.functionDetailsView = false;
-  vm.functions;
+  vm.functions = [];
   vm.matrixToShow = {};
   vm.vectorToShow = {};
   vm.showMatrix = false;
@@ -204,6 +204,7 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
 
 
   function runCurrentFunction() {
+    vm.functionDetailsView = false;
     vm.showMatrix = false;
     vm.showVector = false;
     vm.showFunction = true;
@@ -283,6 +284,7 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
 
 
   function seeMatrix(matrix) {
+    vm.functionDetailsView = false;
     vm.showMatrix = true;
     vm.showVector = false;
     vm.showFunction = false;
@@ -298,6 +300,7 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
   }
 
   function seeVector(vector) {
+    vm.functionDetailsView = false;
     vm.showMatrix = false;
     vm.showVector = true;
     vm.showFunction = false;
@@ -406,7 +409,7 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
 
   function getFunctions() {
     $http.get('dashboard-e/functions.json').then((response) => {
-      vm.functions = response.data;
+      vm.functions = angular.copy(response.data);
     });
   }
 
@@ -488,7 +491,9 @@ function saveResultAsVector(resultVector){
 
   function showDetailView(bool, currentFunction) {
     vm.functionDetailsView = bool;
-    
+    vm.showMatrix = false;
+    vm.showVector = false;
+    vm.showFunction = false;
     // vm.currentFunction = currentFunction;
   }
 
