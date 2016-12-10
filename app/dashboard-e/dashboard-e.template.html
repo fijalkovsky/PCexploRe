@@ -38,30 +38,6 @@
           </div>
           <md-divider/>
         </li>
-        <!-- <md-content>
-                  <md-list flex>
-                    <md-list-item class="male" ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
-                      <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
-        <!-- <div flex layout="row" layout-align="space-between center">
-                        <div flex="75">
-                          <md-button class="he" ng-click="vm.openDalog($event, fun)" flex="90">
-                            <div class="md-list-item-text przycisk" layout="column">
-                              <h4 style="font-family: 'Fjalla One', sans-serif; font-size: 15px;">{{fun.name}}</h4>
-                            </div>
-                          </md-button>
-                        </div>
-                        <div style="min-width:50px">
-                          <md-button class="md-raised" ng-click="vm.showDetailView(true, fun)" style="min-width:50px;margin-bottom:15px;margin-top:5px;font-size:14px;">
-                            details
-                          </md-button>
-                        </div>
-                      </div>
-                      <md-divider/>
-
-                    </md-list-item>
-                  </md-list>
-                  </md-content>  -->
-
       </ul>
     </div>
     <!-- /.navbar-collapse -->
@@ -90,7 +66,7 @@
             </big>
           </header>
           <header class="jumbotron hero-spacer" ng-if="vm.functionDetailsView">
-            <p style="font-size: x-large;" align="center">{{vm.currentFunction.title}}</p>
+            <!-- <p style="font-size: x-large;" align="center">{{vm.currentFunction.title}}</p>
             <div layout="row" flex>
               <p style="min-width: 100px;">description:</p>
               <p style="font-size: larger;">
@@ -100,29 +76,37 @@
               <p style="min-width: 100px;">return:</p>
               <p style="font-size: larger;">
                 {{vm.currentFunction.return}}</p>
-            </div>
+            </div> -->
 
-            <md-content>
-              <md-list flex>
-                <md-list-item class="md-3-line" ng-repeat="arg in vm.currentFunction.params">
-                  <!-- <md-button class="md-raised" ng-click="vm.openDalog($event, fun)"> -->
-                  <div class="">
-                    <h4 style="font-size:20px">name:
-                      {{arg.constantName}}</h4>
+            <h3>{{vm.currentFunction.title}}</h3>
+            <p class="detailsStyle"><span>Description:</span> {{vm.currentFunction.description}}</p>
+            <p class="detailsStyle"><span>Return:</span> {{vm.currentFunction.return}}</p>
+            <div class="panel-body" ng-repeat="arg in vm.currentFunction.params">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>
+                    Parameters</h3>
+                    <div class="text-center">
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                  <div class="list-group">
+                    <p>name:
+                      {{arg.constantName}}</p>
                     <p>desc:
                       {{arg.desc}}</p>
                     <p>type:
                       {{arg.type}}</p>
-
                   </div>
-                </md-list-item>
-              </md-list>
-            </md-content>
-            <md-button class="md-raised small-button" ng-click="vm.showDetailView(false, {})">
-              back
-            </md-button>
-
+                </div>
+              </div>
+              </div>
+            <div layout="row"  layout-align="center center">
+            <button type="button" ng-click="vm.showDetailView(false, {})" class="btn btn-primary backButt">Back</button>
+            </div>
           </header>
+          <!-- detais -->
           <header class="jumbotron hero-spacer" ng-if="vm.showMatrix">
             <div>
               <h3>{{vm.matrixToShow.name}}</h3>
@@ -139,6 +123,8 @@
             <br/>
             <br/>
           </header>
+          <!-- showMatrix -->
+
           <header class="jumbotron hero-spacer" ng-if="vm.showVector">
             <div>
               <h3>{{vm.vectorToShow.name}}</h3>
@@ -157,14 +143,14 @@
             <br/>
             <br/>
           </header>
+<!-- showVector -->
 
           <header class="jumbotron hero-spacer" ng-if="vm.showFunction">
-
             <!-- {{vm.currentFunction.params}} -->
             <h2 class="napisDia">RESULT</h2>
             <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) =
             </h2>
-            <h2 align="center" ng-if="vm.currentFunction.result.type === 'double' || vm.currentFunction.result.type === 'int'">{{vm.currentFunction.result.values}}</h2>
+            <h2 style="color: #428bca;"align="center" ng-if="vm.currentFunction.result.type === 'double' || vm.currentFunction.result.type === 'int'">{{vm.currentFunction.result.values}}</h2>
 
             <div class="napisDia" ng-if="vm.currentFunction.result.type === 'matrix'">
               <div align="center">
@@ -219,6 +205,8 @@
             </div>
 
           </header>
+<!-- result -->
+
         </div>
         <div class="col-xs-6 col-md-4">
 
@@ -233,14 +221,15 @@
                       create new matrix
                     </a>
                   </div>
-                <md-button ng-if="vm.isLogged" ng-click="vm.saveMatricesToDB()">save</md-button>
+                <button class="btn btn-default" ng-if="vm.isLogged" ng-click="vm.saveMatricesToDB()">save</button>
               </div>
               <div class="panel-body">
                 <div class="list-group">
                   <a class="list-group-item" ng-repeat="matrix in vm.userMatrices track by $index">
-                    <i class="fa fa-fw fa-check"></i>
-                    {{matrix.name}}
-                    <div>Dimension:
+                    <div class="varStyle">
+                    <i class="fa fa-fw fa-check"></i> {{matrix.name}}
+                    </div>
+                    <div class="varDim">Dimension:
                       {{matrix.values.length}}x{{matrix.values[0].length}}
                     </div>
                     <div layout="row" layout-align="space-around center">
@@ -260,8 +249,6 @@
               </div>
             </div>
 
-
-
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
@@ -273,14 +260,15 @@
                       create new vector
                     </a>
                   </div>
-                <md-button ng-if="vm.isLogged" ng-click="vm.saveVectorsToDB()">save</md-button>
+                  <button class="btn btn-default" ng-if="vm.isLogged" ng-click="vm.saveVectorsToDB()">save</button>
               </div>
               <div class="panel-body">
                 <div class="list-group">
                   <a class="list-group-item" ng-repeat="vector in vm.userVectors">
-                    <i class="fa fa-fw fa-check"></i>
-                    {{vector.name}}
-                    <div>Dimension:
+                    <div class="varStyle">
+                    <i class="fa fa-fw fa-check"></i> {{vector.name}}
+                  </div>
+                    <div class="varDim">Dimension:
                       {{vector.dimension}}</div>
                     <div layout="row" layout-align="space-around center">
                       <button class="hvr-buzz-out k" ng-click="vm.seeVector(vector)">
