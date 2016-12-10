@@ -118,11 +118,7 @@ section[flex=""] {
     overflow: none;
     background: #DFDFDF;
 }
-h5 {
-    font-size: 25px;
-    padding: 5px;
-    font-family: 'Fjalla One', sans-serif;
-}
+
 
 #grid {
   //  width: 400px;
@@ -194,7 +190,7 @@ h3 {
     font-weight: lighter;
 }
 .moj {
-    background: #ff9933 !important;
+    background: #000 !important;
     height: 64px;
 }
 
@@ -204,10 +200,7 @@ h3 {
   font-weight: normal;
 }
 
-.napis {
-    font-family: 'Fjalla One', sans-serif;
-    font-weight: lighter;
-}
+
 .editVar{
   background: none;
   margin: 0px;
@@ -253,33 +246,15 @@ h4{
     font-weight: lighter;
 }
 
-input[type=search] {
-  padding:10px;
-  padding-left:40px;
-  width:240px;
-  border:1px solid #3F3F3F;
-  border-radius: 20px;
-  font-size:14px;
-  color: #3F3F3F;
-  background-image:url('http://i47.tinypic.com/r02vbq.png');
-  background-repeat:no-repeat;
-  background-position:left center;
-  outline:0;
-  margin-bottom: 10px;
-}
 
-.material-icons.md-15 { font-size: 15px; }
+
 
 .selector2 label {
     font-size: 90px;
 }
 
 
-.row{
-    display: block;
-    margin: 5px;
 
-}
 
 .mat input[type="number"]{
  border: none;
