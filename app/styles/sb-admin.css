@@ -96,7 +96,18 @@ ul.alert-dropdown {
     width: 200px;
 }
 
+.mainTitle {
+  font-size: 35px;
+  padding: 10px;
+}
 
+.pcexplore {
+  font-size: 40px;
+  padding: 20px;
+  font-family: 'Fjalla One', sans-serif;
+  color: grey;
+
+}
 /* Side Navigation */
 
 @media(min-width:768px) {
