@@ -33,8 +33,8 @@
           </a>
           <div class="text-left pads" style="font-size: 13px">
             <a ng-click="vm.showDetailView(true, fun)">
-              <i class="fa fa-arrow-circle-o-left"></i>
-              description
+              <i class="styleHVR hvr-icon-back"> description</i>
+
             </a>
           </div>
           <md-divider/>
@@ -220,13 +220,13 @@
                       {{matrix.values.length}}x{{matrix.values[0].length}}
                     </div>
                     <div layout="row" layout-align="space-around center">
-                      <button class="hvr-buzz-out k" ng-click="vm.seeMatrix(matrix)">
+                      <button class="hvr-grow k" ng-click="vm.seeMatrix(matrix)">
                         <i class="material-icons md-15">visibility</i>
                       </button>
-                      <button class="hvr-buzz-out k" ng-click="vm.editMatrix(matrix)">
+                      <button class="hvr-grow k" ng-click="vm.editMatrix(matrix)">
                         <i class="material-icons md-15">edit</i>
                       </button>
-                      <button class="hvr-buzz-out k" ng-click="vm.deleteMatrix(matrix.name)">
+                      <button class="hvr-grow k" ng-click="vm.deleteMatrix(matrix.name)">
                         <i class="material-icons md-15">delete</i>
                       </button>
                     </div>
