@@ -723,6 +723,27 @@
       "result": 0
     },
     {
+      "name": "harkerMatrixPlaceHolderCount",
+      "title": " Number of zeros elements in row",
+      "description": "Counts number of zeros elements in given row in matrix.",
+      "params": [
+        {
+          "constantName": "matrix",
+          "desc": "PC matrix",
+          "type": "matrix",
+          "values": []
+        },
+        {
+          "constantName": "row",
+          "desc": "row - number of row which will be checked",
+          "type": "int",
+          "values": 0
+        }
+      ],
+      "return": " matrix which is ready to use in eigenvalue based method",
+      "result": 0
+    },
+    {
       "name": "errorMatrix",
       "title": " Ranking discrepancy",
       "description": "Computes discrepancy for each element of matrix and create matrix containing entries in form e_ij = m_ji*(mju_i/mju_j). When the M matrix is consistent every r_ij equals 1.",

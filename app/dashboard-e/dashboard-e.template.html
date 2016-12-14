@@ -27,10 +27,11 @@
         <div class="displaySearcher">
           <input type="search" ng-model="vm.query"/>
         </div>
+
         <li ng-repeat="fun in vm.functions | filter : vm.query" ng-click="null">
-          <a ng-click="vm.openDalog($event, fun)">{{fun.name}}
+          <a ng-click="vm.openDalog($event, fun)" >{{fun.name}}
           </a>
-          <div class="text-left pads">
+          <div class="text-left pads" style="font-size: 13px">
             <a ng-click="vm.showDetailView(true, fun)">
               <i class="fa fa-arrow-circle-o-left"></i>
               description
@@ -51,12 +52,13 @@
           <header class="jumbotron hero-spacer" ng-if="!vm.showFunction && !vm.showVector && !vm.showMatrix && !vm.functionDetailsView">
 
             <div layout="column" layout-align="center center">
-            <h2 class="panel-title hvr-wobble-skew mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Search functions</h2>
-            <h2 class="panel-title hvr-wobble-skew mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Read about them</h2>
-            <h2 class="panel-title hvr-wobble-skew mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Check your variables</h2>
-            </div>
-            <div layout="column" layout-align="center center">
               <div class="hvr-icon-push pcexplore">PCexploRe</div>
+            </div><br/>
+
+            <div layout="column" layout-align="center center">
+              <h2 class="panel-title mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Create matrices and vectors</h2>
+            <h2 class="panel-title mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Search functions</h2>
+            <h2 class="panel-title mainTitle"><i class="fa fa-long-arrow-right fa-fw"></i>Try Pairwise Comparisons</h2>
             </div>
 
           </header>
@@ -100,7 +102,7 @@
               <div align="center">
                 <table class="matrix">
                   <tr ng-repeat="row in vm.matrixToShow.values track by $index">
-                    <td ng-repeat="cell in row track by $index">{{cell}}</td>
+                    <td ng-repeat="cell in row track by $index">{{cell | limitTo:7}}</td>
                   </tr>
                 </table>
               </div>
@@ -120,7 +122,7 @@
               <div align="center">
                 <table class="matrix">
                   <tr ng-repeat="row in vm.vectorToShow.values track by $index">
-                    <td>{{row}}</td>
+                    <td>{{row | limitTo:7}}</td>
                   </tr>
                 </table>
               </div>
@@ -133,7 +135,7 @@
           <header class="jumbotron hero-spacer" ng-if="vm.showFunction">
             <!-- {{vm.currentFunction.params}} -->
             <h2 class="napisDia">RESULT</h2>
-            <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.name}}{{ $last? '': ','; }}</span>) =
+            <h2 class="napisDia">{{vm.currentFunction.name}}(<span ng-repeat="matrix in vm.currentFunction.params">{{matrix.constantName}}{{ $last? '': ','; }}</span>) =
             </h2>
             <h2 style="color: #428bca;"align="center" ng-if="vm.currentFunction.result.type === 'double' || vm.currentFunction.result.type === 'int'">{{vm.currentFunction.result.values}}</h2>
 
@@ -141,7 +143,7 @@
               <div align="center">
                 <table class="matrix">
                   <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
-                    <td ng-repeat="cell in row track by $index">{{cell}}</td>
+                    <td ng-repeat="cell in row track by $index">{{cell | limitTo:7}}</td>
                   </tr>
                 </table>
               </div>
@@ -152,7 +154,7 @@
               <div align="center">
                 <table class="matrix">
                   <tr ng-repeat="row in vm.currentFunction.result.values track by $index">
-                    <td>{{row}}</td>
+                    <td>{{row | limitTo:7}}</td>
                   </tr>
                 </table>
               </div>
@@ -170,7 +172,7 @@
                 <div align="center">
                   <table class="matrix">
                     <tr ng-repeat="row in matrix.values track by $index">
-                      <td ng-repeat="cell in row track by $index">{{cell}}</td>
+                      <td ng-repeat="cell in row track by $index">{{cell | limitTo:7}}</td>
 
                     </tr>
                   </table>
@@ -185,6 +187,9 @@
                     </tr>
                   </table>
                 </div>
+              </div>
+              <div align="center">
+                <span align="center" ng-if="matrix.type != 'vector' && matrix.type != 'matrix'">{{matrix.values}}</span>
               </div>
 
             </div>
