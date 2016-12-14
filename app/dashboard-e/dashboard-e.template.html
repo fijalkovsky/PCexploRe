@@ -69,7 +69,7 @@
             <p class="detailsStyle"><span>Description:</span> {{vm.currentFunction.description}}</p>
             <p class="detailsStyle"><span>Return:</span> {{vm.currentFunction.return}}</p>
             <div class="panel-body" ng-repeat="arg in vm.currentFunction.params">
-              <div class="panel panel-default">
+              <div class="panel panel-default paneldef">
                 <div class="panel-heading">
                   <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>
                     Parameters</h3>
@@ -79,12 +79,9 @@
                 </div>
                 <div class="panel-body">
                   <div class="list-group">
-                    <p>name:
-                      {{arg.constantName}}</p>
-                    <p>desc:
-                      {{arg.desc}}</p>
-                    <p>type:
-                      {{arg.type}}</p>
+                  <p class="detailsStyle detSize"><span>Name:</span> {{arg.constantName}}</p>
+                  <p class="detailsStyle detSize"><span>Description:</span> {{arg.desc}}</p>
+                  <p class="detailsStyle detSize"><span>Type:</span> {{arg.type}}</p>
                   </div>
                 </div>
               </div>

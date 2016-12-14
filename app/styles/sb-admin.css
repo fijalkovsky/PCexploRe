@@ -150,6 +150,16 @@ ul.alert-dropdown {
       height: 250px;
       overflow-y: scroll;
     }
+  
+    .paneldef {
+      overflow-y: hidden;
+      height: auto;
+    }
+
+    .detSize {
+      font-size: 10px;
+      color: red;
+    }
 
     .side-nav li a:hover,
     .side-nav li a:focus {
