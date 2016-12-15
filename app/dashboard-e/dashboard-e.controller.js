@@ -84,8 +84,8 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
     "name": "",
     "dimension": 2,
     "values": [
-      [1, 2],
-      [0.3, 1]
+      [1, 0],
+      [0, 1]
     ]
   };
 
@@ -363,8 +363,8 @@ function dashboardEController($http, $scope, $mdDialog, $location, FunctionsServ
       "name": "",
       "dimension": 2,
       "values": [
-        [1, 2],
-        [0.4, 1]
+        [1, 0],
+        [0, 1]
       ]
     };
   }
