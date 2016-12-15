@@ -72,7 +72,7 @@
               <div class="panel panel-default paneldef">
                 <div class="panel-heading">
                   <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>
-                    Parameters</h3>
+                    Parameter</h3>
                     <div class="text-center">
 
                     </div>
@@ -202,23 +202,34 @@
                 <h3 class="panel-title">
                   <i class="fa fa-long-arrow-right fa-fw"></i>
                   Matrices</h3>
+                  <div layout="row" layout-align="space-around center">
                   <div class="text-center">
                     <a ng-click="vm.openMatrixDialog($event)">
                       <i class="fa fa-th"></i>
                       create new matrix
                     </a>
                   </div>
-                <button class="btn btn-default" ng-if="vm.isLogged" ng-click="vm.saveMatricesToDB()">save</button>
+                  <div ng-if="vm.isLogged" ng-click="vm.saveMatricesToDB()">
+
+                  <a >
+                    <i class="fa fa-save"></i>
+                    save
+                  </a>
+                </div>
+                <!-- <button class="btn btn-default" ng-if="vm.isLogged" ng-click="vm.saveMatricesToDB()" >save</button> -->
+              </div>
               </div>
               <div class="panel-body">
                 <div class="list-group">
                   <a class="list-group-item" ng-repeat="matrix in vm.userMatrices track by $index">
+                    <div layout="row" layout-align="space-between center">
                     <div class="varStyle">
                     <i class="fa fa-fw fa-check"></i> {{matrix.name}}
                     </div>
                     <div class="varDim">Dimension:
                       {{matrix.values.length}}x{{matrix.values[0].length}}
                     </div>
+                  </div>
                     <div layout="row" layout-align="space-around center">
                       <button class="hvr-grow k" ng-click="vm.seeMatrix(matrix)">
                         <i class="material-icons md-15">visibility</i>
@@ -241,22 +252,34 @@
                 <h3 class="panel-title">
                   <i class="fa fa-long-arrow-right fa-fw"></i>
                   Vectors</h3>
+                  <div layout="row" layout-align="space-around center">
                   <div class="text-center">
                     <a ng-click="vm.openVectorDialog($event)">
                       <i class="fa fa-bars"></i>
                       create new vector
                     </a>
                   </div>
-                  <button class="btn btn-default" ng-if="vm.isLogged" ng-click="vm.saveVectorsToDB()">save</button>
+                  <div ng-if="vm.isLogged" ng-click="vm.saveVectorsToDB()" >
+                    <a >
+                      <i class="fa fa-save"></i>
+                      save
+                    </a>
+                  </div>
+                </div>
+                  <!-- <button class="btn btn-default" ng-if="vm.isLogged" ng-click="vm.saveVectorsToDB()">save</button> -->
               </div>
               <div class="panel-body">
                 <div class="list-group">
                   <a class="list-group-item" ng-repeat="vector in vm.userVectors">
+                    <div layout="row" layout-align="space-between center">
+
                     <div class="varStyle">
                     <i class="fa fa-fw fa-check"></i> {{vector.name}}
                   </div>
                     <div class="varDim">Dimension:
                       {{vector.dimension}}</div>
+                    </div>
+
                     <div layout="row" layout-align="space-around center">
                       <button class="hvr-grow k" ng-click="vm.seeVector(vector)">
                         <i class="material-icons md-15">visibility</i>
